@@ -18,3 +18,6 @@ https://stackoverflow.com/questions/67698176/error-loading-webview-error-could-n
 Creating branch:
 -- Ctrl+Shift+P "Git: Create Branch"
 -- Under Source Control Tab you can control the branches.
+
+Pull and Push Edits:
+-- Under Source Control 
