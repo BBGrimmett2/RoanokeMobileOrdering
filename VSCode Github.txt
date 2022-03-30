@@ -20,6 +20,20 @@ Creating branch:
 -- Under Source Control Tab you can control the branches.
 
 Pull and Push Edits:
--- Under Source Control you can view changes made since last push 
--- Hit check mark and type a commiut message in textbox that appears
--- Under Source Control sync changes
+    Push:
+    -- Under Source Control you can view changes made since last push 
+    -- Hit check mark and type a commiut message in textbox that appears
+    -- Under Source Control sync changes
+
+    Pull:
+    -- Under Source Control go to the three dot menu
+    -- Go to "Pull, Push" 
+    -- "Pull From" and choose the branch you wish to pull 
+
+    Merge to main:
+    -- Under Source Control go to the three dot menu
+    -- Go to "Branch" 
+    -- "Merge Branch"
+    -- Click which branch to merge to
+
+
