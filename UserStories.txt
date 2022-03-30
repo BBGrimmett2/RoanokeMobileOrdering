@@ -16,3 +16,14 @@ Sonny's
 Davis's
 
 Dee's
+As an admin, I want permissions to edit, so that I can add/remove menu items.
+As an admin, I want orders to not be able to go through if the user has insufficient funds, so that no meals are not paid for.
+
+As a student, I want a "meals" section, so that I can quickly order my favorite meals.
+As a student, I want a "pre-order" section, so that I can order food for specific times/dates ahead of time.
+
+As a general user, I want a simple layout, so that I can figure out how to use the app easily.
+As a general user, I want a help button, so that I can see FAQs or general tips on how to navigate the app.
+As a blind user, I want text readout, so that I can access the app without being able to see.
+
+As a store manager, I want to be able to close the store, so that orders will not be put in for non-business hours.
