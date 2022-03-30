@@ -1,6 +1,7 @@
 --User Stories--
 Format: As a WHO, I want WHAT so that WHY
 
+Brian's
 As a student, I want a mobile ordering app so that I can order food by making an informed decision based on the description.
 
 As a student, I want a mobile ordering app so that I can order everything on the menu remotely and pick it up when it is ready.
