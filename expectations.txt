@@ -1,9 +1,11 @@
-Expectations
+--Expectations--
 
-Communication: Discord (with notifications on)
+Communication: Discord (with notifications on) by the next morning.
 
 Contributors:
-Luke - lhelder
-Davis - Dabi$
-Sonny - AnarchyI
-Dee - deeCvetnich
+  Luke - lhelder
+  Davis - Dabi$
+  Sonny - AnarchyI
+  Dee - deeCvetnich
+
+Using an agile philosophy that our main branch is always working with no errors. 
