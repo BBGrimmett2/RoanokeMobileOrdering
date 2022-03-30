@@ -12,6 +12,18 @@ As an administrator, I want stats so that I can see what food options are the mo
 Luke's
 
 Sonny's
+As a student user, I want easy to read text so that I can read my options easier.
+As a student user, I want descriptive images of my food so that I can pick what I want faster.
+As a staff user, I want to be able to update the menu quickly so that any changes made can get out to the students faster.
+As a student user, I want a remeber order feature so that I can get my food without having to always reorder everything.
+As a student user, I want to be able to select multiple of the same item without needing to find it each time so that i can order multiple of the same item.
+As a student user, I want to see a price tracker so that I know how much I am spending as I palce my order.
+As a staff user, I want to be able to sort orders by time recieved so that we can mkae sure that the orders get done in a timely manner.
+As a student user, I want to be able to see a full menu whenerver I want so that I can decide if I want to order on app or go to commons.
+As a student user, I want allergen allerts on the items that contain allergens so that I will not die.
+As a student user, I want dietary information avaialable for the food items so that I can count my daily intakes.
+As a student user, I want a notification that my order has been recieved and when it is being prepared so that I know my food will be ready when I arrive.
+As a staff user, I want to be able to see orders clearly and consicely so that In can begin preperation faster and know what the order is.
 
 Davis's
 Administrator: 
