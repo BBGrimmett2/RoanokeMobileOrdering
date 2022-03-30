@@ -35,5 +35,7 @@ Pull and Push Edits:
     -- Go to "Branch" 
     -- "Merge Branch"
     -- Click which branch to merge to
+    -- Go to "Branch"
+    -- "Delete Branch" and select the branch you wish to delete
 
 
