@@ -1,5 +1,5 @@
 # Roanoke College Mobile Ordering App
-CPSC 270 Project
+## CPSC 270 Project
 
 Contributors:
 * Brian
