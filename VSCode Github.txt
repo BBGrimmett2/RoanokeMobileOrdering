@@ -20,4 +20,6 @@ Creating branch:
 -- Under Source Control Tab you can control the branches.
 
 Pull and Push Edits:
--- Under Source Control 
+-- Under Source Control you can view changes made since last push 
+-- Hit check mark and type a commiut message in textbox that appears
+-- Under Source Control sync changes
