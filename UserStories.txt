@@ -10,6 +10,15 @@ As a student, I want a mobile ordering app so that I can see why a food option i
 As an administrator, I want stats so that I can see what food options are the most popular and where to put funding and resoruces to.
 
 Luke's
+As a user I want to be able to login to my roanoke acccount so I can use my meal plan and save preferences.
+As a user I want to be able to order from any dining option at any time so I'm not restricted in my ordering by what time it is.
+As a user I want to be able to see nutrition information about all food options so I can easily know that information
+As a user I want to see a picture of all food options so I can see what they look like
+As a user I want all food options at a location to be available to order using this app
+As a user I want to be able to select favorite items to make ordering in the future easier
+As a user I want to be able to easily navigate to different types of foods so I don't have to scroll a long way
+As a restarant employee I want it to accurately regulate how many orders can be made for a given timeframe
+As a user I want the app to release my order at a time appropriate for getting it done at the desired time so it doesn't get cold or I have to wait
 
 Sonny's
 As a student user, I want easy to read text so that I can read my options easier.
