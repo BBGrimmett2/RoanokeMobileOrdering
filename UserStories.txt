@@ -9,3 +9,10 @@ As a manager, I want a mobile ordering app so that I can track what is most popu
 As a student, I want a mobile ordering app so that I can see why a food option is closed and when the expectation is that it reopens.
 As an administrator, I want stats so that I can see what food options are the most popular and where to put funding and resoruces to.
 
+Luke's
+
+Sonny's
+
+Davis's
+
+Dee's
