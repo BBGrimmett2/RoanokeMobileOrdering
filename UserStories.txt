@@ -3,14 +3,9 @@ Format: As a WHO, I want WHAT so that WHY
 
 Brian's
 As a student, I want a mobile ordering app so that I can order food by making an informed decision based on the description.
-
 As a student, I want a mobile ordering app so that I can order everything on the menu remotely and pick it up when it is ready.
-
 As a worker, I want a mobile ordering app so that I can quickly put something out of stock and close the store on time.
-
 As a manager, I want a mobile ordering app so that I can track what is most popular for stocking and restocking orders.
-
 As a student, I want a mobile ordering app so that I can see why a food option is closed and when the expectation is that it reopens.
-
 As an administrator, I want stats so that I can see what food options are the most popular and where to put funding and resoruces to.
 
