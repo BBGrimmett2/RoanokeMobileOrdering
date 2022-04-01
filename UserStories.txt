@@ -1,6 +1,19 @@
 --User Stories--
 Format: As a WHO, I want WHAT so that WHY
 
+Overall:
+As a student, I want a mobile ordering app so that I can order food by making an informed decision based on the description.
+As a user I want to be able to see nutrition information about all food options so I can easily know that information
+As a user I want to see a picture of all food options so I can see what they look like
+As a user I want to be able to order from any dining option at any time so I'm not restricted in my ordering by what time it is.
+As a worker, I want a mobile ordering app so that I can quickly put something out of stock and close the store on time and give a reason
+As a student I want to be able to see my account including how many swipes I have left and how much money on dining dollars I have so I know if I can order
+As a general user, I want a simple layout, so that I can figure out how to use the app easily.
+As a general user, I want a help button, so that I can see FAQs or general tips on how to navigate the app.
+As a blind user, I want text readout, so that I can access the app without being able to see.
+As a user I want to be able order with a credit card so I have additional options for purchasing
+
+
 Brian's
 As a student, I want a mobile ordering app so that I can order food by making an informed decision based on the description.
 As a student, I want a mobile ordering app so that I can order everything on the menu remotely and pick it up when it is ready.
