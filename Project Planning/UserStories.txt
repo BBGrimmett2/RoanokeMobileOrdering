@@ -5,13 +5,24 @@ Overall:
 As a student, I want a mobile ordering app so that I can order food by making an informed decision based on the description.
 As a user I want to be able to see nutrition information about all food options so I can easily know that information
 As a user I want to see a picture of all food options so I can see what they look like
+As a user I want to be able to see a price for all food options.
 As a user I want to be able to order from any dining option at any time so I'm not restricted in my ordering by what time it is.
 As a worker, I want a mobile ordering app so that I can quickly put something out of stock and close the store on time and give a reason
 As a student I want to be able to see my account including how many swipes I have left and how much money on dining dollars I have so I know if I can order
 As a general user, I want a simple layout, so that I can figure out how to use the app easily.
 As a general user, I want a help button, so that I can see FAQs or general tips on how to navigate the app.
 As a blind user, I want text readout, so that I can access the app without being able to see.
-As a user I want to be able order with a credit card so I have additional options for purchasing
+As a user I want to be able order with a credit card so I have additional options for purchasing.
+As a user I want to be able to review my order to give feedback.
+As a user I want all food options at a location to be available to order using this app.
+As a student, I want a "meals" section, so that I can quickly order my favorite meals.
+As a student I want to be able to login to my Roanoke account.
+As a guest I want to be able to order without logging in.
+As a user I want to be able to easily navigate to different types of foods so I don't have to scroll a long way
+As a manager, I want a mobile ordering app so that I can track what is most popular for stocking and restocking orders.
+As a student, I want a mobile ordering app so that I can see why a food option is closed and when the expectation is that it reopens
+As a user I want the app to release my order at a time appropriate for getting it done at the desired time so it doesn't get cold or I have to wait
+Ability to order more than two swipes worth of food - someone may be hungry, or swiping out. 
 
 
 Brian's
