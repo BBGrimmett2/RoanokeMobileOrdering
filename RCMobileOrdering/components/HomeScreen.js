@@ -14,11 +14,18 @@ const HomeScreen = () => {
             .catch((error) => alert(error.message));
     };
 
+    const handleStartOrder = () => {
+        navigation.navigate("FoodTypeSelectionScreen");
+    }
+
     return (
         <View style={styles.container}>
             <Text>Email: {auth.currentUser?.email}</Text>
             <TouchableOpacity onPress={handleSignOut} style={styles.button}>
                 <Text style={styles.buttonText}>Sign out</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
+                <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
         </View>
     );

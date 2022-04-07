@@ -9,14 +9,14 @@ const FoodTypeSelectionScreen = () => {
     const types = ["Bowl", "Bag", "Cup", "Other"]
     const handleSelection = (type) => {
         //navigation.navigate("FoodTypeList", {type: type});
-        navigation.navigate("HomeScreen");
+        navigation.navigate("Home");
     };
 
     const renderItem = ({ item }) => {
         return (
-          <TouchableHighlight style={styles.button} onPress={() => handleSelection(item)}>
+          <TouchableOpacity style={styles.button} onPress={handleSelection(item)}>
             <Text style={styles.buttonText}>{item}</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         );
       };
 
