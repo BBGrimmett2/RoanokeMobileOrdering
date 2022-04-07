@@ -6,14 +6,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './components/LoginScreen';
 import HomeScreen from './components/HomeScreen';
+import AccountPage from './components/AccountPage';
 
 const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        {/* <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} /> */}
+        <Stack.Screen name="Account" component={AccountPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
