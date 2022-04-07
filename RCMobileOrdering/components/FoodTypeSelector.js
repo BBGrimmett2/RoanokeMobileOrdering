@@ -6,10 +6,6 @@ const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     //const foodMasterList = this.props.foodMasterList;
     const types = ["Bowl", "Bag", "Cup", "Other"]
-    const handleSelection = (type) => {
-        //navigation.navigate("FoodTypeList", {type: type});
-        navigation.navigate("Home");
-    };
 
     const renderItem = ({ item }) => {
         return (
