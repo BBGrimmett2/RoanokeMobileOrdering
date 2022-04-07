@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
-import { auth } from "../firebase";
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
@@ -14,7 +13,10 @@ const FoodTypeSelectionScreen = () => {
 
     const renderItem = ({ item }) => {
         return (
-          <TouchableOpacity style={styles.button} onPress={handleSelection(item)}>
+          /*<TouchableOpacity style={styles.button} onPress={handleSelection(item)}>
+            <Text style={styles.buttonText}>{item}</Text>
+          </TouchableOpacity>*/
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
         );
@@ -27,12 +29,17 @@ const FoodTypeSelectionScreen = () => {
                 data={types}
                 renderItem={renderItem}
                 keyExtractor={(index) => index.toString()}
-                //styles={styles.list}
-            />
+                styles={styles.list}
+            />     
         </View>
     );
 };
-
+/*<FlatList 
+                data={types}
+                renderItem={renderItem}
+                keyExtractor={(index) => index.toString()}
+                //styles={styles.list}
+            /> */
 export default FoodTypeSelectionScreen;
 
 const styles = StyleSheet.create({
@@ -43,7 +50,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "#0782F9",
-        width: "60%",
+        width: "100%",
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
@@ -53,5 +60,8 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "700",
         fontSize: 16,
+    },
+    list: {
+        flex: 1,
     },
 });
