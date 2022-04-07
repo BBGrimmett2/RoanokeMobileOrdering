@@ -6,6 +6,10 @@ import { auth } from "../firebase";
 const HomeScreen = () => {
     const navigation = useNavigation();
 
+    const handleTaskBar = () => {
+        navigation.replace("TaskBar");
+    }
+
     const handleSignOut = () => {
         auth.signOut()
             .then(() => {
@@ -19,6 +23,10 @@ const HomeScreen = () => {
             <Text>Email: {auth.currentUser?.email}</Text>
             <TouchableOpacity onPress={handleSignOut} style={styles.button}>
                 <Text style={styles.buttonText}>Sign out</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleTaskBar} style={styles.button}>
+                <Text style={styles.buttonText}>Task Bar Example</Text>
             </TouchableOpacity>
         </View>
     );
