@@ -1,6 +1,6 @@
 # Roanoke College Mobile Ordering App
 Contributors:
-* Brian [@BBGrimmett2](https://github.com/BBGrimmett2_)
+* Brian [@BBGrimmett2](https://github.com/BBGrimmett2)
 * Davis [@DAViS-TiNGLE](https://github.com/DAViS-TiNGLE)
 * Dee [@deeCvetnich](https://github.com/deeCvetnich)
 * Luke [@lhelder](https://github.com/lhelder)
