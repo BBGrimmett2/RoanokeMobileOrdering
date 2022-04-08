@@ -7,14 +7,13 @@ Contributors:
 * Sonny [@AnarchyI](https://github.com/AnarchyI)
 
 ## Technology Used
-* React-Native
+* React Native
 * Expo
 * Firebase
 
 ## Editing Installation
 Requirements:
 * Node.js
-* Npm
 * Expo
 
 ### From CLI:
