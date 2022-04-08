@@ -18,17 +18,17 @@ Requirements:
 * Expo
 
 ### From CLI:
-Clone Repository:
+1. Clone Repository:
 ```
 git clone https://github.com/BBGrimmett2/RoanokeMobileOrdering.git
 ```
 
-Install Libaries:
+2. Install Libaries:
 ```
 npm install
 ```
 
-Expo start:
+3. Expo start:
 ```
 expo start
 ```
