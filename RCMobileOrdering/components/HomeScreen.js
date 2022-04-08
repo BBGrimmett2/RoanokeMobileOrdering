@@ -14,11 +14,18 @@ const HomeScreen = () => {
             .catch((error) => alert(error.message));
     };
 
+    const handleItem = () => {
+        navigation.replace("Item");
+    }
+
     return (
         <View style={styles.container}>
             <Text>Email: {auth.currentUser?.email}</Text>
             <TouchableOpacity onPress={handleSignOut} style={styles.button}>
                 <Text style={styles.buttonText}>Sign out</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleItem} style={styles.button}>
+                <Text style={styles.buttonText}>Go to Item</Text>
             </TouchableOpacity>
         </View>
     );
