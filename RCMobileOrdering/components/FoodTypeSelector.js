@@ -5,13 +5,10 @@ import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     //const foodMasterList = this.props.foodMasterList;
-    const types = ["Bowl", "Bag", "Cup", "Other"]
-
+    const types = ["Bowl", "Bag", "Cup", "Other"];
+    const foodMasterList = require('../foodlist.json');
     const renderItem = ({ item }) => {
         return (
-          /*<TouchableOpacity style={styles.button} onPress={handleSelection(item)}>
-            <Text style={styles.buttonText}>{item}</Text>
-          </TouchableOpacity>*/
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
