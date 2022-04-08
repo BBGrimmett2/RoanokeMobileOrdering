@@ -4,7 +4,7 @@ import { fireDB } from "../firebase";
 
 const AccountPage = () => {
     const doTask = async () => {
-        const user = await fireDB.collection('accounts').doc('fO3bmS2XEuMRp4M01fR1').get();
+        const user = await fireDB.collection('accounts').doc('L9QTg4aZqIhqYIcft3bo').get();
 
         console.log("Test");
         console.log(user);
