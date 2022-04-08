@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './components/LoginScreen';
 import HomeScreen from './components/HomeScreen';
+import AccountPage from './components/AccountPage';
 // import Tabs from './components/taskbar';
 import TaskBar from './components/taskbar';
 
