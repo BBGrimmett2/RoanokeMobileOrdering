@@ -7,7 +7,7 @@ const HomeScreen = () => {
     const navigation = useNavigation();
 
     const handleTaskBar = () => {
-        navigation.replace("TaskBar");
+        navigation.naviagate("TaskBar");
     }
 
     const handleSignOut = () => {
