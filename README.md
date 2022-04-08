@@ -10,6 +10,7 @@ Contributors:
 * React Native
 * Expo
 * Firebase
+    * https://console.firebase.google.com/u/0/project/rcmobileordering/overview
 
 ## Editing Installation
 Requirements:
