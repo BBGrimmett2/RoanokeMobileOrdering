@@ -11,6 +11,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
   const Tab = createBottomTabNavigator();
   
+  //doesnt work the first time you hit the button it doesnt go to the login screen.
+  //do not know why
+  
+  //NEXT STEPS: get at the bottom of home, no example screen.
+  //            tests
+  //            correct screens
   const MyTabs = () => {
     return (
       <Tab.Navigator>
