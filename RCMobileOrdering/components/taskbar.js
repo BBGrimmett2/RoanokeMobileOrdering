@@ -2,77 +2,27 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { auth } from "../firebase";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const TaskBar = () => {
-    const navigation = useNavigation();
-
-    const handleBack = () => {
-
-        //some type of poping the stack. look at the reading
-        
-        auth.signOut()
-            .then(() => {
-                navigation.replace("Login");
-            })
-            .catch((error) => alert(error.message));
-    };
-
-    const handleAccount = () => {
-        auth.signOut()
-            .then(() => {
-                navigation.replace("Login");
-            })
-            .catch((error) => alert(error.message));
-    };
-
-    const handleCheckout = () => {
-        auth.signOut()
-            .then(() => {
-                navigation.replace("Login");
-            })
-            .catch((error) => alert(error.message));
-    };
+ import LoginScreen from './LoginScreen';
+ import HomeScreen from './HomeScreen';
 
 
-
-    const handleSignOut = () => {
-        auth.signOut()
-            .then(() => {
-                navigation.replace("Login");
-            })
-            .catch((error) => alert(error.message));
-    };
-
-
+  const Tab = createBottomTabNavigator();
+  
+  const MyTabs = () => {
     return (
-         <View>
-            <View style={styles.container}>
-                <Text>Email: {auth.currentUser?.email}</Text>
-                <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-                    <Text style={styles.buttonText}>evidence of change</Text>
-                </TouchableOpacity>
-             </View>
-
-            <View style={styles.taskbar}> 
-                <TouchableOpacity onPress={handleBack} style={styles.button}>
-                    <Text style={styles.buttonText}>Back</Text>
-                </TouchableOpacity>  
-                
-                <TouchableOpacity onPress={handleAccount} style={styles.button}>
-                    <Text style={styles.buttonText}>Account</Text>
-                </TouchableOpacity>  
-                
-                <TouchableOpacity onPress={handleCheckout} style={styles.button}>
-                    <Text style={styles.buttonText}>checkout</Text>
-                </TouchableOpacity>
-               
-            </View>
-             
-        </View>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={LoginScreen} />
+      </Tab.Navigator>
     );
-};
+  }
+  
+  export default MyTabs;
 
-export default TaskBar;
+//   /* make account order and cart
+ 
 
 const styles = StyleSheet.create({
 
