@@ -22,7 +22,7 @@ Requirements:
 #### From CLI:
 Clone Repository:
 
-'''
+'''PowerShell
 git clone https://github.com/BBGrimmett2/RoanokeMobileOrdering.git
 '''
 
