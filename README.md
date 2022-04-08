@@ -30,7 +30,6 @@ Install Libaries:
 npm install
 '''
 
-Start Expo:
 '''
 expo start
 '''
