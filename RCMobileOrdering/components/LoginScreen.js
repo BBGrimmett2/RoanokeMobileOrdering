@@ -17,13 +17,13 @@ const LoginScreen = () => {
     const navigation = useNavigation();
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
+        const isUnsubscribed = auth.onAuthStateChanged((user) => {
             if (user) {
                 navigation.navigate("Home");
             }
         });
 
-        return unsubscribe;
+        return isUnsubscribed;
     }, []);
 
     const handleSignUp = () => {
