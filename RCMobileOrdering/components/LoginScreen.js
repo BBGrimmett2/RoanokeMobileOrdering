@@ -19,7 +19,7 @@ const LoginScreen = () => {
     useEffect(() => {
         const isUnsubscribed = auth.onAuthStateChanged((user) => {
             if (user) {
-                navigation.navigate("Home");
+                navigation.navigate("TaskBar");
             }
         });
 
