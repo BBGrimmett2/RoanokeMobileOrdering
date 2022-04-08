@@ -21,13 +21,15 @@ Requirements:
 
 #### From CLI:
 Clone Repository:
-'''Bash
+'''
 git clone https://github.com/BBGrimmett2/RoanokeMobileOrdering.git
-'''Bash
+'''
+
 Install Libaries:
-'''Bash
+'''
 npm install
 '''
+
 Start Expo:
 '''
 expo start
