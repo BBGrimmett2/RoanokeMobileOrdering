@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
  import LoginScreen from './LoginScreen';
  import HomeScreen from './HomeScreen';
+ import AccountScreen from './AccountScreen';
 
 
   const Tab = createBottomTabNavigator();
@@ -15,6 +16,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={LoginScreen} />
+        <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
     );
   }
