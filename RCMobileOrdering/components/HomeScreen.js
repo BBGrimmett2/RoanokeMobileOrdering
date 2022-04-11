@@ -18,6 +18,10 @@ const HomeScreen = () => {
             .catch((error) => alert(error.message));
     };
 
+    const handleStartOrder = () => {
+        navigation.navigate("FoodTypeSelectionScreen");
+    }
+
     return (
         <View style={styles.container}>
             <Text>Email: {auth.currentUser?.email}</Text>
@@ -25,8 +29,8 @@ const HomeScreen = () => {
                 <Text style={styles.buttonText}>Sign out</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleTaskBar} style={styles.button}>
-                <Text style={styles.buttonText}>Task Bar Example</Text>
+            <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
+                <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
         </View>
     );
