@@ -28,4 +28,6 @@ const auth = firebase.auth()
 // Firestore
 const fireDB = app.firestore();
 
-export { auth, fireDB };
+const fireUser = firebase.User;
+
+export { auth, fireDB, fireUser };
