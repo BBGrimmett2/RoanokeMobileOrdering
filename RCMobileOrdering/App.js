@@ -10,9 +10,6 @@ import LoginScreen from './components/LoginScreen';
 // import Tabs from './components/taskbar';
 import TaskBar from './components/Taskbar';
 
-import HomeScreen from './components/HomeScreen';
-import FoodTypeSelectionScreen from './components/FoodTypeSelector';
-
 
 const Stack = createNativeStackNavigator();
 function App() {
