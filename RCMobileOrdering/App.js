@@ -8,7 +8,7 @@ import LoginScreen from './components/LoginScreen';
 // import HomeScreen from './components/HomeScreen';
 // import AccountScreen from './components/AccountScreen';
 // import Tabs from './components/taskbar';
-import TaskBar from './components/taskbar';
+import TaskBar from './components/Taskbar';
 
 const Stack = createNativeStackNavigator();
 function App() {
