@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
+import masterMenu from "../foodlist.js"
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     //const foodMasterList = this.props.foodMasterList;
     const types = ["Bowl", "Bag", "Cup", "Other"];
-    const foodMasterList = require('../foodlist.json');
     const renderItem = ({ item }) => {
         return (
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
@@ -18,6 +18,7 @@ const FoodTypeSelectionScreen = () => {
     return (
         <View style={styles.container}>
             <Text>Please Select Food Type</Text>
+            <Text>{JSON.stringify(masterMenu.fooditems.wrap1.description)}</Text>
             <FlatList 
                 data={types}
                 renderItem={renderItem}
