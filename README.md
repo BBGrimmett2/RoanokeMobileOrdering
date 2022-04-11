@@ -40,3 +40,4 @@ expo start
     * https://docs.expo.dev/guides/using-firebase/#using-expo-with-firestore
     * https://firebase.google.com/docs/firestore/quickstart?hl=en&authuser=0
     * https://rnfirebase.io/firestore/usage
+    * https://firebase.google.com/docs/reference 
