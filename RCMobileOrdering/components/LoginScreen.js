@@ -19,7 +19,9 @@ const LoginScreen = () => {
     useEffect(() => {
         const isUnsubscribed = auth.onAuthStateChanged((user) => {
             if (user) {
-                navigation.navigate("TaskBar");
+
+                navigation.navigate("FoodTypeSelectionScreen");
+
             }
         });
 

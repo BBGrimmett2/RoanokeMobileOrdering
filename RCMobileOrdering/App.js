@@ -10,6 +10,10 @@ import LoginScreen from './components/LoginScreen';
 // import Tabs from './components/taskbar';
 import TaskBar from './components/Taskbar';
 
+import HomeScreen from './components/HomeScreen';
+import FoodTypeSelectionScreen from './components/FoodTypeSelector';
+
+
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -17,7 +21,10 @@ function App() {
 {/* {/*}      <Tabs/> */}
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
+
+       
       </Stack.Navigator>
     </NavigationContainer>
   );
