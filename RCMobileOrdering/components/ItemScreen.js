@@ -7,66 +7,49 @@ import { NativeScreenContainer } from "react-native-screens";
 import { auth } from "../firebase";
 
 const Customization = (props) => {
+    //will need to lift state of customSelected to keep selections
     const options = props.opts;
-    // let tempBool = [];
-    // for(let i=0; i<options.length; i++){
-    //     tempBool.push(false);
-    // }
-    // const permBool = tempBool;
-    // const [customSelected, handleSelection] = useState({permBool});
-    // const updateCustomize = (index) => {
-    //     let tempList = [];
-    //     for(let i=0; i<customSelected.length; i++){
-    //         if(i===index){
-    //             tempList.push(!customSelected[i]);
-    //         }
-    //         else{
-    //             tempList.push(customSelected[i]);
-    //         }
-    //     }
-    //     const newList = tempList;
-    //     handleSelection(newList);
-    // }
-    const map = options.map(element => 
-        <View>
+    let tempBool = [];
+    for(let i=0; i<options.length; i++){
+        tempBool.push(false);
+    }
+    const permBool = tempBool;
+    const [customSelected, handleSelection] = useState(permBool);    
+    const updateCustomize = (index) => {
+        let tempList = [];
+        for(let i=0; i<customSelected.length; i++){
+            if(i===index){
+                tempList.push(!customSelected[i]);
+            }
+            else{
+                tempList.push(customSelected[i]);
+            }
+        }
+        const newList = tempList;
+        handleSelection(newList);
+    }
+
+    const customObj = props.objOpts;
+    const mapTest = customObj.map(element =>
+        <View key={element.number}> 
             <TouchableOpacity
-                // onPress={updateCustomize(0)}
-                style={
-                    [styles.button, styles.buttonOutline]
-                }
+                onPress={() => (updateCustomize(element.number))}
+                style={customSelected[element.number] ? [styles.button, styles.buttonOutlineAlt]: [styles.button, styles.buttonOutline]}
             >
-                <Text style={styles.customizing}>{element}</Text>
+                <Text style={customSelected[element.number] ? styles.customizingSelected: styles.customizingUnselected}> 
+                    {element.option}
+                </Text>
             </TouchableOpacity>
-            
         </View>
-        
     );
+    
     return(
         <View style={styles.customOutline}>
-            {/* <Text>Customize here I guess. `\(-_-)/`</Text> */}
-            {map}
+            {mapTest}
         </View>
         
     );
-    // return(
-    //     <View>
-    //         {options.map(({ id }) => {
-    //             return (
-    //                 <MyButton content={id} />
-    //             );
-    //         })}
-    //     </View>
-    // );
 }
-
-// format of itemObj:
-// const itemObj = {
-//     name: "test item",
-//     description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
-//     itemImageFile: require("../assets/items/exampleItems/drinkCupExample.jpg"),
-//     nFactsPicFile: "cokeNutritionFacts2.webp",
-//     customizations: ["flavor", "color", "taste", "size"],
-// };
 
 const Item = ({route}) => {
     const {itemObj} = route.params;
@@ -114,7 +97,7 @@ const Item = ({route}) => {
                     </TouchableOpacity>
                 </View>
                 {customize && (
-                    <Customization opts={itemObj.customizations} numberopts={itemObj.numberCustomOpts}/>
+                    <Customization opts={itemObj.customizations} objOpts={itemObj.custObj}/>
                 )}
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
@@ -145,7 +128,7 @@ const styles = StyleSheet.create({
         alignContent: "center",
         justifyContent: "center",
         textAlign: "center",
-        marginBottom: 30,
+        marginBottom: 15,
     },
     pic: {
         borderColor: "#0782F9",
@@ -186,6 +169,12 @@ const styles = StyleSheet.create({
         borderColor: "#0782F9",
         borderWidth: 2,
     },
+    buttonOutlineAlt: {
+        backgroundColor: "#0782F9",
+        marginTop: 5,
+        borderColor: "#0782F9",
+        borderWidth: 2,
+    },
     buttonText: {
         color: "white",
         fontWeight: "700",
@@ -196,8 +185,13 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontSize: 16,
     },
-    customizing: {
+    customizingUnselected: {
         color: "#0782F9",
+        fontWeight: "700",
+        fontSize: 14,
+    },
+    customizingSelected: {
+        color: "white",
         fontWeight: "700",
         fontSize: 14,
     },
@@ -211,3 +205,5 @@ const styles = StyleSheet.create({
         marginTop: 10,
     }
 });
+
+             
