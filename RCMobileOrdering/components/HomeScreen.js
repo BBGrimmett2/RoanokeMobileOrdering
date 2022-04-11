@@ -6,6 +6,10 @@ import { auth } from "../firebase";
 const HomeScreen = () => {
     const navigation = useNavigation();
 
+    const handleTaskBar = () => {
+        navigation.navigate("TaskBar");
+    }
+
     const handleSignOut = () => {
         auth.signOut()
             .then(() => {
@@ -24,6 +28,7 @@ const HomeScreen = () => {
             <TouchableOpacity onPress={handleSignOut} style={styles.button}>
                 <Text style={styles.buttonText}>Sign out</Text>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
                 <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
