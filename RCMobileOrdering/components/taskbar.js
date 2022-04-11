@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import AccountScreen from "./AccountScreen";
+import FoodOptions from "./FoodOptions";
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ const MyTabs = () => {
         >
             <Tab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={FoodOptions}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View
