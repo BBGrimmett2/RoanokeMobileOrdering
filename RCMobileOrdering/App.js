@@ -8,8 +8,10 @@ import LoginScreen from './components/LoginScreen';
 // import HomeScreen from './components/HomeScreen';
 // import AccountScreen from './components/AccountScreen';
 // import Tabs from './components/taskbar';
-import TaskBar from './components/Taskbar';
+import TaskBar from './components/taskbar';
+import CompletedOrder from './components/CompletedOrder';
 
+// onPress={navigation.navigate('CompletedOrderScreen')}>
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
+        <Stack.Screen options={{ headerShown: false }} name="CompletedOrderScreen" component={CompletedOrder} /> 
+
       </Stack.Navigator>
     </NavigationContainer>
   );
