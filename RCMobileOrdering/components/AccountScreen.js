@@ -1,3 +1,11 @@
+/*
+Adopted From:
+Bootdey by Deyson
+April 11, 2022
+Profile UI Example
+https://www.bootdey.com/react-native-snippet/23/Profile-ui-example
+*/
+
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, user } from "../firebase";

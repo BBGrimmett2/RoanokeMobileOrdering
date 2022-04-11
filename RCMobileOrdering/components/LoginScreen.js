@@ -1,3 +1,11 @@
+/*
+Adopted From:
+mattfrances
+April 11, 2022
+Firebase Expo Authentication
+https://github.com/mattfrances/FirebaseExpoAuthentication
+*/
+
 import React, { useEffect, useState } from "react";
 import {
     StyleSheet,
