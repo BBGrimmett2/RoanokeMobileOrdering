@@ -43,7 +43,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
             tabBarIcon: ({focused}) => (
                 <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
                     <Image
-                        source={require('../pictures/home.png')}
+                        source={require('../assets/home.png')}
                         resizeMode='contain'
                         style={{
                             width: 25,
@@ -62,7 +62,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
             tabBarIcon: ({focused}) => (
                 <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
                     <Image
-                        source={require('../pictures/settings_icon.png')}
+                        source={require('../assets/settings_icon.png')}
                         resizeMode='contain'
                         style={{
                             width: 25,
@@ -81,7 +81,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
             tabBarIcon: ({focused}) => (
                 <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
                     <Image
-                        source={require('../pictures/account_icon.png')}
+                        source={require('../assets/account_icon.png')}
                         resizeMode='contain'
                         style={{
                             width: 25,

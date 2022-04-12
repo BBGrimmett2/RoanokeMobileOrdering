@@ -19,7 +19,7 @@ const HomeScreen = () => {
     };
 
     const handleStartOrder = () => {
-        navigation.navigate("FoodTypeSelectionScreen");
+        navigation.navigate("TypeSelection");
     }
 
     return (

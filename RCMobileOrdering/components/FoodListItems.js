@@ -1,5 +1,8 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import {  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
+import masterMenu from "../foodlist.js"
+//import { TouchableOpacity } from "react-native-gesture-handler";
 
 const foodItems = [
     { name: "pizza", key: 1 },
@@ -8,9 +11,20 @@ const foodItems = [
 ];
 
 const FoodList = (props) => {
-    console.log(props.list);
+    const navigation = useNavigation();
+    console.log(props.type);
+
+    const renderItem = ({ item }) => {
+        return (
+            <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Home")}>
+                <Text style={{ fontSize: 30 }}>{item.key}</Text>
+                <Text style={{ fontSize: 30 }}>{item.name}</Text>
+            </TouchableOpacity>
+        );
+      };
+
     return (
-        <View>
+        <SafeAreaView>
             <View style={style.container}>
                 <Text style={{ fontSize: 50, color: "grey" }}>
                     {props.type}
@@ -20,12 +34,7 @@ const FoodList = (props) => {
                 <FlatList
                     data={props.list}
                     extraData={props.list}
-                    renderItem={({ item }) => (
-                        <View style={style.listItem}>
-                            <Text style={{ fontSize: 30 }}>{item.key}</Text>
-                            <Text style={{ fontSize: 30 }}>{item.name}</Text>
-                        </View>
-                    )}
+                    renderItem={renderItem}
                     ItemSeparatorComponent={() => (
                         <View
                             style={{ height: 1, backgroundColor: "white" }}
@@ -33,14 +42,15 @@ const FoodList = (props) => {
                     )}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
-const FoodOptions = () => {
+const FoodOptions = ({route}) => {
+    const {type} = route.params;
     return (
         <View style={{ height: "100%" }}>
-            <FoodList type="Cup" list={foodItems} />
+            <FoodList type={type} list={foodItems} />
         </View>
     );
 };
@@ -49,7 +59,7 @@ export default FoodOptions;
 
 const style = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: "maroon",
         alignItems: "center",
         justifyContent: "center",

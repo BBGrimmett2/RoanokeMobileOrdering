@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
 import masterMenu from "../foodlist.js"
+import MyTabs from "./taskbar.js";
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
@@ -9,36 +10,30 @@ const FoodTypeSelectionScreen = () => {
     const types = ["Bowl", "Bag", "Cup", "Other"];
     const renderItem = ({ item }) => {
         return (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ItemSelection",{type:item})}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
         );
       };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text>Please Select Food Type</Text>
-            <Text>{JSON.stringify(masterMenu.fooditems.wrap1.description)}</Text>
             <FlatList 
                 data={types}
                 renderItem={renderItem}
                 keyExtractor={(index) => index.toString()}
                 styles={styles.list}
             />     
-        </View>
+        </SafeAreaView>
     );
 };
-/*<FlatList 
-                data={types}
-                renderItem={renderItem}
-                keyExtractor={(index) => index.toString()}
-                //styles={styles.list}
-            /> */
+
 export default FoodTypeSelectionScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
