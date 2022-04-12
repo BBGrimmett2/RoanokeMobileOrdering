@@ -1,3 +1,11 @@
+/*
+Adopted From:
+Bootdey by Deyson
+April 11, 2022
+Profile UI Example
+https://www.bootdey.com/react-native-snippet/23/Profile-ui-example
+*/
+
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, user } from "../firebase";
@@ -10,7 +18,10 @@ const AccountPage = () => {
         studentID: 1012238,
     };
 
-    let imageSrc = "https://shared.roanoke.edu/headshots/filtered/" + DATA.studentID + ".jpg"
+    let imageSrc =
+        "https://shared.roanoke.edu/headshots/filtered/" +
+        DATA.studentID +
+        ".jpg";
 
     const getData = async () => {
         auth.onAuthStateChanged(
@@ -51,7 +62,14 @@ const AccountPage = () => {
                         Swipes Remaining: {DATA.swipes}
                     </Text>
                 </View>
+
+                <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Sign Out</Text>
+                </TouchableOpacity>
             </View>
+            </View>
+            
         </View>
     );
 };
@@ -97,5 +115,34 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         marginTop: 10,
+    },
+    buttonContainer: {
+        width: "60%",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingLeft: 30,
+    },
+    button: {
+        backgroundColor: "#696969",
+        width: "100%",
+        padding: 15,
+        borderRadius: 10,
+        alignItems: "center",
+    },
+    buttonOutline: {
+        backgroundColor: "white",
+        marginTop: 5,
+        borderColor: "#0782F9",
+        borderWidth: 2,
+    },
+    buttonText: {
+        color: "white",
+        fontWeight: "700",
+        fontSize: 16,
+    },
+    buttonOutlineText: {
+        color: "#0782F9",
+        fontWeight: "700",
+        fontSize: 16,
     },
 });

@@ -1,0 +1,7 @@
+/*
+Author(s) name (Individual or corporation)
+Date used
+Title of program/source code
+Code version (if available)
+Web address or publisher (e.g. program publisher, URL)
+*/

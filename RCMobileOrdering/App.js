@@ -8,7 +8,7 @@ import LoginScreen from './components/LoginScreen';
 // import HomeScreen from './components/HomeScreen';
 // import AccountScreen from './components/AccountScreen';
 // import Tabs from './components/taskbar';
-import TaskBar from './components/Taskbar';
+import TaskBar from './components/taskbar';
 
 import HomeScreen from './components/HomeScreen';
 import FoodTypeSelectionScreen from './components/FoodTypeSelector';
@@ -19,10 +19,8 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-{/* {/*}      <Tabs/> */}
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
 
         <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
