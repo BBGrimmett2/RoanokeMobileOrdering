@@ -8,8 +8,6 @@ const itemObj = {
     description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
     itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
     nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
-    numberCustomOpts: 4,
-    customizations: ["flavor", "color", "taste", "size"],
     custObj: [
         {number: 0, option: "add so much flavor"},
         {number: 1, option: "make it so colorful"},

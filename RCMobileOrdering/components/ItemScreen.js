@@ -8,9 +8,9 @@ import { auth } from "../firebase";
 
 const Customization = (props) => {
     //will need to lift state of customSelected to keep selections
-    const options = props.opts;
+    
     let tempBool = [];
-    for(let i=0; i<options.length; i++){
+    for(let i=0; i< props.objOpts.length; i++){
         tempBool.push(false);
     }
     const permBool = tempBool;
@@ -61,6 +61,7 @@ const Item = ({route}) => {
     function showCustom(){
         handleCustomizeshow(customize => !customize);
     }  
+    
     return(
         <SafeAreaView style={styles.container}>
             <ScrollView nestedScrollEnabled={true}>
@@ -97,7 +98,7 @@ const Item = ({route}) => {
                     </TouchableOpacity>
                 </View>
                 {customize && (
-                    <Customization opts={itemObj.customizations} objOpts={itemObj.custObj}/>
+                    <Customization objOpts={itemObj.custObj}/>
                 )}
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
