@@ -4,7 +4,7 @@ import React from "react";
 const foodItems = [
     { name: "pizza", key: 1 },
     { name: "taco", key: 2 },
-    { name: "salad", key: "3" },
+    { name: "salad", key: 3 },
 ];
 
 const FoodList = (props) => {

@@ -12,6 +12,7 @@ import TaskBar from './components/Taskbar';
 
 import HomeScreen from './components/HomeScreen';
 import FoodTypeSelectionScreen from './components/FoodTypeSelector';
+import FoodOptions from './components/FoodOptions';
 
 
 const Stack = createNativeStackNavigator();
@@ -24,7 +25,8 @@ function App() {
 
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
 
-       
+        <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="ItemSelection" component={FoodOptions} />
       </Stack.Navigator>
     </NavigationContainer>
   );
