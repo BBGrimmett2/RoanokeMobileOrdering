@@ -9,6 +9,7 @@ import HomeScreen from "./HomeScreen";
 import AccountScreen from "./AccountScreen";
 import FoodTypeSelector from "./FoodCategories";
 import FoodListItems from "./FoodListItems";
+import Checkout from "./checkout";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,6 +19,11 @@ const Tab = createBottomTabNavigator();
 //NEXT STEPS: get at the bottom of home, no example screen.
 //            tests
 //            correct screens
+
+//Most of the content in this component comes from:
+//https://www.youtube.com/watch?v=gPaBicMaib4
+//made by:
+//Pradip Debnath
 const MyTabs = () => {
     return (
         <Tab.Navigator
@@ -56,6 +62,8 @@ const MyTabs = () => {
                             }}
                         >
                             <Image
+                                // Image found from: 
+                                // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
                                 source={require("../assets/home.png")}
                                 resizeMode="contain"
                                 style={{
@@ -77,8 +85,8 @@ const MyTabs = () => {
                 }}
             />
             <Tab.Screen
-                name="Settings"
-                component={LoginScreen}
+                name="Cart"
+                component={Checkout}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View
@@ -89,7 +97,9 @@ const MyTabs = () => {
                             }}
                         >
                             <Image
-                                source={require("../assets/settings_icon.png")}
+                            // Image found from:
+                            // https://www.pinterest.com/pin/319122323605875875/
+                                source={require("../assets/cart.png")}
                                 resizeMode="contain"
                                 style={{
                                     width: 25,
@@ -103,7 +113,7 @@ const MyTabs = () => {
                                     fontSize: 12,
                                 }}
                             >
-                                Settings
+                                Cart
                             </Text>
                         </View>
                     ),
@@ -122,6 +132,8 @@ const MyTabs = () => {
                             }}
                         >
                             <Image
+                            // image found from:
+                            // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
                                 source={require("../assets/account_icon.png")}
                                 resizeMode="contain"
                                 style={{

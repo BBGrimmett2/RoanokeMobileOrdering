@@ -10,9 +10,12 @@ import LoginScreen from './components/LoginScreen';
 // import Tabs from './components/taskbar';
 import TaskBar from './components/taskbar';
 import { LogBox } from 'react-native';
+import CompletedOrder from './components/CompletedOrder';
 
 LogBox.ignoreLogs(['Setting a timer', 'AsyncStorage has been extracted']);
 
+
+// onPress={navigation.navigate('CompletedOrderScreen')}>
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -21,6 +24,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
+        <Stack.Screen options={{ headerShown: false }} name="CompletedOrderScreen" component={CompletedOrder} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
