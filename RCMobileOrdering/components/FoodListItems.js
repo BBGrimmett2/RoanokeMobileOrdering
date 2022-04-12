@@ -10,17 +10,20 @@ const foodItems = [
     { name: "salad", key: 3 },
 ];
 
+
 const FoodList = (props) => {
     const navigation = useNavigation();
     console.log(props.type);
 
     const renderItem = ({ item }) => {
-        return (
-            <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Home")}>
-                <Text style={{ fontSize: 30 }}>{item.key}</Text>
-                <Text style={{ fontSize: 30 }}>{item.name}</Text>
-            </TouchableOpacity>
-        );
+        if(item.type == props.type){
+            return (
+                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
+                    <Text style={{ fontSize: 30 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 30 }}>{item.price}</Text>
+                </TouchableOpacity>
+            );
+        }
       };
 
     return (
@@ -33,7 +36,7 @@ const FoodList = (props) => {
             <View>
                 <FlatList
                     data={props.list}
-                    extraData={props.list}
+                    //extraData={props.list}
                     renderItem={renderItem}
                     ItemSeparatorComponent={() => (
                         <View
@@ -48,9 +51,10 @@ const FoodList = (props) => {
 
 const FoodOptions = ({route}) => {
     const {type} = route.params;
+    //const food = [masterMenu.bestdrink,masterMenu.bestfood];
     return (
         <View style={{ height: "100%" }}>
-            <FoodList type={type} list={foodItems} />
+            <FoodList type={type} list={masterMenu} />
         </View>
     );
 };

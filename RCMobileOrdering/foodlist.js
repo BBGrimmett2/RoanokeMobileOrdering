@@ -1,4 +1,49 @@
-const masterMenu = {
+const masterMenu = [
+    {
+        name: "the bestest drink",
+        type: "Cup",
+        price: 36,
+        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
+        itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        custObj: [
+            {number: 0, option: "add so much flavor"},
+            {number: 1, option: "make it so colorful"},
+            {number: 2, option: "make it the tastiest"},
+            {number: 3, option: "extra super large"},
+        ]
+    },
+    {
+        name: "the bestest food",
+        type: "Bag",
+        price: 76,
+        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
+        itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        custObj: [
+            {number: 0, option: "add so much flavor"},
+            {number: 1, option: "make it so colorful"},
+            {number: 2, option: "make it the tastiest"},
+            {number: 3, option: "extra super large"},
+        ]
+    },
+    {
+        name: "the bestest bowl",
+        type: "Bowl",
+        price: 56,
+        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
+        itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        custObj: [
+            {number: 0, option: "add so much flavor"},
+            {number: 1, option: "make it so colorful"},
+            {number: 2, option: "make it the tastiest"},
+            {number: 3, option: "extra super large"},
+        ]
+    }
+];
+
+/*const masterMenu = {
     fooditems: {
         wrap1: {
             type: "Bag",
@@ -36,6 +81,6 @@ const masterMenu = {
             price: 9
         }
     }
-};
+};*/
 
 export default masterMenu;

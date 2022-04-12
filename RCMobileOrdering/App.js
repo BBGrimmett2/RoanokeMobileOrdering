@@ -13,8 +13,8 @@ import MyTabs from './components/taskbar';
 import HomeScreen from './components/HomeScreen';
 
 import Item from './components/ItemScreen';
-import FoodTypeSelectionScreen from './components/FoodTypeSelector';
-import FoodOptions from './components/FoodOptions';
+import FoodTypeSelectionScreen from './components/FoodCategories';
+import FoodOptions from './components/FoodListItems';
 
 
 const Stack = createNativeStackNavigator();
@@ -25,7 +25,7 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Item" component={Item} />
-        <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
+        <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={MyTabs} /> 
 
         <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
         <Stack.Screen options={{ headerShown: false }} name="ItemSelection" component={FoodOptions} />
