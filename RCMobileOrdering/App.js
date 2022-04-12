@@ -8,7 +8,10 @@ import LoginScreen from './components/LoginScreen';
 // import HomeScreen from './components/HomeScreen';
 // import AccountScreen from './components/AccountScreen';
 // import Tabs from './components/taskbar';
-import TaskBar from './components/Taskbar';
+import TaskBar from './components/taskbar';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Setting a timer', 'AsyncStorage has been extracted']);
 
 
 const Stack = createNativeStackNavigator();

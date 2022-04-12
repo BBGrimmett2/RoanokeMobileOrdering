@@ -23,27 +23,17 @@ const AccountPage = () => {
         DATA.studentID +
         ".jpg";
 
-    const getData = async () => {
-        auth.onAuthStateChanged(
-            (user = async () => {
-                if (user) {
-                    // User logged in already or has just logged in.
-                    let userID = user.uid;
-                    console.log(userID);
+    const doTask = async () => {
+        let user = await fireDB
+            .collection("users")
+            .doc("PHUXhVoWlVdaQ7OpdSxbFhGLkq82")
+            .get();
 
-                    const userJSON = await fireDB
-                        .collection("accounts")
-                        .doc("L9QTg4aZqIhqYIcft3bo")
-                        .get();
-                    console.log(userJSON);
-                } else {
-                    // User not logged in or has just logged out.
-                }
-            })
-        );
+        console.log("Test");
+        console.log(user);
     };
 
-    //getData();
+    doTask();
 
     return (
         <View style={styles.container}>
@@ -64,12 +54,11 @@ const AccountPage = () => {
                 </View>
 
                 <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Sign Out</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Sign Out</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            </View>
-            
         </View>
     );
 };
