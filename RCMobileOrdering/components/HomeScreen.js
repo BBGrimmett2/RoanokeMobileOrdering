@@ -3,6 +3,19 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { auth } from "../firebase";
 
+const itemObj = {
+    name: "the best drink",
+    description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
+    itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+    nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+    custObj: [
+        {number: 0, option: "add so much flavor"},
+        {number: 1, option: "make it so colorful"},
+        {number: 2, option: "make it the tastiest"},
+        {number: 3, option: "extra super large"},
+    ]
+};
+
 const HomeScreen = () => {
     const navigation = useNavigation();
 

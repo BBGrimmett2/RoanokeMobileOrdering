@@ -11,6 +11,8 @@ import LoginScreen from './components/LoginScreen';
 import TaskBar from './components/taskbar';
 
 import HomeScreen from './components/HomeScreen';
+
+import Item from './components/ItemScreen';
 import FoodTypeSelectionScreen from './components/FoodTypeSelector';
 import FoodOptions from './components/FoodOptions';
 
@@ -21,6 +23,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Item" component={Item} />
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={TaskBar} /> 
 
         <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
