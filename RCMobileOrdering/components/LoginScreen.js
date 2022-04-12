@@ -1,3 +1,11 @@
+/*
+Adopted From:
+mattfrances
+April 11, 2022
+Firebase Expo Authentication
+https://github.com/mattfrances/FirebaseExpoAuthentication
+*/
+
 import React, { useEffect, useState } from "react";
 import {
     StyleSheet,
@@ -17,13 +25,15 @@ const LoginScreen = () => {
     const navigation = useNavigation();
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
+        const isUnsubscribed = auth.onAuthStateChanged((user) => {
             if (user) {
-                navigation.navigate("Home");
+
+                navigation.navigate("TaskBar");
+
             }
         });
 
-        return unsubscribe;
+        return isUnsubscribed;
     }, []);
 
     const handleSignUp = () => {
