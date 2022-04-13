@@ -20,14 +20,11 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Item" component={Item} />
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={MyTabs} /> 
-
         <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
         <Stack.Screen options={{ headerShown: false }} name="ItemSelection" component={FoodOptions} />
-
         <Stack.Screen options={{ headerShown: false }} name="CompletedOrderScreen" component={CompletedOrder} /> 
       </Stack.Navigator>
     </NavigationContainer>
