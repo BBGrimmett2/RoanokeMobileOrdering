@@ -7,43 +7,54 @@ https://www.bootdey.com/react-native-snippet/23/Profile-ui-example
 */
 
 import React from "react";
+import { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import { auth, fireDB, user } from "../firebase";
+import { auth, fireDB, userID } from "../firebase";
+import { useNavigation } from "@react-navigation/core";
+
+
 
 const AccountPage = () => {
-    let DATA = {
-        name: "Brian Grimmett",
-        email: "brian@test.com",
-        swipes: 14,
-        studentID: 1012238,
+    console.log("UID: " + userID);
+    let [name, setName] = useState();
+    let [email, setEmail] = useState();
+    let [swipes, setSwipes] = useState();
+    let [studentID, setStudentID] = useState();
+    const navigation = useNavigation();
+
+    const getData = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+        const doc = await userRef.get();
+        if (!doc.exists) {
+            console.log("No such document!");
+        } else {
+            // ASSERT: Document Exists
+            console.log("Document data:", doc.data());
+        }
+
+        return(doc.data());
+    };
+
+    getData().then((data) => {
+        setName((data.name));
+        setEmail((data.email));
+        setSwipes((data.swipes));
+        setStudentID((data.studentID));
+
+    });
+
+    const handleSignOut = () => {
+        auth.signOut()
+            .then(() => {
+                navigation.replace("Login");
+            })
+            .catch((error) => alert(error.message));
     };
 
     let imageSrc =
-        "https://shared.roanoke.edu/headshots/filtered/" +
-        DATA.studentID +
-        ".jpg";
+        "https://shared.roanoke.edu/headshots/filtered/" + studentID + ".jpg";
 
-    const getData = async () => {
-        auth.onAuthStateChanged(
-            (user = async () => {
-                if (user) {
-                    // User logged in already or has just logged in.
-                    let userID = user.uid;
-                    console.log(userID);
-
-                    const userJSON = await fireDB
-                        .collection("accounts")
-                        .doc("L9QTg4aZqIhqYIcft3bo")
-                        .get();
-                    console.log(userJSON);
-                } else {
-                    // User not logged in or has just logged out.
-                }
-            })
-        );
-    };
-
-    //getData();
+    console.log("Name: " + name);
 
     return (
         <View style={styles.container}>
@@ -56,20 +67,17 @@ const AccountPage = () => {
             />
             <View style={styles.body}>
                 <View style={styles.bodyContent}>
-                    <Text style={styles.name}>{DATA.name}</Text>
-                    <Text style={styles.email}>Email: {DATA.email}</Text>
-                    <Text style={styles.description}>
-                        Swipes Remaining: {DATA.swipes}
-                    </Text>
+                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.email}>Email: {email}</Text>
+                    <Text style={styles.description}>Swipes Remaining: {swipes}</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Sign Out</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={handleSignOut}>
+                        <Text style={styles.buttonText}>Sign Out</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            </View>
-            
         </View>
     );
 };

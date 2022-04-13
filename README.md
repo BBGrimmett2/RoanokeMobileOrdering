@@ -41,3 +41,5 @@ expo start
     * https://firebase.google.com/docs/firestore/quickstart?hl=en&authuser=0
     * https://rnfirebase.io/firestore/usage
     * https://firebase.google.com/docs/reference 
+* Prettier
+    * https://prettier.io/docs/en/index.html

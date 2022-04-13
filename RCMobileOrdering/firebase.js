@@ -28,6 +28,17 @@ const auth = firebase.auth()
 // Firestore
 const fireDB = app.firestore();
 
-const fireUser = firebase.User;
+// UID
+let userID = auth.onAuthStateChanged((user) => {
+  if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      userID = user.uid;
+      // ...
+  } else {
+      // User is signed out
+      // ...
+  }
+});
 
-export { auth, fireDB, fireUser };
+export { auth, fireDB, userID };
