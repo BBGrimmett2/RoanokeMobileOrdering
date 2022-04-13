@@ -1,10 +1,10 @@
 const masterMenu = [
     {
-        name: "the bestest drink",
+        name: "Smoothie",
         type: "Cup",
-        price: 36,
-        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
-        itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+        price: "$3.98",
+        description: "A delicious mix of a variety of fruit flavored liquids, all hand squeezed somewhere. Trust us.",
+        itemImageFile: require('../assets/Smoothie.png'),
         nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
         custObj: [
             {number: 0, option: "add so much flavor"},
@@ -14,11 +14,11 @@ const masterMenu = [
         ]
     },
     {
-        name: "the bestest food",
+        name: "Chicken Sandwich",
         type: "Bag",
-        price: 76,
-        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
-        itemImageFile: "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X",
+        price: "$3.99",
+        description: "This is the breast of a chicken slabbed and topped with bread.",
+        itemImageFile: require('../assets/Chicken_Sandwich.png'),
         nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
         custObj: [
             {number: 0, option: "add so much flavor"},
