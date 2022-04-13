@@ -27,7 +27,7 @@ const masterMenu = [
         ]
     },
     {
-        name: "the bestest food",
+        name: "Chicken Sandwich",
         type: "Bag",
         price: 76,
         description: "When we say this is the *bestest* food, we mean it. What's that? You want to know what that means? Order it, find out.",
