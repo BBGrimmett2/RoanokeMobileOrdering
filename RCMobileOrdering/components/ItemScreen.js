@@ -122,13 +122,25 @@ const Item = ({ route }) => {
                         <Text style={styles.buttonOutlineText}>Customize</Text>
                     </TouchableOpacity>
                 </View>
-                {customize && <Customization objOpts={itemObj.custObj} />}
-                <View style={styles.buttonContainer}>
+
+                {customize && (
+                    <Customization objOpts={itemObj.custObj}/>
+                )}
+                <View style={styles.buttonContainer}>{/* go to begining of selection and add item to cart */}
+
                     <TouchableOpacity
                         onPress={handleAddToCart}
                         style={styles.button}
                     >
                         <Text style={styles.buttonText}>Add to Order</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.buttonContainer}>{/* go to cart and add item to cart */}
+                    <TouchableOpacity
+                        onPress={handleAddToCart}
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Checkout</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
