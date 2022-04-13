@@ -35,11 +35,11 @@ const FoodList = (props) => {
                     data={props.list}
                     //extraData={props.list}
                     renderItem={renderItem}
-                    ItemSeparatorComponent={() => (
+                    /*ItemSeparatorComponent={() => (
                         <View
                             style={{ height: 1, backgroundColor: "white" }}
                         ></View>
-                    )}
+                    )}*/
                 />
             </View>
         </SafeAreaView>
@@ -74,6 +74,7 @@ const style = StyleSheet.create({
         flex: 1,
         borderRadius: 15,
         backgroundColor: "#61DBFB",
+        margin: 1,
     },
     pic: {
         //borderColor: "#0782F9",
