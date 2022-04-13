@@ -80,7 +80,6 @@ const MyTabs = () => {
                     ),
                 }}
             />
-            
             <Tab.Screen
                 name="Cart"
                 component={Checkout}
