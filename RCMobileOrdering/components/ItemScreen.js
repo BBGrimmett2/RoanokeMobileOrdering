@@ -115,6 +115,14 @@ const Item = ({route}) => {
                         <Text style={styles.buttonText}>Add to Order</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity
+                        onPress={handleAddToCart}
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Checkout</Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </SafeAreaView>
     );
