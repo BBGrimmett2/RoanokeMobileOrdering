@@ -84,7 +84,7 @@ const Item = ({ route }) => {
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: itemObj.name });
 
-        navigation.navigate("TypeSelection");
+        navigation.navigate("TaskBar");
     };
 
     const handleToCheckout = async () => {
