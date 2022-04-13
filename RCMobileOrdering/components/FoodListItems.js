@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import {  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
+import {Image,  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import masterMenu from "../foodlist.js"
 
@@ -14,6 +14,10 @@ const FoodList = (props) => {
                 <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
                     <Text style={{ fontSize: 30 }}>{item.name}</Text>
                     <Text style={{ fontSize: 30 }}>{item.price}</Text>
+                    <Image
+                        style={style.pic}
+                        source={{uri: item.itemImageFile}}
+                    />
                 </TouchableOpacity>
             );
         }
@@ -70,5 +74,14 @@ const style = StyleSheet.create({
         flex: 1,
         borderRadius: 15,
         backgroundColor: "#61DBFB",
+    },
+    pic: {
+        //borderColor: "#0782F9",
+        //borderWidth: 3,
+        borderRadius: 10,
+        height: 40,
+        flex: 1,
+        width: null,
+        resizeMode:  "contain",
     },
 });
