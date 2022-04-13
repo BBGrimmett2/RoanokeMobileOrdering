@@ -4,99 +4,161 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+
  import LoginScreen from './LoginScreen';
  import HomeScreen from './HomeScreen';
  import AccountScreen from './AccountScreen';
 
 
+import FoodTypeSelector from "./FoodCategories";
+import FoodListItems from "./FoodListItems";
+import Checkout from "./checkout";
+
+
+
   const Tab = createBottomTabNavigator();
 
 
-  //tests, sources code and pictures, new stuff
+//NEXT STEPS: get at the bottom of home, no example screen.
+//            tests
+//            correct screens
 
-  
-  //doesnt work the first time you hit the button it doesnt go to the login screen.
-  //do not know why
-  
-  //NEXT STEPS: get at the bottom of home, no example screen.
-  //            tests
-  //            correct screens
-  const MyTabs = () => {
+//Most of the content in this component comes from:
+//https://www.youtube.com/watch?v=gPaBicMaib4
+//made by:
+//Pradip Debnath
+const MyTabs = () => {
     return (
-      <Tab.Navigator
-        tabBarOptions={{
-            showLabel: false,
-            style: {
-                position: 'absolute',
-                bottom: 25,
-                left: 20,
-                right: 20,
-                elevation: 0,
-                backgroundColor: '#ffffff',
-                borderRadius: 15,
-                height: 90,
-                ...styles.shadow
-            }
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} options={{
-            tabBarIcon: ({focused}) => (
-                <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
-                    <Image
-                        source={require('../assets/home.png')}
-                        resizeMode='contain'
-                        style={{
-                            width: 25,
-                            height: 25,
-                            // tintColor: focused ? '#e32f45' : '#748c94'                            
-                        }}
-                    />
-                <Text 
-                    style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>
-                    Home
-                </Text>
-                </View>
-            ),
-            }}/>
-        <Tab.Screen name="Settings" component={LoginScreen} options={{
-            tabBarIcon: ({focused}) => (
-                <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
-                    <Image
-                        source={require('../assets/settings_icon.png')}
-                        resizeMode='contain'
-                        style={{
-                            width: 25,
-                            height: 25,
-                            // tintColor: focused ? '#e32f45' : '#748c94'                            
-                        }}
-                    />
-                <Text 
-                    style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>
-                    Settings
-                </Text>
-                </View>
-            ),
-            }}/>
-        <Tab.Screen name="Account" component={AccountScreen} options={{
-            tabBarIcon: ({focused}) => (
-                <View style={{alignItems: 'center', justifyContent: 'center', top: 0}}>
-                    <Image
-                        source={require('../assets/account_icon.png')}
-                        resizeMode='contain'
-                        style={{
-                            width: 25,
-                            height: 25,
-                            // tintColor: focused ? '#e32f45' : '#748c94'                            
-                        }}
-                    />
-                <Text 
-                    style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>
-                    Account
-                </Text>
-                </View>
-            ),
-            }}/>
-      </Tab.Navigator>
+        <Tab.Navigator
+            screenOptions={{
+                showLabel: false,
+                tabBarShowLabel: false,
+                tabBarStyle: [
+                    {
+                        display: "flex",
+                    },
+                    null,
+                ],
+                style: {
+                    position: "absolute",
+                    bottom: 25,
+                    left: 20,
+                    right: 20,
+                    elevation: 0,
+                    backgroundColor: "#ffffff",
+                    borderRadius: 15,
+                    height: 90,
+                    ...styles.shadow,
+                },
+            }}
+        >
+            <Tab.Screen
+                name="Home"
+                component={FoodTypeSelector}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                top: 0,
+                            }}
+                        >
+                            <Image
+                                // Image found from: 
+                                // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
+                                source={require("../assets/home.png")}
+                                resizeMode="contain"
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    // tintColor: focused ? '#e32f45' : '#748c94'
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    color: focused ? "#e32f45" : "#748c94",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Home
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Cart"
+                component={Checkout}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                top: 0,
+                            }}
+                        >
+                            <Image
+                            // Image found from:
+                            // https://www.pinterest.com/pin/319122323605875875/
+                                source={require("../assets/cart.png")}
+                                resizeMode="contain"
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    // tintColor: focused ? '#e32f45' : '#748c94'
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    color: focused ? "#e32f45" : "#748c94",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Cart
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Account"
+                component={AccountScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                top: 0,
+                            }}
+                        >
+                            <Image
+                            // image found from:
+                            // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
+                                source={require("../assets/account_icon.png")}
+                                resizeMode="contain"
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    // tintColor: focused ? '#e32f45' : '#748c94'
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    color: focused ? "#e32f45" : "#748c94",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Account
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
+        </Tab.Navigator>
+
     );
   }
   
