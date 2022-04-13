@@ -16,6 +16,8 @@ const Tab = createBottomTabNavigator();
 //            tests
 //            correct screens
 
+
+
 //Most of the content in this component comes from:
 //https://www.youtube.com/watch?v=gPaBicMaib4
 //made by:
@@ -23,6 +25,9 @@ const Tab = createBottomTabNavigator();
 const MyTabs = () => {
     return (
         <Tab.Navigator
+            initialRouteName="TypeSelection"
+            backBehavior="order"
+
             screenOptions={{
                 showLabel: false,
                 tabBarShowLabel: false,

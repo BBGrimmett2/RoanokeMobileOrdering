@@ -10,15 +10,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
-function CompletedOrderScreen({ navigation }) {
+function CompletedOrderScreen() {
+    const navigation = useNavigation();
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text> your order has been submitted</Text>
         <TouchableHighlight
          onPress={() => {
-         navigation.navigate('Login', {
-         })
+             navigation.navigate('TypeSelection');  //get it to go back to selection screen. have it get stuff
+         
             }}>
 
             {/* onPress={navigation.navigate('CompletedOrderScreen')}> */}
