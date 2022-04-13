@@ -10,6 +10,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /*
 
+
+Luke notes: in itemScreen.js use the functions to add to cart.
+get tab bar working in all screens
+test
+checkout firebase
+cleanup
+checkout screen congrats should go back to original list
+
+
 function CompletedOrderScreen({ navigation }) {
 
     return (

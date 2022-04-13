@@ -84,6 +84,15 @@ const Item = ({ route }) => {
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: itemObj.name });
 
+        navigation.navigate("Home");
+    };
+
+    const handleToCheckout = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        // Set the 'userID' field of the cart
+        const res = await userRef.update({ cart: itemObj.name });
+
         navigation.navigate("Cart");
     };
 
@@ -137,7 +146,7 @@ const Item = ({ route }) => {
                 </View>
                 <View style={styles.buttonContainer}>{/* go to cart and add item to cart */}
                     <TouchableOpacity
-                        onPress={handleAddToCart}
+                        onPress={handleToCheckout}
                         style={styles.button}
                     >
                         <Text style={styles.buttonText}>Checkout</Text>
