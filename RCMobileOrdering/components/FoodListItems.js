@@ -1,16 +1,30 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import {Image,  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
+import masterMenu from "../foodlist.js"
 
-const foodItems = [
-    { name: "pizza", key: 1 },
-    { name: "taco", key: 2 },
-    { name: "salad", key: "3" },
-];
 
 const FoodList = (props) => {
-    console.log(props.list);
+    const navigation = useNavigation();
+    console.log(props.type);
+
+    const renderItem = ({ item }) => {
+        if((item.type == props.type) || (props.type == "All")){
+            return (
+                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
+                    <Text style={{ fontSize: 30 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 30 }}>{item.price}</Text>
+                    <Image
+                        style={style.pic}
+                        source={{uri: item.itemImageFile}}
+                    />
+                </TouchableOpacity>
+            );
+        }
+      };
+
     return (
-        <View>
+        <SafeAreaView>
             <View style={style.container}>
                 <Text style={{ fontSize: 50, color: "grey" }}>
                     {props.type}
@@ -19,13 +33,8 @@ const FoodList = (props) => {
             <View>
                 <FlatList
                     data={props.list}
-                    extraData={props.list}
-                    renderItem={({ item }) => (
-                        <View style={style.listItem}>
-                            <Text style={{ fontSize: 30 }}>{item.key}</Text>
-                            <Text style={{ fontSize: 30 }}>{item.name}</Text>
-                        </View>
-                    )}
+                    //extraData={props.list}
+                    renderItem={renderItem}
                     ItemSeparatorComponent={() => (
                         <View
                             style={{ height: 1, backgroundColor: "white" }}
@@ -33,14 +42,17 @@ const FoodList = (props) => {
                     )}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
-const FoodOptions = () => {
+const FoodOptions = ({route}) => {
+    const {type} = route.params;
+    //const food = [masterMenu.bestdrink,masterMenu.bestfood];
+    //use of masterMenu is temporary. Eventually we want to use firebase.
     return (
         <View style={{ height: "100%" }}>
-            <FoodList type="Cup" list={foodItems} />
+            <FoodList type={type} list={masterMenu} />
         </View>
     );
 };
@@ -49,7 +61,7 @@ export default FoodOptions;
 
 const style = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: "maroon",
         alignItems: "center",
         justifyContent: "center",
@@ -62,5 +74,14 @@ const style = StyleSheet.create({
         flex: 1,
         borderRadius: 15,
         backgroundColor: "#61DBFB",
+    },
+    pic: {
+        //borderColor: "#0782F9",
+        //borderWidth: 3,
+        borderRadius: 10,
+        height: 40,
+        flex: 1,
+        width: null,
+        resizeMode:  "contain",
     },
 });

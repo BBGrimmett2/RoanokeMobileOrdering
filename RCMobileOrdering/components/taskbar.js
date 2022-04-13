@@ -2,19 +2,22 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import LoginScreen from "./LoginScreen";
-import HomeScreen from "./HomeScreen";
-import AccountScreen from "./AccountScreen";
+
+ import LoginScreen from './LoginScreen';
+ import HomeScreen from './HomeScreen';
+ import AccountScreen from './AccountScreen';
+
+
 import FoodTypeSelector from "./FoodCategories";
 import FoodListItems from "./FoodListItems";
 import Checkout from "./checkout";
 
-const Tab = createBottomTabNavigator();
 
-//doesnt work the first time you hit the button it doesnt go to the login screen.
-//do not know why
+
+  const Tab = createBottomTabNavigator();
+
 
 //NEXT STEPS: get at the bottom of home, no example screen.
 //            tests
@@ -155,15 +158,28 @@ const MyTabs = () => {
                 }}
             />
         </Tab.Navigator>
+
     );
-};
+  }
+  
+
+
+
+  
+
+
+ 
 
 const styles = StyleSheet.create({
+
+
+
     shadow: {
-        shadowColor: "#800000",
+        shadowColor: '#7F5DF0',
         shadowOffset: {
-            width: 0,
+            width: 0 ,
             height: 10,
+
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.5,
@@ -172,14 +188,14 @@ const styles = StyleSheet.create({
 
     taskbar: {
         flex: 1,
-        //        position: 'absolute',
-        bottom: 0,
-        //  bottom: 75,
-        //        right: 75,
-        // alignItems: "center",
-        //  backgroundColor: "blue",
-        //    padding: 10,
-        //        borderRadius: 50
+//        position: 'absolute',
+        bottom: 0
+      //  bottom: 75,
+//        right: 75,
+       // alignItems: "center",
+      //  backgroundColor: "blue",
+    //    padding: 10,
+//        borderRadius: 50
     },
 
     container: {
@@ -188,8 +204,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     button: {
-        //      right: 75,
-        //        bottom: 75,
+  //      right: 75,
+//        bottom: 75,
         backgroundColor: "#0782F9",
         width: "60%",
         padding: 15,
