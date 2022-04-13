@@ -12,35 +12,29 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, userID } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
 
-
-
 const AccountPage = () => {
-    console.log("UID: " + userID);
     let [name, setName] = useState();
     let [email, setEmail] = useState();
     let [swipes, setSwipes] = useState();
     let [studentID, setStudentID] = useState();
+
     const navigation = useNavigation();
+
+    let imageSrc =
+        "https://shared.roanoke.edu/headshots/filtered/" + studentID + ".jpg";
 
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
-        if (!doc.exists) {
-            console.log("No such document!");
-        } else {
-            // ASSERT: Document Exists
-            console.log("Document data:", doc.data());
-        }
 
-        return(doc.data());
+        return doc.data();
     };
 
     getData().then((data) => {
-        setName((data.name));
-        setEmail((data.email));
-        setSwipes((data.swipes));
-        setStudentID((data.studentID));
-
+        setName(data.name);
+        setEmail(data.email);
+        setSwipes(data.swipes);
+        setStudentID(data.studentID);
     });
 
     const handleSignOut = () => {
@@ -50,11 +44,6 @@ const AccountPage = () => {
             })
             .catch((error) => alert(error.message));
     };
-
-    let imageSrc =
-        "https://shared.roanoke.edu/headshots/filtered/" + studentID + ".jpg";
-
-    console.log("Name: " + name);
 
     return (
         <View style={styles.container}>
@@ -69,11 +58,16 @@ const AccountPage = () => {
                 <View style={styles.bodyContent}>
                     <Text style={styles.name}>{name}</Text>
                     <Text style={styles.email}>Email: {email}</Text>
-                    <Text style={styles.description}>Swipes Remaining: {swipes}</Text>
+                    <Text style={styles.description}>
+                        Swipes Remaining: {swipes}
+                    </Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={handleSignOut}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={handleSignOut}
+                    >
                         <Text style={styles.buttonText}>Sign Out</Text>
                     </TouchableOpacity>
                 </View>

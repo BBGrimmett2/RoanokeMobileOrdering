@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableHighlight } from "react-native";
-import { auth, fireDB, user } from "../firebase";
+import { auth, fireDB, userID } from "../firebase";
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,6 +20,15 @@ function CompletedOrderScreen({ navigation }) {
   }
 
 */
+
+// const changeData = async () => {
+//   const cityRef = fireDB.collection("users").doc(userID);
+
+//   // Set the 'userID' field of the cart
+//   const res = await cityRef.update({ cart: "Cup food" });
+// };
+
+// changeData();
 
 function Checkout({ navigation }) {
 

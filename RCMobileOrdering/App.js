@@ -11,8 +11,9 @@ import Item from './components/ItemScreen';
 import FoodTypeSelectionScreen from './components/FoodCategories';
 import FoodOptions from './components/FoodListItems';
 import CompletedOrder from './components/CompletedOrder';
+import HomeScreen from './components/HomeScreen';
 
-LogBox.ignoreLogs(['Setting a timer', 'AsyncStorage has been extracted']);
+LogBox.ignoreLogs(['Setting a timer']);
 
 const Stack = createNativeStackNavigator();
 function App() {
