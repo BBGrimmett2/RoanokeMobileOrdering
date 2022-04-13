@@ -17,7 +17,7 @@ function CompletedOrderScreen({ navigation }) {
         <Text> your order has been submitted</Text>
         <TouchableHighlight
          onPress={() => {
-         navigation.navigate('Login', {
+         navigation.navigate('TaskBar', {
          })
             }}>
 
