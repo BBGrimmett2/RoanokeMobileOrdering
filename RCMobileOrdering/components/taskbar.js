@@ -45,7 +45,7 @@ const MyTabs = () => {
                 },
             }}
         >
-            <Tab.Screen
+            <Tab.Screen  //make order component to hold order navigation stack
                 name="TypeSelection"
                 component={FoodTypeSelector}
                 options={{
