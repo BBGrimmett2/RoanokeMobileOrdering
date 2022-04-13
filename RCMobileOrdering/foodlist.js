@@ -128,7 +128,7 @@ const masterMenu = [
         name: "Cactus Juice",
         type: "Cup",
         price: 10,
-        description: "Drink cactus juice. It'll quench ya. Nothing is quenchier. It's the quenchiest! - Sokka",
+        description: "Drink cactus juice. It'll quench ya. Nothing is quenchier. It's the quenchiest!",
         itemImageFile: "https://drive.google.com/uc?id=1k3hCk6AEI_x0ol_Z4kaGpEUUK9euHcIC",
         nFactsPicFile: "https://drive.google.com/uc?id=1RSimjExQMIZlu4CXg4nR4G_HQL7HrJpm",
         custObj: [
