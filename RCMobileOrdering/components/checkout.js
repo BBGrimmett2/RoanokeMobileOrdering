@@ -30,11 +30,12 @@ function CompletedOrderScreen({ navigation }) {
 
 */
 
+// https://firebase.google.com/docs/firestore/manage-data/add-data
 // const changeData = async () => {
-//   const cityRef = fireDB.collection("users").doc(userID);
+//   const userRef = fireDB.collection("users").doc(userID);
 
 //   // Set the 'userID' field of the cart
-//   const res = await cityRef.update({ cart: "Cup food" });
+//   const res = await userRef.update({ cart: "Cup food" });
 // };
 
 // changeData();
