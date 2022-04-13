@@ -16,7 +16,10 @@ get tab bar working in all screens
 test
 checkout firebase
 cleanup
-checkout screen congrats should go back to original list
+checkout screen congrats should go back to original list - taskbar documentation, default value
+make look pretty
+
+
 
 
 function CompletedOrderScreen({ navigation }) {
