@@ -46,7 +46,7 @@ const MyTabs = () => {
             }}
         >
             <Tab.Screen
-                name="Home"
+                name="TypeSelection"
                 component={FoodTypeSelector}
                 options={{
                     tabBarIcon: ({ focused }) => (
@@ -74,7 +74,7 @@ const MyTabs = () => {
                                     fontSize: 12,
                                 }}
                             >
-                                Home
+                                Order
                             </Text>
                         </View>
                     ),
