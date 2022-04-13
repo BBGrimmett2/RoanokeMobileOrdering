@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
+import { NavigationContainer } from "@react-navigation/native";
 import React, {useState} from "react";
 import { render } from "react-dom";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View, TouchableHighlight, Image, ScrollView } from "react-native";
@@ -55,12 +56,18 @@ const Item = ({route}) => {
     const {itemObj} = route.params;
     const [nutrFacts, handleNFshow] = useState(false);
     const [customize, handleCustomizeshow] = useState(false);
+    const navigation = useNavigation();
+
     function showNF() {
         handleNFshow(nutrFacts => !nutrFacts);
     }
     function showCustom(){
         handleCustomizeshow(customize => !customize);
     }  
+
+    function handleAddToCart(){
+        navigation.navigate("TypeSelection");
+    }
     
     return(
         <SafeAreaView style={styles.container}>
@@ -102,7 +109,7 @@ const Item = ({route}) => {
                 )}
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
-                        // onPress={}
+                        onPress={handleAddToCart}
                         style={styles.button}
                     >
                         <Text style={styles.buttonText}>Add to Order</Text>

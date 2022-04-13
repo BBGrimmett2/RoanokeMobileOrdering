@@ -2,13 +2,6 @@ import { useNavigation } from "@react-navigation/core";
 import {  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import masterMenu from "../foodlist.js"
-//import { TouchableOpacity } from "react-native-gesture-handler";
-
-const foodItems = [
-    { name: "pizza", key: 1 },
-    { name: "taco", key: 2 },
-    { name: "salad", key: 3 },
-];
 
 
 const FoodList = (props) => {
@@ -16,7 +9,7 @@ const FoodList = (props) => {
     console.log(props.type);
 
     const renderItem = ({ item }) => {
-        if(item.type == props.type){
+        if((item.type == props.type) || (props.type == "All")){
             return (
                 <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
                     <Text style={{ fontSize: 30 }}>{item.name}</Text>
@@ -52,6 +45,7 @@ const FoodList = (props) => {
 const FoodOptions = ({route}) => {
     const {type} = route.params;
     //const food = [masterMenu.bestdrink,masterMenu.bestfood];
+    //use of masterMenu is temporary. Eventually we want to use firebase.
     return (
         <View style={{ height: "100%" }}>
             <FoodList type={type} list={masterMenu} />
