@@ -11,6 +11,7 @@ import {
     TouchableHighlight,
     Image,
     ScrollView,
+    Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeScreenContainer } from "react-native-screens";
@@ -95,14 +96,13 @@ const Item = ({ route }) => {
 
         navigation.navigate("Cart");
     };
-
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView nestedScrollEnabled={true}>
                 <Text style={styles.title}>{itemObj.name} </Text>
                 <Image
                     style={styles.pic}
-                    source={{ uri: itemObj.itemImageFile }}
+                    source={{uri: itemObj.itemImageFile}}
                 />
                 <View>
                     <Text style={styles.desc}>{itemObj.description}</Text>
@@ -159,12 +159,13 @@ const Item = ({ route }) => {
 
 export default Item;
 
+var width = Dimensions.get('window').width; //full width
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
     },
     title: {
         fontSize: 25,
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     buttonContainer: {
-        width: "100%",
+        width: width,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 15,
