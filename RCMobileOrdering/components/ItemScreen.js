@@ -17,55 +17,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeScreenContainer } from "react-native-screens";
 import { auth, fireDB, userID } from "../firebase";
 
-const Customization = (props) => {
-    //will need to lift state of customSelected to keep selections
-
-    let tempBool = [];
-    for (let i = 0; i < props.objOpts.length; i++) {
-        tempBool.push(false);
-    }
-    const permBool = tempBool;
-    const [customSelected, handleSelection] = useState(permBool);
-    const updateCustomize = (index) => {
-        let tempList = [];
-        for (let i = 0; i < customSelected.length; i++) {
-            if (i === index) {
-                tempList.push(!customSelected[i]);
-            } else {
-                tempList.push(customSelected[i]);
-            }
-        }
-        const newList = tempList;
-        handleSelection(newList);
-    };
-
-    const customObj = props.objOpts;
-    const mapTest = customObj.map((element) => (
-        <View key={element.number}>
-            <TouchableOpacity
-                onPress={() => updateCustomize(element.number)}
-                style={
-                    customSelected[element.number]
-                        ? [styles.button, styles.buttonOutlineAlt]
-                        : [styles.button, styles.buttonOutline]
-                }
-            >
-                <Text
-                    style={
-                        customSelected[element.number]
-                            ? styles.customizingSelected
-                            : styles.customizingUnselected
-                    }
-                >
-                    {element.option}
-                </Text>
-            </TouchableOpacity>
-        </View>
-    ));
-
-    return <View style={styles.customOutline}>{mapTest}</View>;
-};
-
 const Item = ({ route }) => {
     const { itemObj } = route.params;
     const [nutrFacts, handleNFshow] = useState(false);
@@ -96,6 +47,50 @@ const Item = ({ route }) => {
 
         navigation.navigate("Cart");
     };
+
+    // handling customization selections
+    let tempBool = [];
+    for (let i = 0; i < itemObj.custObj.length; i++) {
+        tempBool.push(false);
+    }
+    const permBool = tempBool;
+    const [customSelected, handleSelection] = useState(permBool);
+    const updateCustomize = (index) => {
+        let tempList = [];
+        for (let i = 0; i < customSelected.length; i++) {
+            if (i === index) {
+                tempList.push(!customSelected[i]);
+            } else {
+                tempList.push(customSelected[i]);
+            }
+        }
+        const newList = tempList;
+        handleSelection(newList);
+    };
+
+    const customMap = itemObj.custObj.map((element) => (
+        <View key={element.number}>
+            <TouchableOpacity
+                onPress={() => updateCustomize(element.number)}
+                style={
+                    customSelected[element.number]
+                        ? [styles.button, styles.buttonOutlineAlt]
+                        : [styles.button, styles.buttonOutline]
+                }
+            >
+                <Text
+                    style={
+                        customSelected[element.number]
+                            ? styles.customizingSelected
+                            : styles.customizingUnselected
+                    }
+                >
+                    {element.option}
+                </Text>
+            </TouchableOpacity>
+        </View>
+    ));
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView nestedScrollEnabled={true}>
@@ -133,7 +128,7 @@ const Item = ({ route }) => {
                 </View>
 
                 {customize && (
-                    <Customization objOpts={itemObj.custObj}/>
+                    <View style={styles.customOutline}>{customMap}</View>
                 )}
                 <View style={styles.buttonContainer}>{/* go to begining of selection and add item to cart */}
 
