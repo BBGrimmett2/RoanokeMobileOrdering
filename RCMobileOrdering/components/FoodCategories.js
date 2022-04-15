@@ -1,8 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
-import masterMenu from "../foodlist.js"
-import MyTabs from "./taskbar.js";
+
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();

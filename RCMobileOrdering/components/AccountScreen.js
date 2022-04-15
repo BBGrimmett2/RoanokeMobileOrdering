@@ -19,7 +19,7 @@ const AccountPage = () => {
     let [studentID, setStudentID] = useState();
 
     const navigation = useNavigation();
-
+    
     let imageSrc =
         "https://shared.roanoke.edu/headshots/filtered/" + studentID + ".jpg";
 
