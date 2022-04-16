@@ -11,7 +11,7 @@ const FoodList = (props) => {
     const renderItem = ({ item }) => {
         if((item.type == props.type) || (props.type == "All")){
             return (
-                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
+                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item", {itemObj:item})}>
                     <Text style={{ fontSize: 30 }}>{item.name}</Text>
                     <Text style={{ fontSize: 30 }}>{item.price}</Text>
                     <Image
