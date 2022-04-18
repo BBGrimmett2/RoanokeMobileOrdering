@@ -98,10 +98,10 @@ const Cart = () => {
                                 alignSelf: "center",
                             }}
                         >
-                            <View style={styles.cartItemImage}>
+                            <View >
                                 <Image
-                                // source=
-                                //     "https://drive.google.com/uc?id=196FrjyjzWVOqjmwVIjiEW1UrZBdxYY5X"
+                                    style={styles.cartItemImage}
+                                    source={{uri: item.thumbnailImage}}
                                 />
                             </View>
                             <View style={styles.cartItemInformationContainer}>
