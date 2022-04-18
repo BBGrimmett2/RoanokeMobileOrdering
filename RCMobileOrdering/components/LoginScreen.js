@@ -26,7 +26,7 @@ const LoginScreen = () => {
         const isUnsubscribed = auth.onAuthStateChanged((user) => {
             if (user) {
 
-                navigation.navigate("TaskBar");
+                navigation.navigate("Taskbar", {screen: "Order"});
 
             }
         });
