@@ -5,7 +5,6 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, FlatList } from
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
-    //const foodMasterList = this.props.foodMasterList;
     const types = ["Bowl", "Bag", "Cup", "Other", "All"];
     const renderItem = ({ item }) => {
         return (

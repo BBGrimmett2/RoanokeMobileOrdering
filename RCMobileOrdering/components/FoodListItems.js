@@ -9,9 +9,12 @@ const FoodList = (props) => {
     console.log(props.type);
 
     const renderItem = ({ item }) => {
+        console.log("test2");
         if((item.type == props.type) || (props.type == "All")){
+            console.log("test");
+            console.log(item);
             return (
-                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
+                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item", {itemObj:item})}>
                     <Text style={{ fontSize: 30 }}>{item.name}</Text>
                     <Text style={{ fontSize: 30 }}>{item.price}</Text>
                     <Image
