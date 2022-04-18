@@ -18,7 +18,9 @@ import { NativeScreenContainer } from "react-native-screens";
 import { auth, fireDB, userID } from "../firebase";
 
 const Item = ({ route }) => {
+    console.log('item');
     const { itemObj } = route.params;
+    console.log(itemObj);
     const [nutrFacts, handleNFshow] = useState(false);
     const [customize, handleCustomizeshow] = useState(false);
     const navigation = useNavigation();
