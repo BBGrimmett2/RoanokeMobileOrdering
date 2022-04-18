@@ -58,9 +58,8 @@ const Item = ({ route }) => {
         navigation.navigate("Cart");
     };
 
-<<<<<<< HEAD
     console.log("user cart: " + userCart);
-=======
+
     // handling customization selections
     let tempBool = [];
     for (let i = 0; i < itemObj.custObj.length; i++) {
@@ -103,7 +102,7 @@ const Item = ({ route }) => {
             </TouchableOpacity>
         </View>
     ));
->>>>>>> 4f89f9aa8aabbb35e600233e8f64dc1f0dc6ec6e
+
 
     return (
         <SafeAreaView style={styles.container}>
