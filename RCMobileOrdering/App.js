@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -23,6 +23,7 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen name="Item" component={Item} />
         <Stack.Screen options={{ headerShown: false }} name="TaskBar" component={MyTabs} /> 
+        {/* <Stack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} /> */}
         <Stack.Screen options={{ headerShown: false }} name="ItemSelection" component={FoodOptions} />
         <Stack.Screen options={{ headerShown: false }} name="CompletedOrderScreen" component={CompletedOrder} /> 
       </Stack.Navigator>

@@ -1,9 +1,24 @@
+
 // Luke notes: in itemScreen.js use the functions to add to cart.
 // get tab bar working in all screens
 // test
 // checkout firebase
 // cleanup
 // checkout screen congrats should go back to original list
+
+/*
+
+function CompletedOrderScreen({ navigation }) {
+
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text> your order has been submitted</Text>
+      </View>
+    );
+  }
+
+*/
+
 
 // https://firebase.google.com/docs/firestore/manage-data/add-data
 // const changeData = async () => {
