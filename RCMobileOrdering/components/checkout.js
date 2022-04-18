@@ -7,33 +7,14 @@
 // checkout screen congrats should go back to original list
 
 /*
-
-function CompletedOrderScreen({ navigation }) {
-
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text> your order has been submitted</Text>
-      </View>
-    );
-  }
-
-*/
-
-
-// https://firebase.google.com/docs/firestore/manage-data/add-data
-// const changeData = async () => {
-//   const userRef = fireDB.collection("users").doc(userID);
-
-//   // Set the 'userID' field of the cart
-//   const res = await userRef.update({ cart: "Cup food" });
-// };
-
-/*
 Adopted From:
 Carl Victor Fontanos
 April 17, 2022
 React Native Cart System
 https://carlofontanos.com/react-native-cart-system/
+
+Firebase Documentation
+https://firebase.google.com/docs/firestore/manage-data/add-data
 */
 
 import React from "react";
