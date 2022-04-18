@@ -108,10 +108,13 @@ const Item = ({ route }) => {
         <SafeAreaView style={styles.container}>
             <ScrollView nestedScrollEnabled={true}>
                 <Text style={styles.title}>{itemObj.name} </Text>
-                <Image
-                    style={styles.pic}
-                    source={{uri: itemObj.itemImageFile}}
-                />
+                <View style={styles.picContainer}>
+                    <Image
+                        style={styles.pic}
+                        source={{uri: itemObj.itemImageFile}}
+                    />
+                </View>
+                
                 <View>
                     <Text style={styles.desc}>{itemObj.description}</Text>
                 </View>
@@ -183,14 +186,24 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginBottom: 15,
     },
+    picContainer: {
+        height: 200,
+        width: null,
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
     pic: {
-        borderColor: "#0782F9",
+        borderColor: "#800000",
+        flex:1,
         borderWidth: 3,
         borderRadius: 10,
-        height: 200,
-        flex: 1,
-        width: null,
+        width: 200,
         resizeMode: "contain",
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center'
+        
     },
     nutrition: {
         borderColor: "black",
@@ -210,7 +223,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     button: {
-        backgroundColor: "#0782F9",
+        backgroundColor: "#800000",
         width: "100%",
         padding: 15,
         borderRadius: 10,
@@ -219,13 +232,13 @@ const styles = StyleSheet.create({
     buttonOutline: {
         backgroundColor: "white",
         marginTop: 5,
-        borderColor: "#0782F9",
+        borderColor: "#800000",
         borderWidth: 2,
     },
     buttonOutlineAlt: {
-        backgroundColor: "#0782F9",
+        backgroundColor: "#800000",
         marginTop: 5,
-        borderColor: "#0782F9",
+        borderColor: "#800000",
         borderWidth: 2,
     },
     buttonText: {
@@ -234,12 +247,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     buttonOutlineText: {
-        color: "#0782F9",
+        color: "#800000",
         fontWeight: "700",
         fontSize: 16,
     },
     customizingUnselected: {
-        color: "#0782F9",
+        color: "#800000",
         fontWeight: "700",
         fontSize: 14,
     },
