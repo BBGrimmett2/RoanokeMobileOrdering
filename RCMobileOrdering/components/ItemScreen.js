@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import {
     FlatList,
@@ -15,13 +15,14 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeScreenContainer } from "react-native-screens";
-import { auth, fireDB, userID } from "../firebase";
+import { auth, fireDB, userID, userCart } from "../firebase";
 
 const Item = ({ route }) => {
     const { itemObj } = route.params;
     const [nutrFacts, handleNFshow] = useState(false);
     const [customize, handleCustomizeshow] = useState(false);
     const navigation = useNavigation();
+    const [userCart, setuserCart] = useState([]);
 
     function showNF() {
         handleNFshow((nutrFacts) => !nutrFacts);
@@ -30,24 +31,36 @@ const Item = ({ route }) => {
         handleCustomizeshow((customize) => !customize);
     }
 
-    const handleAddToCart = async () => {
+    const getData = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+        const doc = await userRef.get();
+
+        return doc.data();
+    };
+
+    const addItemToCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
         // Set the 'userID' field of the cart
-        const res = await userRef.update({ cart: itemObj.name });
+        const res = await userRef.update({ cart: userCart });
+    };
+
+
+    const handleAddToCart = async () => {
+        addItemToCart();
 
         navigation.navigate("TaskBar");
     };
 
     const handleToCheckout = async () => {
-        const userRef = fireDB.collection("users").doc(userID);
-
-        // Set the 'userID' field of the cart
-        const res = await userRef.update({ cart: itemObj.name });
+        addItemToCart();
 
         navigation.navigate("Cart");
     };
 
+<<<<<<< HEAD
+    console.log("user cart: " + userCart);
+=======
     // handling customization selections
     let tempBool = [];
     for (let i = 0; i < itemObj.custObj.length; i++) {
@@ -90,6 +103,7 @@ const Item = ({ route }) => {
             </TouchableOpacity>
         </View>
     ));
+>>>>>>> 4f89f9aa8aabbb35e600233e8f64dc1f0dc6ec6e
 
     return (
         <SafeAreaView style={styles.container}>

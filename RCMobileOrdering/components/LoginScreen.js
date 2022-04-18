@@ -5,7 +5,6 @@ April 11, 2022
 Firebase Expo Authentication
 https://github.com/mattfrances/FirebaseExpoAuthentication
 */
-
 import React, { useEffect, useState } from "react";
 import {
     StyleSheet,
@@ -21,7 +20,6 @@ import { useNavigation } from "@react-navigation/core";
 const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -62,7 +60,6 @@ const LoginScreen = () => {
                     onChangeText={(text) => setEmail(text)}
                     style={styles.input}
                 ></TextInput>
-
                 <TextInput
                     placeholder="Password"
                     value={password}
@@ -71,7 +68,6 @@ const LoginScreen = () => {
                     secureTextEntry
                 ></TextInput>
             </View>
-
             <View style={styles.buttonContainer}>
                 <TouchableOpacity onPress={handleLogin} style={styles.button}>
                     <Text style={styles.buttonText}>Login</Text>
