@@ -22,7 +22,6 @@ import {
     Text,
     View,
     TouchableOpacity,
-    ScrollView,
     Image,
     Alert,
     FlatList,
@@ -33,26 +32,6 @@ import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
 
 const Cart = () => {
-    let [cartItems, setCartItems] = useState([
-        {
-            id: 0,
-            name: masterMenu[0].name,
-            thumbnailImage: masterMenu[0].itemImageFile,
-            salePrice: masterMenu[0].price,
-        },
-        {
-            id: 1,
-            name: masterMenu[1].name,
-            thumbnailImage: masterMenu[1].itemImageFile,
-            salePrice: masterMenu[1].price,
-        },
-        {
-            id: 2,
-            name: masterMenu[1].name,
-            thumbnailImage: masterMenu[1].itemImageFile,
-            salePrice: masterMenu[1].price,
-        },
-    ]);
     let [cart, setCart] = useState([]);
 
     const navigation = useNavigation();
@@ -77,7 +56,6 @@ const Cart = () => {
                 {
                     text: "Cancel",
                     onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel",
                 },
                 {
                     text: "Delete",
