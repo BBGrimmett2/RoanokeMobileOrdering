@@ -26,14 +26,10 @@ import {
     Image,
     Alert,
     FlatList,
-    Empty,
-    TouchableHighlight,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import masterMenu from "../foodlist";
 import { useNavigation } from "@react-navigation/core";
-
-const Item = (item) => {};
+import masterMenu from "../foodlist";
 
 const Cart = () => {
     let [cartItems, setCartItems] = useState([
@@ -105,7 +101,7 @@ const Cart = () => {
     };
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <FlatList
                 data={cartItems}
                 keyExtractor={(item) => item.id}
@@ -149,7 +145,7 @@ const Cart = () => {
                     <Text style={styles.buttonText}>Checkout</Text>
                 </TouchableOpacity>
             </View>
-        </ScrollView>
+        </View>
     );
 };
 
@@ -196,11 +192,11 @@ const styles = StyleSheet.create({
         backgroundColor: "gray",
     },
     buttonContainer: {
+        marginBottom: 20,
+        alignSelf: "center",
         width: "60%",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 10,
-        marginHorizontal: 85,
     },
     button: {
         backgroundColor: "#800000",
