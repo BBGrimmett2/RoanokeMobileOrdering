@@ -1,4 +1,3 @@
-
 // Luke notes: in itemScreen.js use the functions to add to cart.
 // get tab bar working in all screens
 // test
@@ -27,33 +26,39 @@ import {
     ScrollView,
     Image,
     Alert,
+    FlatList,
+    Empty,
+    TouchableHighlight,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import masterMenu from "../foodlist";
 import { useNavigation } from "@react-navigation/core";
 
+const Item = (item) => {};
+
 const Cart = () => {
     let [cartItems, setCartItems] = useState([
         {
+            id: 0,
             name: masterMenu[0].name,
             thumbnailImage: masterMenu[0].itemImageFile,
             salePrice: masterMenu[0].price,
         },
         {
+            id: 1,
             name: masterMenu[1].name,
             thumbnailImage: masterMenu[1].itemImageFile,
             salePrice: masterMenu[1].price,
         },
         {
-            name: masterMenu[2].name,
-            thumbnailImage: masterMenu[2].itemImageFile,
-            salePrice: masterMenu[2].price,
+            id: 2,
+            name: masterMenu[1].name,
+            thumbnailImage: masterMenu[1].itemImageFile,
+            salePrice: masterMenu[1].price,
         },
     ]);
 
     const navigation = useNavigation();
-
-    let imageSrc = masterMenu[0].itemImageFile;
 
     const deleteHandler = (index) => {
         Alert.alert(
@@ -67,41 +72,53 @@ const Cart = () => {
                 },
                 {
                     text: "Delete",
+
                     onPress: () => {
                         let updatedCart = cartItems; /* Clone it first */
-                        updatedCart.splice(
-                            index,
-                            1
-                        ); /* Remove item from the cloned cart state */
+
+                        if (updatedCart.length === 1) {
+                            updatedCart.length = 0;
+                            setCartItems([]);
+                        } else {
+                            updatedCart.splice(
+                                index,
+                                1
+                            ); /* Remove item from the cloned cart state */
+                        }
+
                         setCartItems(updatedCart); /* Update the state */
                     },
                 },
-            ],
-            { cancelable: false }
+            ]
         );
     };
 
     const handleCompltedOrder = () => {
-      navigation.navigate('CompletedOrderScreen');
+        navigation.navigate("CompletedOrderScreen");
+    };
+
+    const emptyComponent = () => {
+        return (
+            <View style={styles.emptyContainer}>
+                <Text style={styles.emptyMessage}>Order some food!</Text>
+            </View>
+        );
     };
 
     return (
-        <View style={styles.container}>
-            <ScrollView>
-                {cartItems.map((item, i) => (
-                    <View key={i} style={styles.cartItems}>
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                flexGrow: 1,
-                                flexShrink: 1,
-                                alignSelf: "center",
-                            }}
-                        >
-                            <View >
+        <ScrollView style={styles.container}>
+            <FlatList
+                data={cartItems}
+                keyExtractor={(item) => item.id}
+                extraData={cartItems}
+                ListEmptyComponent={emptyComponent}
+                renderItem={({ item }) => (
+                    <View style={styles.cartItems}>
+                        <View style={styles.cartItemContainer}>
+                            <View>
                                 <Image
                                     style={styles.cartItemImage}
-                                    source={{uri: item.thumbnailImage}}
+                                    source={{ uri: item.thumbnailImage }}
                                 />
                             </View>
                             <View style={styles.cartItemInformationContainer}>
@@ -109,10 +126,11 @@ const Cart = () => {
                                 <Text>${item.salePrice}</Text>
                             </View>
                         </View>
+
                         <View style={styles.iconContainer}>
                             <TouchableOpacity
                                 style={styles.cartTrashIcon}
-                                onPress={() => deleteHandler(i)}
+                                onPress={() => deleteHandler(item.id)}
                             >
                                 <Ionicons
                                     name="md-trash"
@@ -122,14 +140,17 @@ const Cart = () => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                ))}
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => handleCompltedOrder()}>
-                        <Text style={styles.buttonText}>Checkout</Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
-        </View>
+                )}
+            />
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => handleCompltedOrder()}
+                >
+                    <Text style={styles.buttonText}>Checkout</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
     );
 };
 
@@ -137,6 +158,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#f6f6f6",
+    },
+    cartItemContainer: {
+        flexDirection: "row",
+        flexGrow: 1,
+        flexShrink: 1,
+        alignSelf: "center",
     },
     cartItems: {
         flexDirection: "row",
@@ -173,7 +200,7 @@ const styles = StyleSheet.create({
         width: "60%",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40,
+        marginTop: 10,
         marginHorizontal: 85,
     },
     button: {
@@ -193,6 +220,16 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "700",
         fontSize: 16,
+    },
+    emptyContainer: {
+        flexDirection: "row",
+        flexGrow: 1,
+        flexShrink: 1,
+        alignSelf: "center",
+        marginVertical: 20,
+    },
+    emptyMessage: {
+        fontSize: 24,
     },
 });
 
