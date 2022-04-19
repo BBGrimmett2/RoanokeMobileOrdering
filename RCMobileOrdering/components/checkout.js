@@ -30,6 +30,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import masterMenu from "../foodlist";
+import { auth, fireDB, userID } from "../firebase";
 
 const Cart = () => {
     let [cartItems, setCartItems] = useState([
@@ -52,8 +53,21 @@ const Cart = () => {
             salePrice: masterMenu[1].price,
         },
     ]);
+    let [cart, setCart] = useState([]);
 
     const navigation = useNavigation();
+
+    const getData = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+        const doc = await userRef.get();
+
+        return doc.data();
+    };
+
+    getData().then((data) => {
+        setCart(data.cart);
+    });
+
 
     const deleteHandler = (index) => {
         Alert.alert(
@@ -103,9 +117,9 @@ const Cart = () => {
     return (
         <View style={styles.container}>
             <FlatList
-                data={cartItems}
+                data={cart}
                 keyExtractor={(item) => item.id}
-                extraData={cartItems}
+                extraData={cart}
                 ListEmptyComponent={emptyComponent}
                 renderItem={({ item }) => (
                     <View style={styles.cartItems}>

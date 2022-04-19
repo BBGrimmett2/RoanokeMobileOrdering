@@ -11,6 +11,22 @@ import { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, userID } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
+import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
+// import { userCart } from "../userData";
+
+// User Cart
+const getData = async () => {
+    const userRef = fireDB.collection("users").doc(userID);
+    const doc = await userRef.get();
+  
+    return doc.data();
+  };
+  
+  let userCart = [];
+  
+  getData().then((data) => {
+    userCart = data.cart;
+  });
 
 const AccountPage = () => {
     let [name, setName] = useState();
@@ -44,7 +60,6 @@ const AccountPage = () => {
             })
             .catch((error) => alert(error.message));
     };
-
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>

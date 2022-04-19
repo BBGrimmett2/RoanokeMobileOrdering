@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeScreenContainer } from "react-native-screens";
-import { auth, fireDB, userID, userCart } from "../firebase";
+import { fireDB, userID } from "../firebase";
 
 const Item = ({ route }) => {
     console.log('item');
@@ -42,6 +42,8 @@ const Item = ({ route }) => {
 
     const addItemToCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
+
+        userCart.push(itemObj);
 
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: userCart });
