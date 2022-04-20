@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
 
 
 const FoodTypeSelectionScreen = () => {
@@ -8,7 +8,7 @@ const FoodTypeSelectionScreen = () => {
     const types = ["Bowl", "Bag", "Cup", "Other", "All"];
     const renderItem = ({ item }) => {
         return (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ItemSelection",{type:item})}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:item})}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
         );
