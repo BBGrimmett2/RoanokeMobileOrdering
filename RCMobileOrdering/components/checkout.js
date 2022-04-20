@@ -105,7 +105,7 @@ const Cart = () => {
                             <View>
                                 <Image
                                     style={styles.cartItemImage}
-                                    source={{ uri: item.thumbnailImage }}
+                                    source={{ uri: item.itemImageFile }}
                                 />
                             </View>
                             <View style={styles.cartItemInformationContainer}>
