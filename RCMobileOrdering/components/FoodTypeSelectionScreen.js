@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList, Dimensions} from "react-native";
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, FlatList, Dimensions} from "react-native";
+
 
 
 const FoodTypeSelectionScreen = () => {
@@ -16,7 +17,9 @@ const FoodTypeSelectionScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.header}>Please Select Food Type</Text>
+            <View style={styles.header}>
+            <Text style={{ fontSize: 50, color: "grey" }}>Please Select Food Type</Text>
+            </View>
             <FlatList 
                 data={types}
                 renderItem={renderItem}
