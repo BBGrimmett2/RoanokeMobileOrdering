@@ -1,17 +1,16 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Item from './ItemScreen';
-import FoodTypeSelectionScreen from './FoodCategories';
-import FoodOptions from './FoodListItems';
+import ItemDetailsScreen from './ItemDetailsScreen';
+import FoodTypeSelectionScreen from './FoodTypeSelectionScreen';
+import FoodItemSelectionScreen from './FoodItemSelectionScreen';
 
 const OrderStack = createNativeStackNavigator();
-function Order() {
-  console.log("navigator");
+const Order = () => {
   return (
-    <OrderStack.Navigator initialRouteName="TypeSelection">
-        <OrderStack.Screen options={{ headerShown: false }} name="Item" component={Item} />
-        <OrderStack.Screen options={{ headerShown: false }} name="TypeSelection" component={FoodTypeSelectionScreen} />
-        <OrderStack.Screen options={{ headerShown: false }} name="ItemSelection" component={FoodOptions} /> 
+    <OrderStack.Navigator initialRouteName="FoodTypeSelectionScreen">
+        <OrderStack.Screen options={{ headerShown: false }} name="ItemDetailsScreen" component={ItemDetailsScreen} />
+        <OrderStack.Screen options={{ headerShown: false }} name="FoodTypeSelectionScreen" component={FoodTypeSelectionScreen} />
+        <OrderStack.Screen options={{ headerShown: false }} name="FoodItemSelectionScreen" component={FoodItemSelectionScreen} /> 
     </OrderStack.Navigator>
   );
 }

@@ -20,7 +20,7 @@ const Tab = createBottomTabNavigator();
 //https://www.youtube.com/watch?v=gPaBicMaib4
 //made by:
 //Pradip Debnath
-const Taskbar = () => {
+const Main = () => {
     return (
         <Tab.Navigator
             initialRouteName="Order"
@@ -52,6 +52,7 @@ const Taskbar = () => {
                 name="Order"
                 component={Order}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
@@ -204,4 +205,4 @@ const styles = StyleSheet.create({
 });
 
 //   /* make account order and cart
-export default Taskbar;
+export default Main;
