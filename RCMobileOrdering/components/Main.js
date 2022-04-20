@@ -3,10 +3,10 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./HomeScreen";
 import AccountScreen from "./AccountScreen";
 import Checkout from "./checkout";
 import Order from "./Order"
+import HomeComponent from "./HomeComponent";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,8 +23,8 @@ const Tab = createBottomTabNavigator();
 const Main = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Order"
-            backBehavior="order"
+            initialRouteName="HomeComponent"
+            //backBehavior="order"
 
             screenOptions={{
                 showLabel: false,
@@ -49,8 +49,8 @@ const Main = () => {
             }}
         >
             <Tab.Screen  //make order component to hold order navigation stack
-                name="HomeScreen"
-                component={HomeScreen}
+                name="HomeComponent"
+                component={HomeComponent}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ focused }) => (

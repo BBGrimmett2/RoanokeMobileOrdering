@@ -19,27 +19,23 @@ const itemObj = {
 const HomeScreen = () => {
     const navigation = useNavigation();
 
-    const handleSignOut = () => {
-        auth.signOut()
-            .then(() => {
-                navigation.replace("Login");
-            })
-            .catch((error) => alert(error.message));
+    const handleViewReciepts = () => {
+        navigation.navigate("CompletedOrderScreen");
     };
 
     const handleStartOrder = () => {
-        navigation.navigate("FoodTypeSelectionScreen");
+        navigation.navigate("Order");
     }
 
     return (
         <View style={styles.container}>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-                <Text style={styles.buttonText}>Sign out</Text>
-            </TouchableOpacity>
-
             <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
                 <Text style={styles.buttonText}>Start Order</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleViewReciepts} style={styles.button}>
+                <Text style={styles.buttonText}>View Reciepts</Text>
             </TouchableOpacity>
         </View>
     );
