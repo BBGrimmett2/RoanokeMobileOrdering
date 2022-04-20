@@ -5,7 +5,7 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList } from "reac
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
-    const types = ["Bowl", "Bag", "Cup", "Other", "All"];
+    const types = ["Bowl", "Bag", "Cup", "Other"];
     const renderItem = ({ item }) => {
         return (
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:item})}>
@@ -16,13 +16,17 @@ const FoodTypeSelectionScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={{fontSize:20, marginTop:30}}>Please Select Food Type</Text>
+            <Text style={styles.header}>Please Select Food Type</Text>
             <FlatList 
                 data={types}
                 renderItem={renderItem}
+                numColumns={2}
                 keyExtractor={(index) => index.toString()}
                 styles={styles.list}
-            />   
+            />  
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ItemSelection",{type:"All"})}>
+                <Text style={styles.buttonText}>"All"</Text>
+            </TouchableOpacity> 
         </SafeAreaView>
     );
 };
@@ -35,16 +39,23 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    header: {
+        //flex: 1,
+        borderWidth: 2,
+        borderColor: "black",
+        backgroundColor: "#800000",
+        alignItems: "center",
+        justifyContent: "center",
+    },
     button: {
-        backgroundColor: "#0782F9",
-        width: "100%",
+        backgroundColor: "grey",
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
         marginTop: 40,
     },
     buttonText: {
-        color: "white",
+        color: "black",
         fontWeight: "700",
         fontSize: 16,
     },

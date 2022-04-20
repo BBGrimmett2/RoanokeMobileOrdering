@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import {Image,  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList } from "react-native";
+import {Image,  TouchableOpacity, SafeAreaView, StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
 import React from "react";
 import masterMenu from "../foodlist.js"
 
@@ -25,17 +25,17 @@ const FoodItemSelectionScreen = ({route}) => {
 
     return (
         <SafeAreaView>
-            <View style={style.container}>
+            <View style={style.header}>
                 <Text style={{ fontSize: 50, color: "grey" }}>
                     {type}
                 </Text>
             </View>
-            <View>
+            <ScrollView>
                 <FlatList
                     data={masterMenu}
                     renderItem={renderListItem}
                 />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -43,9 +43,11 @@ const FoodItemSelectionScreen = ({route}) => {
 export default FoodItemSelectionScreen;
 
 const style = StyleSheet.create({
-    container: {
+    header: {
         //flex: 1,
-        backgroundColor: "maroon",
+        borderWidth: 2,
+        borderColor: "black",
+        backgroundColor: "#800000",
         alignItems: "center",
         justifyContent: "center",
     },
@@ -56,7 +58,7 @@ const style = StyleSheet.create({
     listItem: {
         flex: 1,
         borderRadius: 15,
-        backgroundColor: "#61DBFB",
+        backgroundColor: "grey",
         margin: 1,
     },
     pic: {
