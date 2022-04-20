@@ -21,7 +21,7 @@ const FoodItemSelectionScreen = ({route}) => {
                 </TouchableOpacity>
             );
         }
-      };
+    };
 
     return (
         <SafeAreaView>

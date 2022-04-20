@@ -23,7 +23,7 @@ function CompletedOrderScreen() {
             <Text> your order has been submitted</Text>
             <TouchableHighlight
                 onPress={() => {
-                    navigation.navigate("TypeSelection");
+                    navigation.navigate("FoodTypeSelectionScreen");
                 }}
             >
                 <Text> Go Back Home </Text>
