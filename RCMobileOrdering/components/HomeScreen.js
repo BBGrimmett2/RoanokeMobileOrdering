@@ -19,10 +19,6 @@ const itemObj = {
 const HomeScreen = () => {
     const navigation = useNavigation();
 
-    const handleTaskBar = () => {
-        navigation.navigate("TaskBar");
-    }
-
     const handleSignOut = () => {
         auth.signOut()
             .then(() => {
@@ -32,7 +28,7 @@ const HomeScreen = () => {
     };
 
     const handleStartOrder = () => {
-        navigation.navigate("TypeSelection");
+        navigation.navigate("FoodTypeSelectionScreen");
     }
 
     return (

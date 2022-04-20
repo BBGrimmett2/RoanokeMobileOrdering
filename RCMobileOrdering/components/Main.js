@@ -49,6 +49,42 @@ const Main = () => {
             }}
         >
             <Tab.Screen  //make order component to hold order navigation stack
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                top: 0,
+                            }}
+                        >
+                            <Image
+                                // Image found from:
+                                // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
+                                source={require("../assets/home.png")}
+                                resizeMode="contain"
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    // tintColor: focused ? '#e32f45' : '#748c94'
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    color: focused ? "#e32f45" : "#748c94",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Home
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
+            <Tab.Screen  //make order component to hold order navigation stack
                 name="Order"
                 component={Order}
                 options={{
