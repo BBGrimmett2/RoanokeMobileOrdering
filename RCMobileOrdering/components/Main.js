@@ -3,12 +3,10 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import AccountScreen from "./AccountScreen";
-import FoodTypeSelector from "./FoodCategories";
-import FoodListItems from "./FoodListItems";
 import Checkout from "./checkout";
+import Order from "./Order"
 
 const Tab = createBottomTabNavigator();
 
@@ -22,10 +20,10 @@ const Tab = createBottomTabNavigator();
 //https://www.youtube.com/watch?v=gPaBicMaib4
 //made by:
 //Pradip Debnath
-const MyTabs = () => {
+const Main = () => {
     return (
         <Tab.Navigator
-            initialRouteName="TypeSelection"
+            initialRouteName="Order"
             backBehavior="order"
 
             screenOptions={{
@@ -51,9 +49,10 @@ const MyTabs = () => {
             }}
         >
             <Tab.Screen  //make order component to hold order navigation stack
-                name="TypeSelection"
-                component={FoodTypeSelector}
+                name="Order"
+                component={Order}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
@@ -206,4 +205,4 @@ const styles = StyleSheet.create({
 });
 
 //   /* make account order and cart
-export default MyTabs;
+export default Main;

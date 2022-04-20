@@ -1,26 +1,19 @@
 import { useNavigation } from "@react-navigation/core";
-import { NavigationContainer } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
 import {
-    FlatList,
     StyleSheet,
     Text,
     TouchableOpacity,
     View,
-    TouchableHighlight,
     Image,
     ScrollView,
     Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NativeScreenContainer } from "react-native-screens";
 import { fireDB, userID } from "../firebase";
 
-const Item = ({ route }) => {
-    console.log('item');
+const ItemDetailsScreen = ({ route }) => {
     const { itemObj } = route.params;
-    console.log(itemObj);
     const [nutrFacts, handleNFshow] = useState(false);
     const [customize, handleCustomizeshow] = useState(false);
     const navigation = useNavigation();
@@ -43,8 +36,6 @@ const Item = ({ route }) => {
     const addItemToCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
-        userCart.push(itemObj);
-
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: userCart });
     };
@@ -53,7 +44,7 @@ const Item = ({ route }) => {
     const handleAddToCart = async () => {
         addItemToCart();
 
-        navigation.navigate("TypeSelection");
+        navigation.navigate("FoodTypeSelectionScreen");
     };
 
     const handleToCheckout = async () => {
@@ -172,7 +163,7 @@ const Item = ({ route }) => {
     );
 };
 
-export default Item;
+export default ItemDetailsScreen;
 
 var width = Dimensions.get('window').width; //full width
 

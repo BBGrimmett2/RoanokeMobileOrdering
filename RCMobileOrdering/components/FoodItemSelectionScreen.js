@@ -4,14 +4,14 @@ import React from "react";
 import masterMenu from "../foodlist.js"
 
 
-const FoodList = (props) => {
+const FoodItemSelectionScreen = ({route}) => {
     const navigation = useNavigation();
-    console.log(props.type);
+    const {type} = route.params;
 
-    const renderItem = ({ item }) => {
-        if((item.type == props.type) || (props.type == "All")){
+    const renderListItem = ({item}) => {
+        if((item.type == type) || (type == "All")){
             return (
-                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("Item",{itemObj:item})}>
+                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("ItemDetailsScreen", {itemObj:item})}>
                     <Text style={{ fontSize: 30 }}>{item.name}</Text>
                     <Text style={{ fontSize: 30 }}>{item.price}</Text>
                     <Image
@@ -21,43 +21,26 @@ const FoodList = (props) => {
                 </TouchableOpacity>
             );
         }
-      };
+    };
 
     return (
         <SafeAreaView>
             <View style={style.header}>
                 <Text style={{ fontSize: 50, color: "grey" }}>
-                    {props.type}
+                    {type}
                 </Text>
             </View>
             <ScrollView>
                 <FlatList
-                    data={props.list}
-                    //extraData={props.list}
-                    renderItem={renderItem}
-                    /*ItemSeparatorComponent={() => (
-                        <View
-                            style={{ height: 1, backgroundColor: "white" }}
-                        ></View>
-                    )}*/
+                    data={masterMenu}
+                    renderItem={renderListItem}
                 />
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-const FoodOptions = ({route}) => {
-    const {type} = route.params;
-    //const food = [masterMenu.bestdrink,masterMenu.bestfood];
-    //use of masterMenu is temporary. Eventually we want to use firebase.
-    return (
-        <View style={{ height: "100%" }}>
-            <FoodList type={type} list={masterMenu} />
-        </View>
-    );
-};
-
-export default FoodOptions;
+export default FoodItemSelectionScreen;
 
 const style = StyleSheet.create({
     header: {

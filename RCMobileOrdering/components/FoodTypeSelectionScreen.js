@@ -1,16 +1,14 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
-import masterMenu from "../foodlist.js"
-import MyTabs from "./taskbar.js";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
+
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
-    //const foodMasterList = this.props.foodMasterList;
     const types = ["Bowl", "Bag", "Cup", "Other"];
     const renderItem = ({ item }) => {
         return (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ItemSelection",{type:item})}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:item})}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
         );

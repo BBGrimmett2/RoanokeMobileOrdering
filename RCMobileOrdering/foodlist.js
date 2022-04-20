@@ -4,8 +4,8 @@ const masterMenu = [
         type: "Other",
         price: 0,
         description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
-        itemImageFile: "https://drive.google.com/uc?id=1M-jeRMWEN_LOkgbRGiCF7hO6bOtlHXJ9",
-        nFactsPicFile: "https://drive.google.com/uc?id=1h_KM4ED8aKJOKJ_2t8WdokanCMQf76oA",
+        itemImageFile: "https://images2.imgbox.com/89/9c/Ez4Y85PM_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/e7/5f/q2I83tie_o.png",
         custObj: [
             {number: 0, option: "yes"},
             {number: 1, option: "no"},
@@ -17,8 +17,9 @@ const masterMenu = [
         type: "Cup",
         price: 36,
         description: "This will *actually* be the best thing you've ever drank. 10/10 dentists recommend drinking this*. Order it now, coward. *they actually don't, I lied. Pls don't sue us, we're poor college students. :,(",
-        itemImageFile: "https://drive.google.com/uc?id=1VTXwO0it8CyEm0RvvpzV77Mv4-M9n7Br",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        // [URL=http://imgbox.com/Jr4G6ZrM][IMG]https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg[/IMG][/URL]
+        itemImageFile: "https://images2.imgbox.com/02/f1/OtR2hVca_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -31,8 +32,8 @@ const masterMenu = [
         type: "Bag",
         price: 76,
         description: "When we say this is the *bestest* food, we mean it. What's that? You want to know what that means? Order it, find out.",
-        itemImageFile: "https://drive.google.com/uc?id=1TjtSR5xt3m28XvLejOdpnBI5ppYw9H6U",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://thumbs2.imgbox.com/fc/62/OHgPME2I_t.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -45,8 +46,8 @@ const masterMenu = [
         type: "Bowl",
         price: 56,
         description: "Other people may claim to have the best bowl, but have they claimed to have the bestest bowl? I didn't think so. That's because WE have the bestest bowl.",
-        itemImageFile: "https://drive.google.com/uc?id=1KFgayFiUdp4eCmC4h5-A0vK4xZBYRUOv",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://thumbs2.imgbox.com/6b/1c/DEJd4lvE_t.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -59,8 +60,8 @@ const masterMenu = [
         type: "Bowl",
         price: 12,
         description: "This is a soup. It is the most basic soup you could ever imagine.",
-        itemImageFile: "https://drive.google.com/uc?id=1xdl4avfiS85bq0FHCr_J3662WpXTDMhe",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/5f/4d/aZisRmjn_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -73,8 +74,8 @@ const masterMenu = [
         type: "Bag",
         price: 9000,
         description: "Winner of the 2022 competition of baggiest foods. Recommened by 11/10 of the world's leading bagologists.",
-        itemImageFile: "https://drive.google.com/uc?id=1hPG_fwgOrqkvNNQEu7hXMFfq5HU2_tL7",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/cd/0c/SufR0FN8_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -88,8 +89,8 @@ const masterMenu = [
         type: "Cup",
         price: 175,
         description: "Drink it, I promise it's good.",
-        itemImageFile: "https://drive.google.com/uc?id=1X5sov5SfOaQSpkSXgtKZ0DEP_W9h9vsZ",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/d3/c0/ghHSzLNv_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "add so much flavor"},
             {number: 1, option: "make it so colorful"},
@@ -102,8 +103,8 @@ const masterMenu = [
         type: "Cup",
         price: 3,
         description: "this is a shot of vodka.",
-        itemImageFile: "https://drive.google.com/uc?id=11MEU2WCUKsJXENQsmlkJczOa4lgNhyrE",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/36/c0/1Ub5OSyW_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "another shot"},
             {number: 1, option: "10% more alcohol"},
@@ -116,8 +117,8 @@ const masterMenu = [
         type: "Bowl",
         price: 1,
         description: "this is just a bowl, like the name says. Just your average, run of the mill bowl. There is DEFINITELY nothing at all suspicious about this bowl.",
-        itemImageFile: "https://drive.google.com/uc?id=1dvOLso6l5ZEmT5xJAdHFfUtgsjc_GNg-",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/df/d4/eW4Xnw0L_o.jpg",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "even more bowl"},
             {number: 1, option: "bowlier?"},
@@ -129,7 +130,7 @@ const masterMenu = [
         type: "Cup",
         price: 10,
         description: "Drink cactus juice. It'll quench ya. Nothing is quenchier. It's the quenchiest!",
-        itemImageFile: "https://drive.google.com/uc?id=1k3hCk6AEI_x0ol_Z4kaGpEUUK9euHcIC",
+        itemImageFile: "https://images2.imgbox.com/85/4a/WJq1xaLS_o.jpg",
         nFactsPicFile: "https://drive.google.com/uc?id=1RSimjExQMIZlu4CXg4nR4G_HQL7HrJpm",
         custObj: [
             {number: 0, option: "quenchier"},
@@ -141,8 +142,8 @@ const masterMenu = [
         type: "Other",
         price: 10,
         description: "Order it now, coward.",
-        itemImageFile: "https://drive.google.com/uc?id=1y2iGOyDSU-KQqpb2QdDEdb0-V8z-fmKW",
-        nFactsPicFile: "https://drive.google.com/uc?id=1I3MkETA34idwdTMEtXfdRCGS0ZYkLqou",
+        itemImageFile: "https://images2.imgbox.com/02/c3/XQZ1f6Td_o.png",
+        nFactsPicFile: "https://images2.imgbox.com/02/c3/XQZ1f6Td_o.png",
         custObj: [
             {number: 0, option: "?"},
             {number: 1, option: "??"},
@@ -153,44 +154,5 @@ const masterMenu = [
     },
 ];
 
-/*const masterMenu = {
-    fooditems: {
-        wrap1: {
-            type: "Bag",
-            description: "good wrap 1",
-            price: 10
-        },
-        wrap2: {
-            type: "Bag",
-            description: "good wrap 2",
-            price: 10
-        },
-        flatbread: {
-            type: "Bag",
-            description: "good flatbread",
-            price: 12
-        },
-        smoothie: {
-            type: "Cup",
-            description: "good smoothie",
-            price: 27
-        },
-        beverage: {
-            type: "Cup",
-            description: "good beverage",
-            price: 2
-        },
-        ricebowl: {
-            type: "Bowl",
-            description: "good rice",
-            price: 7
-        },
-        salad: {
-            type: "Bowl",
-            description: "good green",
-            price: 9
-        }
-    }
-};*/
 
 export default masterMenu;
