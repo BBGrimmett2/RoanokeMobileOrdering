@@ -24,7 +24,7 @@ const Item = ({ route }) => {
     const [nutrFacts, handleNFshow] = useState(false);
     const [customize, handleCustomizeshow] = useState(false);
     const navigation = useNavigation();
-    const [userCart, setuserCart] = useState([]);
+    const [userCart, setuserCart] = useState(itemObj);
 
     function showNF() {
         handleNFshow((nutrFacts) => !nutrFacts);
@@ -41,28 +41,28 @@ const Item = ({ route }) => {
     };
 
     const addItemToCart = async () => {
+        console.log("addItemToCart");
         const userRef = fireDB.collection("users").doc(userID);
 
-        userCart.push(itemObj);
 
         // Set the 'userID' field of the cart
-        const res = await userRef.update({ cart: userCart });
+        const res = await userRef.update({ cart: [userCart] });
     };
 
 
-    const handleAddToCart = async () => {
+    const handleAddToCart = () => {
+        console.log("handleAddToCart");
         addItemToCart();
 
         navigation.navigate("TypeSelection");
     };
 
-    const handleToCheckout = async () => {
+    const handleToCheckout = () => {
+        console.log("handleToCheckout");
         addItemToCart();
 
         navigation.navigate("Cart");
     };
-
-    console.log("user cart: " + userCart);
 
     // handling customization selections
     let tempBool = [];

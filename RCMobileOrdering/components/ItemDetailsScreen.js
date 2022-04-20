@@ -36,6 +36,8 @@ const ItemDetailsScreen = ({ route }) => {
     const addItemToCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
+        userCart.push(itemObj);
+
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: userCart });
     };
@@ -53,7 +55,10 @@ const ItemDetailsScreen = ({ route }) => {
         navigation.navigate("Cart");
     };
 
-    console.log("user cart: " + userCart);
+    // Getting FireStore cart
+    getData().then((data) => {
+        setuserCart(data.cart);
+    });
 
     // handling customization selections
     let tempBool = [];

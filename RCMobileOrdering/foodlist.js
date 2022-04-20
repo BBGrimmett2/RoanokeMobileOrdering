@@ -1,6 +1,7 @@
 const masterMenu = [
     {
         name: "default item",
+        id: 0,
         type: "Other",
         price: 0,
         description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",

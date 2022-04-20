@@ -32,7 +32,7 @@ import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
 
 const Cart = () => {
-    let [cart, setCart] = useState([]);
+    let [cart, setCart] = useState();
 
     const navigation = useNavigation();
 
@@ -46,6 +46,13 @@ const Cart = () => {
     getData().then((data) => {
         setCart(data.cart);
     });
+
+    const updateFirestoreCart = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        // Set the 'userID' field of the cart
+        const res = await userRef.update({ cart: cart });
+    };
 
 
     const deleteHandler = (index) => {
@@ -61,11 +68,11 @@ const Cart = () => {
                     text: "Delete",
 
                     onPress: () => {
-                        let updatedCart = cartItems; /* Clone it first */
+                        let updatedCart = cart; /* Clone it first */
 
                         if (updatedCart.length === 1) {
                             updatedCart.length = 0;
-                            setCartItems([]);
+                            setCart([]);
                         } else {
                             updatedCart.splice(
                                 index,
@@ -73,7 +80,9 @@ const Cart = () => {
                             ); /* Remove item from the cloned cart state */
                         }
 
-                        setCartItems(updatedCart); /* Update the state */
+                        setCart(updatedCart); /* Update the state */
+
+                        updateFirestoreCart();
                     },
                 },
             ]
@@ -96,7 +105,7 @@ const Cart = () => {
         <View style={styles.container}>
             <FlatList
                 data={cart}
-                keyExtractor={(item) => item.id}
+                // keyExtractor={(item) => item.id}
                 extraData={cart}
                 ListEmptyComponent={emptyComponent}
                 renderItem={({ item }) => (
@@ -110,7 +119,7 @@ const Cart = () => {
                             </View>
                             <View style={styles.cartItemInformationContainer}>
                                 <Text>{item.name}</Text>
-                                <Text>${item.salePrice}</Text>
+                                <Text>${item.price}</Text>
                             </View>
                         </View>
 
