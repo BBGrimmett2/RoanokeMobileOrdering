@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList, Dimensions} from "react-native";
 
 
 const FoodTypeSelectionScreen = () => {
@@ -33,12 +33,15 @@ const FoodTypeSelectionScreen = () => {
 
 export default FoodTypeSelectionScreen;
 
+
+var width = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
     container: {
         //flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        width: "100%"
+        width: width,
     },
     header: {
         //flex: 1,
