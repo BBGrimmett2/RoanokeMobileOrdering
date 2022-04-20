@@ -1,9 +1,3 @@
-// Luke notes: in itemScreen.js use the functions to add to cart.
-// get tab bar working in all screens
-// checkout firebase
-// cleanup
-// checkout screen congrats should go back to original list
-
 /*
 Adopted From:
 Carl Victor Fontanos
