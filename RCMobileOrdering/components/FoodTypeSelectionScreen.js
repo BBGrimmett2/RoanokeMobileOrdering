@@ -16,7 +16,9 @@ const FoodTypeSelectionScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.header}>Please Select Food Type</Text>
+            <View style={styles.header}>
+            <Text style={{ fontSize: 50, color: "grey" }}>Please Select Food Type</Text>
+            </View>
             <FlatList 
                 data={types}
                 renderItem={renderItem}
