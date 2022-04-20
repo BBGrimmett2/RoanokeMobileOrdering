@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
 
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
