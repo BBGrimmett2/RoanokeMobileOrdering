@@ -84,7 +84,7 @@ const Cart = () => {
     };
 
     const handleCompltedOrder = () => {
-        navigation.navigate("CompletedOrderScreen");
+        navigation.navigate("CompletedOrderScreen", {cart:cart}); 
     };
 
     const emptyComponent = () => {
