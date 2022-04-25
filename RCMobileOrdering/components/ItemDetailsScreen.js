@@ -12,6 +12,9 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { fireDB, userID } from "../firebase";
 
+// get data for receipts. 
+// all the info should be here.
+
 const ItemDetailsScreen = ({ route }) => {
     const { itemObj } = route.params;
     const [nutrFacts, handleNFshow] = useState(false);

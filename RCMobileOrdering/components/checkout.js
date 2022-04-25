@@ -25,10 +25,13 @@ import { useNavigation } from "@react-navigation/core";
 import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
 
+
+//cart gets data when renderd
 const Cart = () => {
     let [cart, setCart] = useState();
 
     const navigation = useNavigation();
+    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
@@ -84,7 +87,7 @@ const Cart = () => {
     };
 
     const handleCompltedOrder = () => {
-        navigation.navigate("CompletedOrderScreen", {cart:cart}); 
+        navigation.navigate("CompletedOrderScreen", { cart });
     };
 
     const emptyComponent = () => {
@@ -133,6 +136,8 @@ const Cart = () => {
                 )}
             />
             <View style={styles.buttonContainer}>
+                {/* price could go here. */}
+                <Text>Total: ${result}</Text>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => handleCompltedOrder()}
