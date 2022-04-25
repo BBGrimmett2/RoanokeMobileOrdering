@@ -1,0 +1,16 @@
+Brian:
+Delete Handler in checkout screen
+Android Emulator
+
+Dee:
+Icon for taskbar
+Break the app throw into github issues
+
+Davis:
+Reciept
+
+Luke:
+Clean code
+
+Sonny:
+Implement CSS CartScreen to ItemSelectionScreen
