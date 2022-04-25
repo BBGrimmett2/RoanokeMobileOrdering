@@ -15,11 +15,11 @@ function CompletedOrderScreen() {
     return (
         <View style={styles.screen}>
             <View style={styles.text}>
-                <Text style={{fontSize:20, fontWeight:700}}> Your order has been submitted</Text>
+                <Text style={{fontSize:20, fontWeight:"700", color: "#FFFFFF"}}> Your order has been submitted</Text>
             </View>
             <TouchableHighlight
                 onPress={() => {
-                    navigation.navigate("FoodTypeSelectionScreen");
+                    navigation.navigate("HomeComponent");
                 }}
             >
                 <Text> Go Back Home </Text>
@@ -44,5 +44,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#800000",
         alignItems: "center",
         justifyContent: "center",
+        color: "#FFFFFF"
     }
 });
