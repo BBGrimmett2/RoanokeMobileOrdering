@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './components/LoginScreen';
 import Main from './components/Main';
 
-LogBox.ignoreLogs(['Setting a timer']);
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 function App() {
