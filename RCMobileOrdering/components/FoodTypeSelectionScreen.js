@@ -7,13 +7,14 @@ import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, FlatList, Dimen
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     const types = ["Bowl", "Bag", "Cup", "Other"];
-    const renderItem = ({ item }) => {
+
+    const renderTypeButton = ({ item }) => {
         return (
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:item})}>
             <Text style={styles.buttonText}>{item}</Text>
           </TouchableOpacity>
         );
-      };
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -22,9 +23,9 @@ const FoodTypeSelectionScreen = () => {
             </View>
             <FlatList 
                 data={types}
-                renderItem={renderItem}
+                renderItem={renderTypeButton}
                 numColumns={2}
-                keyExtractor={(index) => index.toString()}
+                keyExtractor={(type) => type.toString()}
                 styles={styles.list}
             />  
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:"All"})}>

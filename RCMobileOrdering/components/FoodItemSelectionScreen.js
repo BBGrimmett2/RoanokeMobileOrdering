@@ -30,12 +30,13 @@ const FoodItemSelectionScreen = ({route}) => {
                     {type}
                 </Text>
             </View>
-            <ScrollView>
+            <View>
                 <FlatList
                     data={masterMenu}
                     renderItem={renderListItem}
+                    keyExtractor={(item) => item.name}
                 />
-            </ScrollView>
+            </View>
         </SafeAreaView>
     );
 };

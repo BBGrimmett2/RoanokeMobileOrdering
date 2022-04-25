@@ -28,7 +28,7 @@ const getData = async () => {
     userCart = data.cart;
   });
 
-const AccountPage = () => {
+const AccountScreen = () => {
     let [name, setName] = useState();
     let [email, setEmail] = useState();
     let [swipes, setSwipes] = useState();
@@ -56,7 +56,7 @@ const AccountPage = () => {
     const handleSignOut = () => {
         auth.signOut()
             .then(() => {
-                navigation.replace("Login");
+                navigation.replace("LoginScreen");
             })
             .catch((error) => alert(error.message));
     };
@@ -91,7 +91,7 @@ const AccountPage = () => {
     );
 };
 
-export default AccountPage;
+export default AccountScreen;
 
 const styles = StyleSheet.create({
     header: {
