@@ -100,7 +100,7 @@ const Main = () => {
                             <Image
                                 // Image found from:
                                 // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
-                                source={require("../assets/home.png")}
+                                source={require("../assets/orderIcon.jpg")}
                                 resizeMode="contain"
                                 style={{
                                     width: 25,
