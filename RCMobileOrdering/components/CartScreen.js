@@ -22,10 +22,9 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
-import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
 
-const Cart = () => {
+const CartScreen = () => {
     let [cart, setCart] = useState();
 
     const navigation = useNavigation();
@@ -96,42 +95,44 @@ const Cart = () => {
         );
     };
 
+    const renderCartItem = ({item}) => {
+        return (
+            <View style={styles.cartItems}>
+                <View style={styles.cartItemContainer}>
+                    <Image
+                        style={styles.cartItemImage}
+                        source={{ uri: item.itemImageFile }}
+                    />
+                    <View style={styles.cartItemInformationContainer}>
+                        <Text>{item.name}</Text>
+                        <Text>${item.price}</Text>
+                    </View>
+                </View>
+
+                <View style={styles.iconContainer}>
+                    <TouchableOpacity
+                        style={styles.cartTrashIcon}
+                        onPress={() => deleteHandler(item.id)}
+                    >
+                        <Ionicons
+                            name="md-trash"
+                            size={30}
+                            color="#800000"
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <FlatList
                 data={cart}
-                // keyExtractor={(item) => item.id}
                 extraData={cart}
                 ListEmptyComponent={emptyComponent}
-                renderItem={({ item }) => (
-                    <View style={styles.cartItems}>
-                        <View style={styles.cartItemContainer}>
-                            <View>
-                                <Image
-                                    style={styles.cartItemImage}
-                                    source={{ uri: item.itemImageFile }}
-                                />
-                            </View>
-                            <View style={styles.cartItemInformationContainer}>
-                                <Text>{item.name}</Text>
-                                <Text>${item.price}</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.iconContainer}>
-                            <TouchableOpacity
-                                style={styles.cartTrashIcon}
-                                onPress={() => deleteHandler(item.id)}
-                            >
-                                <Ionicons
-                                    name="md-trash"
-                                    size={30}
-                                    color="#800000"
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                )}
+                keyExtractor={(item) => item.name}
+                renderItem={renderCartItem}
             />
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
@@ -144,6 +145,8 @@ const Cart = () => {
         </View>
     );
 };
+
+export default CartScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -224,4 +227,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Cart;
+
