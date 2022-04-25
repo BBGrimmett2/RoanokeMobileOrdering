@@ -7,6 +7,7 @@ Break the app throw into github issues
 
 Davis:
 Reciept
+total price on checkout page - done.
 
 Luke:
 Delete Handler in checkout screen
