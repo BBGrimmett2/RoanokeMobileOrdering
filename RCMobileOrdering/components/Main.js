@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AccountScreen from "./AccountScreen";
-import Checkout from "./checkout";
+import CartScreen from "./CartScreen";
 import Order from "./Order"
 import HomeComponent from "./HomeComponent";
 
@@ -122,7 +122,7 @@ const Main = () => {
             />
             <Tab.Screen
                 name="Cart"
-                component={Checkout}
+                component={CartScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View
