@@ -26,7 +26,7 @@ import { auth, fireDB, userID } from "../firebase";
 
 const CartScreen = () => {
     let [cart, setCart] = useState();
-
+    let totalprice = 0;
     const navigation = useNavigation();
 
     const getData = async () => {
@@ -96,7 +96,6 @@ const CartScreen = () => {
     };
 
     const renderCartItem = ({item,index}) => {
-        //console.log(item.id);
         return (
             <View style={styles.cartItems}>
                 <View style={styles.cartItemContainer}>
