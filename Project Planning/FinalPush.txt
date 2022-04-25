@@ -1,5 +1,4 @@
 Brian:
-Delete Handler in checkout screen
 Android Emulator
 
 Dee:
