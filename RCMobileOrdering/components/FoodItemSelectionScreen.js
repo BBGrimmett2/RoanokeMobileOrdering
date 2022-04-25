@@ -81,6 +81,7 @@ const style = StyleSheet.create({
         flexGrow: 1,
         flexShrink: 1,
         alignSelf: "center",
+        justifyContent: "center",
     },
     listItemInformationContainer: {
         alignSelf: "center",
