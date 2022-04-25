@@ -19,24 +19,25 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import masterMenu from "../foodlist.js"
 import { useState } from 'react';
 
+
+
+//use a function that adds the same things to firebase that it does to the
+//screen.
+
+//pull from firebase? or use the cart parameter?
+//also put total price in checkout screen.
+
 const CompletedOrderScreen = ({ route }) => {
     const navigation = useNavigation();
     const { cart } = route.params;
-    const [totalCost, setTotalCost] = useState(0);
-    console.log(cart);
-    const result = cart.reduce((total, currentValue) => total = total + currentValue.price,0);
-    console.log(result);
    
+    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
-    const renderListItem = ({item}) => { //whats showing up in the terminal and what is showing up in the app are different.
-        // might be a problem. need to talk about with the group tomorrow. dont know why that is happening???????
-        //setTotalCost(totalCost+item.price);
-        if(true){
+    const renderListItem = ({ item }) => {
+        if (true) {
             return (
-                <TouchableOpacity onPress={() => navigation.navigate("ItemDetailsScreen", {itemObj:item})}>
+                <TouchableOpacity onPress={() => navigation.navigate("ItemDetailsScreen", { itemObj: item })}>
                     <Text>{item.name} ${item.price}</Text>
-                    {/* <Text style={{ fontSize: 30 }}>{item.price}</Text> */}
-                    
                 </TouchableOpacity>
             );
         }
@@ -47,26 +48,15 @@ const CompletedOrderScreen = ({ route }) => {
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center", top: 10 }}>
             <Text> RC Mobile Order </Text>
             <Text> Receipt </Text>
-            
-          
-            {/* //========================= */}
+           
+            <ScrollView>
+                <FlatList
+                    data={cart}
+                    renderItem={renderListItem}
+                />
+            </ScrollView>
 
-            {/* //starting new stuff ================== */}
-           
-           
-            {/* <SafeAreaView> */}
-                  
-               
-                <ScrollView>
-                    <FlatList
-                        data={masterMenu}
-                        renderItem={renderListItem}
-                    />
-                </ScrollView>
-                
-                
-            {/* </SafeAreaView> */}
-            <Text>Total: ${result}</Text> 
+            <Text>Total: ${result}</Text>
             <TouchableHighlight
                 onPress={() => {
                     navigation.navigate("HomeScreen");
@@ -74,52 +64,12 @@ const CompletedOrderScreen = ({ route }) => {
             >
                 <Text> Go Back Home </Text>
             </TouchableHighlight>
-            {/* make a function that calculates total cost and make it look pretty */}
-            {/* //==================== */}
         </View>
 
     );
 }
 
-//shenaganis start here ------------------ /*
-{/*
-const FoodItemSelectionScreen = ({route}) => {
-    const navigation = useNavigation();
-    const {type} = route.params;
 
-    const renderListItem = ({item}) => {
-        if((item.type == type) || (type == "All")){
-            return (
-                <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("ItemDetailsScreen", {itemObj:item})}>
-                    <Text style={{ fontSize: 30 }}>{item.name}</Text>
-                    <Text style={{ fontSize: 30 }}>{item.price}</Text>
-                    <Image
-                        style={style.pic}
-                        source={{uri: item.itemImageFile}}
-                    />
-                </TouchableOpacity>
-            );
-        }
-    };
-
-    return (
-        <SafeAreaView>
-            <View style={style.header}>
-                <Text style={{ fontSize: 50, color: "grey" }}>
-                    {type}
-                </Text>
-            </View>
-            <ScrollView>
-                <FlatList
-                    data={masterMenu}
-                    renderItem={renderListItem}
-                />
-            </ScrollView>
-        </SafeAreaView>
-    );
-};
-
-*/}
 export default CompletedOrderScreen;
 
 const style = StyleSheet.create({
