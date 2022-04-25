@@ -12,6 +12,7 @@ const FoodItemSelectionScreen = ({route}) => {
         if((item.type == type) || (type == "All")){
             return (
                 <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("ItemDetailsScreen", {itemObj:item})}>
+                    <View style={style.listItems}>
                     <View style={style.listItemContainer}>
                         <Image
                             style={style.pic}
@@ -21,6 +22,7 @@ const FoodItemSelectionScreen = ({route}) => {
                             <Text style={{ fontSize: 30 }}>{item.name}</Text>
                             <Text style={{ fontSize: 30 }}>${item.price}</Text>
                         </View>
+                    </View>
                     </View>
                 </TouchableOpacity>
             );
@@ -71,7 +73,6 @@ const style = StyleSheet.create({
         marginLeft: 20,
         height: 60,
         width: 60,
-        backgroundColor: "#eeeeee",
     },
     listItemContainer: {
         flexDirection: "row",
@@ -82,5 +83,10 @@ const style = StyleSheet.create({
     listItemInformationContainer: {
         alignSelf: "center",
         paddingLeft: 20,
+    },
+    listItems: {
+        flexDirection: "row",
+        backgroundColor: "#fff",
+        height: 120,
     },
 });
