@@ -27,7 +27,7 @@ const FoodTypeSelectionScreen = () => {
                 keyExtractor={(index) => index.toString()}
                 styles={styles.list}
             />  
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:"All"})}>
+            <TouchableOpacity style={styles.buttonAll} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:"All"})}>
                 <Text style={styles.buttonText}>All</Text>
             </TouchableOpacity> 
         </SafeAreaView>
@@ -56,15 +56,24 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "grey",
+        width: "50%",
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
-        marginTop: 40,
+        marginTop: 10
+    },
+    buttonAll: {
+        backgroundColor: "grey",
+        width: "100%",
+        padding: 15,
+        borderRadius: 10,
+        alignItems: "center",
+        marginTop: 10,
     },
     buttonText: {
         color: "black",
         fontWeight: "700",
-        fontSize: 16,
+        fontSize: 30,
     },
     list: {
         flex: 1,
