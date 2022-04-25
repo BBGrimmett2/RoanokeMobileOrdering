@@ -96,6 +96,7 @@ const CartScreen = () => {
     };
 
     const renderCartItem = ({item}) => {
+        //console.log(item.id);
         return (
             <View style={styles.cartItems}>
                 <View style={styles.cartItemContainer}>
@@ -131,7 +132,7 @@ const CartScreen = () => {
                 data={cart}
                 extraData={cart}
                 ListEmptyComponent={emptyComponent}
-                keyExtractor={(item) => item.name}
+                //keyExtractor={(item) => item.name}
                 renderItem={renderCartItem}
             />
             <View style={styles.buttonContainer}>
