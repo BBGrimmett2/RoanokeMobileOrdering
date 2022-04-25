@@ -68,6 +68,7 @@ const Cart = () => {
                             updatedCart.length = 0;
                             setCart([]);
                         } else {
+                            console.log("index: "+ index);
                             updatedCart.splice(
                                 index,
                                 1
