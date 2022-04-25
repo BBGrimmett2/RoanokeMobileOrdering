@@ -19,7 +19,7 @@ function CompletedOrderScreen() {
     return (
         <View style={styles.screen}>
             <View style={styles.text}>
-                <Text style={{fontSize:20, fontWeight:700}}> Your order has been submitted</Text>
+                <Text style={{fontSize:20, fontWeight:"700"}}> Your order has been submitted</Text>
             </View>
             <TouchableHighlight
                 onPress={() => {
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         height: '20%',
         width: '50%',
         borderWidth: 1,
+        borderRadius: 10,
         borderColor: "black",
         backgroundColor: "#800000",
         alignItems: "center",
