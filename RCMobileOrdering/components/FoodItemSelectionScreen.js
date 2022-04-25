@@ -88,7 +88,7 @@ const style = StyleSheet.create({
     },
     flatlist: {
         marginBottom: 150 //fix better later not using margin
-    }
+    },
     listItems: {
         flexDirection: "row",
         backgroundColor: "#fff",
