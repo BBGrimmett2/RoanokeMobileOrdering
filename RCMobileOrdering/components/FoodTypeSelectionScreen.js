@@ -7,12 +7,20 @@ import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, FlatList, Dimen
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     const types = ["Bowl", "Bag", "Cup", "Other"];
+    const typeImages = {
+        Bowl: "https://images2.imgbox.com/39/b2/1tYWXtWH_o.png",
+        Bag: "https://images2.imgbox.com/5a/18/b9TzH6GM_o.png",
+        Cup: "https://images2.imgbox.com/cb/10/1H9YOGAF_o.png",
+        Other: "https://images2.imgbox.com/c6/c2/uCUpXGn9_o.png",
+        All: "https://images2.imgbox.com/9c/f2/sS7zcjLV_o.png"
+    };
 
     const renderTypeButton = ({item}) => {
         const type = item;
         return (
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:type})}>
             <Text style={styles.buttonText}>{type}</Text>
+            {/* <Image source={{uri: typeImages.item}} /> */}
           </TouchableOpacity>
         );
     };
