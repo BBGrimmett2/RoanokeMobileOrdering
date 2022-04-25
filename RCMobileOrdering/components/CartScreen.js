@@ -95,7 +95,7 @@ const CartScreen = () => {
         );
     };
 
-    const renderCartItem = ({item}) => {
+    const renderCartItem = ({item,index}) => {
         //console.log(item.id);
         return (
             <View style={styles.cartItems}>
@@ -113,7 +113,7 @@ const CartScreen = () => {
                 <View style={styles.iconContainer}>
                     <TouchableOpacity
                         style={styles.cartTrashIcon}
-                        onPress={() => deleteHandler(item.id)}
+                        onPress={() => deleteHandler(index)}
                     >
                         <Ionicons
                             name="md-trash"

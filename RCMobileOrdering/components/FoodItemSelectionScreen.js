@@ -39,6 +39,7 @@ const FoodItemSelectionScreen = ({route}) => {
                     data={masterMenu}
                     renderItem={renderListItem}
                     keyExtractor={(item) => item.name}
+                    style={style.flatlist}
                 />
             </View>
         </SafeAreaView>
@@ -83,4 +84,7 @@ const style = StyleSheet.create({
         alignSelf: "center",
         paddingLeft: 20,
     },
+    flatlist: {
+        marginBottom: 150 //fix better later not using margin
+    }
 });
