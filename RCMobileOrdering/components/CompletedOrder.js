@@ -19,7 +19,7 @@ function CompletedOrderScreen() {
             </View>
             <TouchableHighlight
                 onPress={() => {
-                    navigation.navigate("HomeComponent");
+                    navigation.navigate("HomeScreen");
                 }}
             >
                 <Text> Go Back Home </Text>

@@ -9,6 +9,7 @@ Davis:
 Reciept
 
 Luke:
+Delete Handler in checkout screen
 Clean code
 
 Sonny:

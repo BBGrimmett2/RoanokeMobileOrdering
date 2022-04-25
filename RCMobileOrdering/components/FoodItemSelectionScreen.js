@@ -12,12 +12,18 @@ const FoodItemSelectionScreen = ({route}) => {
         if((item.type == type) || (type == "All")){
             return (
                 <TouchableOpacity style={style.listItem} onPress={() => navigation.navigate("ItemDetailsScreen", {itemObj:item})}>
-                    <Text style={{ fontSize: 30 }}>{item.name}</Text>
-                    <Text style={{ fontSize: 30 }}>{item.price}</Text>
-                    <Image
-                        style={style.pic}
-                        source={{uri: item.itemImageFile}}
-                    />
+                    <View style={style.listItems}>
+                    <View style={style.listItemContainer}>
+                        <Image
+                            style={style.pic}
+                            source={{ uri: item.itemImageFile }}
+                        />
+                        <View style={style.listItemInformationContainer}>
+                            <Text style={{ fontSize: 30 }}>{item.name}</Text>
+                            <Text style={{ fontSize: 30 }}>${item.price}</Text>
+                        </View>
+                    </View>
+                    </View>
                 </TouchableOpacity>
             );
         }
@@ -35,6 +41,7 @@ const FoodItemSelectionScreen = ({route}) => {
                     data={masterMenu}
                     renderItem={renderListItem}
                     keyExtractor={(item) => item.name}
+                    style={style.flatlist}
                 />
             </View>
         </SafeAreaView>
@@ -64,12 +71,27 @@ const style = StyleSheet.create({
         margin: 1,
     },
     pic: {
-        //borderColor: "#0782F9",
-        //borderWidth: 3,
-        borderRadius: 10,
-        height: 40,
-        flex: 1,
-        width: null,
-        resizeMode:  "contain",
+        marginLeft: 20,
+        height: 60,
+        width: 60,
+        alignSelf: "flex-start"
+    },
+    listItemContainer: {
+        flexDirection: "row",
+        flexGrow: 1,
+        flexShrink: 1,
+        alignSelf: "center",
+    },
+    listItemInformationContainer: {
+        alignSelf: "center",
+        paddingLeft: 20,
+    },
+    flatlist: {
+        marginBottom: 150 //fix better later not using margin
+    },
+    listItems: {
+        flexDirection: "row",
+        backgroundColor: "#fff",
+        height: 120,
     },
 });

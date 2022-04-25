@@ -8,10 +8,11 @@ const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     const types = ["Bowl", "Bag", "Cup", "Other"];
 
-    const renderTypeButton = ({ item }) => {
+    const renderTypeButton = ({item}) => {
+        const type = item;
         return (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:item})}>
-            <Text style={styles.buttonText}>{item}</Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:type})}>
+            <Text style={styles.buttonText}>{type}</Text>
           </TouchableOpacity>
         );
     };
@@ -19,7 +20,7 @@ const FoodTypeSelectionScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-            <Text style={{ fontSize: 50, color: "grey" }}>Please Select Food Type</Text>
+                <Text style={{ fontSize: 50, color: "grey" }}>Please Select Food Type</Text>
             </View>
             <FlatList 
                 data={types}
