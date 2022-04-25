@@ -53,6 +53,7 @@ const LoginScreen = () => {
     };
     return (
         <View style={styles.container} behavior="padding">
+            <Text style={styles.title}>Roanoke College Mobile Ordering!</Text>
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder="Email"
@@ -91,6 +92,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    title: {
+        fontSize: 22,
+        fontWeight: "600",
+        marginBottom: 50,
+    },
     inputContainer: {
         width: "80%",
     },
@@ -108,7 +114,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
     },
     button: {
-        backgroundColor: "#0782F9",
+        backgroundColor: "#800000",
         width: "100%",
         padding: 15,
         borderRadius: 10,
@@ -117,7 +123,7 @@ const styles = StyleSheet.create({
     buttonOutline: {
         backgroundColor: "white",
         marginTop: 5,
-        borderColor: "#0782F9",
+        borderColor: "#800000",
         borderWidth: 2,
     },
     buttonText: {
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     buttonOutlineText: {
-        color: "#0782F9",
+        color: "#800000",
         fontWeight: "700",
         fontSize: 16,
     },
