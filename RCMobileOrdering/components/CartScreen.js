@@ -23,6 +23,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import { auth, fireDB, userID } from "../firebase";
+import CompletedOrderScreen from "./CompletedOrder";
 //const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
 const CartScreen = () => {

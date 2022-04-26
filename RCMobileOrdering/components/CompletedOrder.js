@@ -80,7 +80,7 @@ const CompletedOrderScreen = ({ route }) => {
 
     return (
         //everything written that we like so far. =========
-        <View style={styles.screen}>
+        <View>
            
             <ScrollView>
             <Text> RC Mobile Order </Text>
