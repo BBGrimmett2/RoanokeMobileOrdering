@@ -24,15 +24,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
-
+//const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
 //cart gets data when renderd
 const Cart = () => {
     let [cart, setCart] = useState();
 
     const navigation = useNavigation();
-    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
-
+    let [totalPrice, setTotalPrice] = useState(0);
+   
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
@@ -42,6 +42,7 @@ const Cart = () => {
 
     getData().then((data) => {
         setCart(data.cart);
+        setTotalPrice(cart.reduce((total, currentValue) => total = total + currentValue.price, 0));
     });
 
     const updateFirestoreCart = async () => {
@@ -86,7 +87,21 @@ const Cart = () => {
         );
     };
 
+{/*}
+    const addItemToReceipts = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        userReceipts.push(cart);
+
+        // Set the 'userID' field of the cart
+        const res = await userRef.update({ Receipts: userReceipts });
+    }; //ADDED THIS
+
+*/}
+
     const handleCompltedOrder = () => {
+        //can i push a recept onto the database from here? Think I can.
+        // addItemToReceipts(); //ADDED THIS
         navigation.navigate("CompletedOrderScreen", { cart });
     };
 
@@ -104,7 +119,7 @@ const Cart = () => {
                 data={cart}
                 // keyExtractor={(item) => item.id}
                 extraData={cart}
-                ListEmptyComponent={emptyComponent}
+                ListEmptyComponent={emptyComponent} //can use for reciept screen
                 renderItem={({ item }) => (
                     <View style={styles.cartItems}>
                         <View style={styles.cartItemContainer}>
@@ -137,7 +152,7 @@ const Cart = () => {
             />
             <View style={styles.buttonContainer}>
                 {/* price could go here. */}
-                <Text>Total: ${result}</Text>
+                <Text>Total: ${totalPrice}</Text>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => handleCompltedOrder()}
