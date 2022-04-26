@@ -25,9 +25,9 @@ import { fireDB, userID } from "../firebase";
 
 const CompletedOrderScreen = ({ route }) => {
     const navigation = useNavigation();
-    //const { cart } = route.params;
+    const { routeCart } = route.params;
    
-    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
+    const result = routeCart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
     const renderListItem = ({ item }) => {
         if (true) {
@@ -40,7 +40,7 @@ const CompletedOrderScreen = ({ route }) => {
     };
 
     let emptyCart = [];
-    let [cart, setCart] = useState();
+    let [UserCart, setUserCart] = useState();
     let [userReceipts, setReceipts] = useState([]);
 
     const getData = async () => {
@@ -51,7 +51,7 @@ const CompletedOrderScreen = ({ route }) => {
     };
 
     getData().then((data) => {
-        setCart(data.cart);
+        setUserCart(data.cart);
         setReceipts(data.receipts);
     });
     
@@ -76,7 +76,7 @@ const CompletedOrderScreen = ({ route }) => {
            
             <ScrollView>
                 <FlatList
-                    data={cart}
+                    data={UserCart}
                     renderItem={renderListItem}
                 />
             </ScrollView>

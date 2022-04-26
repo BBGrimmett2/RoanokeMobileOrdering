@@ -40,7 +40,8 @@ const CartScreen = () => {
 
     getData().then((data) => {
         setCart(data.cart);
-        setTotalPrice(cart.reduce((total, currentValue) => total = total + currentValue.price, 0));
+        // setTotalPrice(cart.reduce((total, currentValue) => total = total + currentValue.price, 0));
+        // console.log(totalPrice);
     });
 
     const updateFirestoreCart = async () => {
@@ -101,7 +102,7 @@ const CartScreen = () => {
     const handleCompltedOrder = () => {
         //can i push a recept onto the database from here? Think I can.
         // addItemToReceipts(); //ADDED THIS
-        navigation.navigate("CompletedOrderScreen", { cart });
+        navigation.navigate("CompletedOrderScreen", { routeCart:cart });
     };
 
     const emptyComponent = () => {
@@ -129,7 +130,7 @@ const CartScreen = () => {
                 <View style={styles.iconContainer}>
                     <TouchableOpacity
                         style={styles.cartTrashIcon}
-                        onPress={() => deleteHandler(index)}
+                        onPress={() => deleteHandler(index)}r
                     >
                         <Ionicons
                             name="md-trash"
