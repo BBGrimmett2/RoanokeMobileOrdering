@@ -175,7 +175,7 @@ const ItemDetailsScreen = ({ route }) => {
                 <DropDown   type={"Customize"} handler={showCustom} trigger={customize}
                             content={<View style={styles.customOutline}>{customMap}</View>}
                 />
-                <FinishItem addToCart={handleAddToCart} toCheckout={handleToCheckout} />
+                <FinishItem addToCart={handleAddToCart} toCheckout={handleToCheckout} />            
             </ScrollView>
         </SafeAreaView>
     );
