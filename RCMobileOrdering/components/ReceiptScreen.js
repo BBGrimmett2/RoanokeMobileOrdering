@@ -61,8 +61,7 @@ const ReceiptScreen = () => {
                 <View style={styles.iconContainer}>
                     <TouchableOpacity
                         style={styles.cartTrashIcon}
-                    >
-                    </TouchableOpacity>
+                    ></TouchableOpacity>
                 </View>
             </View>
         );
@@ -71,24 +70,24 @@ const ReceiptScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.idText}>{dataTime}</Text>
-            <FlatList
-                data={cart}
-                extraData={cart}
-                renderItem={renderCartItem}
-            />
-            <View style={styles.buttonContainer}>
-                <Text>Total: ${totalPrice}</Text>
+                <FlatList
+                    data={cart}
+                    extraData={cart}
+                    renderItem={renderCartItem}
+                />
+                <View style={styles.buttonContainer}>
+                    <Text>Total: ${totalPrice}</Text>
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => handleNavigation()}
-                >
-                    <Text style={styles.buttonText}>Go Home</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => handleNavigation()}
+                    >
+                        <Text style={styles.buttonText}>Go Home</Text>
+                    </TouchableOpacity>
             </View>
         </View>
     );
-}
+};
 
 export default ReceiptScreen;
 

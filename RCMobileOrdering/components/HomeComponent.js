@@ -8,7 +8,7 @@ const HomeComponent = () => {
   return (
     <HomeStack.Navigator initialRouteName="HomeScreen">
         <HomeStack.Screen options={{ headerShown: false }} name="HomeScreen" component={HomeScreen} />
-        <HomeStack.Screen name="Receipts" component={ReceiptScreen} /> 
+        <HomeStack.Screen options={{ headerShown: true, headerBackVisible:false }} name="Receipts" component={ReceiptScreen} /> 
     </HomeStack.Navigator>
   );
 }

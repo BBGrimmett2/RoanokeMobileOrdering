@@ -1,18 +1,18 @@
 const masterMenu = [
-    {
-        name: "default item",
-        id: 0,
-        type: "Other",
-        price: 0,
-        description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
-        itemImageFile: "https://images2.imgbox.com/89/9c/Ez4Y85PM_o.jpg",
-        nFactsPicFile: "https://images2.imgbox.com/e7/5f/q2I83tie_o.png",
-        custObj: [
-            {number: 0, option: "yes"},
-            {number: 1, option: "no"},
-            {number: 2, option: "make it so"},
-        ]
-    },
+    // {
+    //     name: "default item",
+    //     id: 0,
+    //     type: "Other",
+    //     price: 0,
+    //     description: "This is a description. It is very descriptive. It definitely makes you want to order this food, doesn't it? Order it now, coward.",
+    //     itemImageFile: "https://images2.imgbox.com/89/9c/Ez4Y85PM_o.jpg",
+    //     nFactsPicFile: "https://images2.imgbox.com/e7/5f/q2I83tie_o.png",
+    //     custObj: [
+    //         {number: 0, option: "yes"},
+    //         {number: 1, option: "no"},
+    //         {number: 2, option: "make it so"},
+    //     ]
+    // },
     {
         name: "the bestest drink",
         type: "Cup",
