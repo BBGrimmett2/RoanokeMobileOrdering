@@ -1,5 +1,5 @@
 Brian:
-Android Emulator
+-Android Emulator
 
 Dee:
 Icon for taskbar
