@@ -15,10 +15,19 @@ const FoodTypeSelectionScreen = () => {
     const renderTypeButton = ({item}) => {
         const type = item;
         return (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:type})}>
-            <Text style={styles.buttonText}>{type}</Text>
-          </TouchableOpacity>
-          
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:type})}>
+          <View style={styles.listItems}>
+          <View style={styles.listItemContainer}>
+              <Image
+                  style={styles.pic}
+                  source={{ uri: typeImages[type] }}
+              />
+              <View style={styles.listItemInformationContainer}>
+                  <Text style={{ fontSize: 30 }}>{type}</Text>
+              </View>
+          </View>
+          </View>
+      </TouchableOpacity>
         );
     };
 
@@ -31,6 +40,7 @@ const FoodTypeSelectionScreen = () => {
                 data={types}
                 renderItem={renderTypeButton}
                 scrollEnabled = {false}
+                numColumns = {2}
                 keyExtractor={(type) => type.toString()}
                 styles={styles.list}
             />  
@@ -49,13 +59,11 @@ var width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 1,
         justifyContent: "center",
         alignItems: "center",
         width: width,
     },
     header: {
-        //flex: 1,
         borderWidth: 2,
         borderColor: "black",
         borderRadius: 5,
@@ -66,11 +74,11 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "grey",
-        width: width,
+        width: "47%",
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
-        marginTop: 10
+        margin: 5
     },
     buttonAll: {
         backgroundColor: "grey",
@@ -82,10 +90,41 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: "black",
-        fontWeight: "700",
         fontSize: 30,
     },
     list: {
         flex: 1,
+    },
+    listItem: {
+        flex: 1,
+        borderRadius: 15,
+        backgroundColor: "grey",
+        margin: 1,
+    },
+    pic: {
+        marginLeft: 20,
+        height: 100,
+        width: 100,
+        alignSelf: "center"
+    },
+    listItemContainer: {
+        flexDirection: "row",
+        flexGrow: 1,
+        flexShrink: 1,
+        alignSelf: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+    },
+    listItemInformationContainer: {
+        alignSelf: "center",
+        paddingLeft: 20,
+    },
+    flatlist: {
+        marginBottom: 150 //fix better later not using margin
+    },
+    listItems: {
+        flexDirection: "row",
+        backgroundColor: "gray",
+        height: 200,
     },
 });
