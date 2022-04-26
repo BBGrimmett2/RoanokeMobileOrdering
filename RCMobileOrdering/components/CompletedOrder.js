@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -11,13 +12,8 @@ import {
     FlatList,
     ScrollView
 } from "react-native";
-import { auth, fireDB, user } from "../firebase";
-import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/core";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import masterMenu from "../foodlist.js"
-import { useState } from 'react';
+import { fireDB, userID } from "../firebase";
 
 
 
@@ -29,7 +25,7 @@ import { useState } from 'react';
 
 const CompletedOrderScreen = ({ route }) => {
     const navigation = useNavigation();
-    const { cart } = route.params;
+    //const { cart } = route.params;
    
     const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
@@ -41,6 +37,35 @@ const CompletedOrderScreen = ({ route }) => {
                 </TouchableOpacity>
             );
         }
+    };
+
+    let emptyCart = [];
+    let [cart, setCart] = useState();
+    let [userReceipts, setReceipts] = useState([]);
+
+    const getData = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+        const doc = await userRef.get();
+
+        return doc.data();
+    };
+
+    getData().then((data) => {
+        setCart(data.cart);
+        setReceipts(data.receipts);
+    });
+    
+    const clearCart = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        // Clear cart and set add to receipt array
+        const res = await userRef.update({ cart: emptyCart });
+    };
+
+    const handleCompletedOrder = () => {
+        clearCart();
+
+        navigation.navigate("HomeScreen");
     };
 
     return (
@@ -58,9 +83,7 @@ const CompletedOrderScreen = ({ route }) => {
 
             <Text>Total: ${result}</Text>
             <TouchableHighlight
-                onPress={() => {
-                    navigation.navigate("HomeScreen");
-                }}
+                onPress={handleCompletedOrder}
             >
                 <Text> Go Back Home </Text>
             </TouchableHighlight>
@@ -72,10 +95,17 @@ const CompletedOrderScreen = ({ route }) => {
 
 export default CompletedOrderScreen;
 
-const style = StyleSheet.create({
-    header: {
-        //flex: 1,
-        borderWidth: 2,
+const styles = StyleSheet.create({
+    screen:{
+        flex: 1, 
+        alignItems: "center", 
+        justifyContent: "center"
+    },
+    text: {
+        height: '20%',
+        width: '50%',
+        borderWidth: 1,
+        borderRadius: 10,
         borderColor: "black",
         backgroundColor: "#800000",
         alignItems: "center",

@@ -132,7 +132,7 @@ const masterMenu = [
         price: 10,
         description: "Drink cactus juice. It'll quench ya. Nothing is quenchier. It's the quenchiest!",
         itemImageFile: "https://images2.imgbox.com/85/4a/WJq1xaLS_o.jpg",
-        nFactsPicFile: "https://drive.google.com/uc?id=1RSimjExQMIZlu4CXg4nR4G_HQL7HrJpm",
+        nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
             {number: 0, option: "quenchier"},
             {number: 1, option: "less quenchy"},

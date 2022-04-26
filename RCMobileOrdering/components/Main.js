@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { auth } from "../firebase";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AccountScreen from "./AccountScreen";
-import Checkout from "./checkout";
+import CartScreen from "./CartScreen";
 import Order from "./Order"
 import HomeComponent from "./HomeComponent";
 
@@ -100,7 +100,7 @@ const Main = () => {
                             <Image
                                 // Image found from:
                                 // https://www.pngitem.com/middle/JhRxm_my-account-account-vector-icon-png-transparent-png/
-                                source={require("../assets/home.png")}
+                                source={require("../assets/orderIcon.jpg")}
                                 resizeMode="contain"
                                 style={{
                                     width: 25,
@@ -122,7 +122,7 @@ const Main = () => {
             />
             <Tab.Screen
                 name="Cart"
-                component={Checkout}
+                component={CartScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View

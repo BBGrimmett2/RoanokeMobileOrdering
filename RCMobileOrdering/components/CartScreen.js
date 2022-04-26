@@ -22,14 +22,12 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
-import masterMenu from "../foodlist";
 import { auth, fireDB, userID } from "../firebase";
 //const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
-//cart gets data when renderd
-const Cart = () => {
+const CartScreen = () => {
     let [cart, setCart] = useState();
-
+    let totalprice = 0;
     const navigation = useNavigation();
     let [totalPrice, setTotalPrice] = useState(0);
    
@@ -72,6 +70,7 @@ const Cart = () => {
                             updatedCart.length = 0;
                             setCart([]);
                         } else {
+                            console.log("index: "+ index);
                             updatedCart.splice(
                                 index,
                                 1
@@ -113,42 +112,44 @@ const Cart = () => {
         );
     };
 
+    const renderCartItem = ({item,index}) => {
+        return (
+            <View style={styles.cartItems}>
+                <View style={styles.cartItemContainer}>
+                    <Image
+                        style={styles.cartItemImage}
+                        source={{ uri: item.itemImageFile }}
+                    />
+                    <View style={styles.cartItemInformationContainer}>
+                        <Text>{item.name}</Text>
+                        <Text>${item.price}</Text>
+                    </View>
+                </View>
+
+                <View style={styles.iconContainer}>
+                    <TouchableOpacity
+                        style={styles.cartTrashIcon}
+                        onPress={() => deleteHandler(index)}
+                    >
+                        <Ionicons
+                            name="md-trash"
+                            size={30}
+                            color="#800000"
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <FlatList
                 data={cart}
-                // keyExtractor={(item) => item.id}
                 extraData={cart}
-                ListEmptyComponent={emptyComponent} //can use for reciept screen
-                renderItem={({ item }) => (
-                    <View style={styles.cartItems}>
-                        <View style={styles.cartItemContainer}>
-                            <View>
-                                <Image
-                                    style={styles.cartItemImage}
-                                    source={{ uri: item.itemImageFile }}
-                                />
-                            </View>
-                            <View style={styles.cartItemInformationContainer}>
-                                <Text>{item.name}</Text>
-                                <Text>${item.price}</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.iconContainer}>
-                            <TouchableOpacity
-                                style={styles.cartTrashIcon}
-                                onPress={() => deleteHandler(item.id)}
-                            >
-                                <Ionicons
-                                    name="md-trash"
-                                    size={30}
-                                    color="#800000"
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                )}
+                ListEmptyComponent={emptyComponent}
+                //keyExtractor={(item) => item.name}
+                renderItem={renderCartItem}
             />
             <View style={styles.buttonContainer}>
                 {/* price could go here. */}
@@ -163,6 +164,8 @@ const Cart = () => {
         </View>
     );
 };
+
+export default CartScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -243,4 +246,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Cart;
+

@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
+import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { auth } from "../firebase";
+import { fireDB, userID } from "../firebase";
 
 const itemObj = {
     name: "the best drink",
@@ -17,7 +18,21 @@ const itemObj = {
 };
 
 const HomeScreen = () => {
+    let [name, setName] = useState();
+    let [swipes, setSwipes] = useState();
     const navigation = useNavigation();
+
+    const getData = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+        const doc = await userRef.get();
+
+        return doc.data();
+    };
+
+    getData().then((data) => {
+        setName(data.name);
+        setSwipes(data.swipes);
+    });
 
     const handleViewReciepts = () => {
         navigation.navigate("CompletedOrderScreen");
@@ -29,7 +44,10 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Email: {auth.currentUser?.email}</Text>
+            <Text style={styles.name}>Welcome, {name}!</Text>
+            {/* <Text style={styles.description}>
+                        Swipes Remaining: {swipes}
+                    </Text> */}
             <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
                 <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
@@ -50,7 +68,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     button: {
-        backgroundColor: "#0782F9",
+        backgroundColor: "#800000",
         width: "60%",
         padding: 15,
         borderRadius: 10,
@@ -61,5 +79,13 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "700",
         fontSize: 16,
+    },
+    description: {
+        fontSize: 16,
+        marginTop: 10,
+    },
+    name: {
+        fontSize: 22,
+        fontWeight: "600",
     },
 });

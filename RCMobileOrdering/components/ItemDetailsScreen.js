@@ -12,8 +12,73 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { fireDB, userID } from "../firebase";
 
-// get data for receipts. 
-// all the info should be here.
+const DisplayItemInfo = (props) => {
+    const item = props.item;
+    const image = props.itemUri;
+    const desc = props.desc;
+    return(
+        <>
+        <Text style={styles.title}>{item}</Text>
+        <View style={styles.picContainer}>
+            <Image
+                style={styles.pic}
+                source={{uri: image}}
+            />
+        </View>
+        <Text style={styles.desc}>{desc}</Text>
+        </>
+    );
+}
+
+const DropDown = (props) => {
+    const handleToggle = props.handler;
+    const trigger = props.trigger;
+    const type = props.type;
+    const content = props.content;
+    
+    return(
+        <>
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                onPress={handleToggle}
+                style={[styles.button, styles.buttonOutline]}
+            >
+                <Text style={styles.buttonOutlineText}>
+                    {type}
+                </Text>
+            </TouchableOpacity>
+        </View>
+        {trigger && content}
+        </>
+    );
+}
+
+const FinishItem = (props) => {
+    const handleAddToCart = props.addToCart;
+    const handleToCheckout = props.toCheckout;
+    return(
+        <>
+        <View style={styles.buttonContainer}>
+            {/* go to begining of selection and add item to cart */}
+            <TouchableOpacity
+                onPress={handleAddToCart}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText}>Add to Order</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={styles.buttonContainer}>
+            {/* go to cart and add item to cart */}
+            <TouchableOpacity
+                onPress={handleToCheckout}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText}>Checkout</Text>
+            </TouchableOpacity>
+        </View>
+        </>
+    );
+}
 
 const ItemDetailsScreen = ({ route }) => {
     const { itemObj } = route.params;
@@ -45,7 +110,6 @@ const ItemDetailsScreen = ({ route }) => {
         const res = await userRef.update({ cart: userCart });
     };
 
-
     const handleAddToCart = async () => {
         addItemToCart();
 
@@ -71,17 +135,12 @@ const ItemDetailsScreen = ({ route }) => {
     const permBool = tempBool;
     const [customSelected, handleSelection] = useState(permBool);
     const updateCustomize = (index) => {
-        let tempList = [];
-        for (let i = 0; i < customSelected.length; i++) {
-            if (i === index) {
-                tempList.push(!customSelected[i]);
-            } else {
-                tempList.push(customSelected[i]);
-            }
-        }
-        const newList = tempList;
-        handleSelection(newList);
-    };
+        let dummyList = customSelected;
+        dummyList[index] = !dummyList[index];
+        const updatedSelection = dummyList;
+
+        handleSelection(updatedSelection);
+    }
 
     const customMap = itemObj.custObj.map((element) => (
         <View key={element.number}>
@@ -106,66 +165,17 @@ const ItemDetailsScreen = ({ route }) => {
         </View>
     ));
 
-
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView nestedScrollEnabled={true}>
-                <Text style={styles.title}>{itemObj.name} </Text>
-                <View style={styles.picContainer}>
-                    <Image
-                        style={styles.pic}
-                        source={{uri: itemObj.itemImageFile}}
-                    />
-                </View>
-                
-                <View>
-                    <Text style={styles.desc}>{itemObj.description}</Text>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                        onPress={showNF}
-                        style={[styles.button, styles.buttonOutline]}
-                    >
-                        <Text style={styles.buttonOutlineText}>
-                            Nutrition Facts
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                {nutrFacts && (
-                    <Image
-                        style={styles.nutrition}
-                        source={{ uri: itemObj.nFactsPicFile }}
-                    />
-                )}
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                        onPress={showCustom}
-                        style={[styles.button, styles.buttonOutline]}
-                    >
-                        <Text style={styles.buttonOutlineText}>Customize</Text>
-                    </TouchableOpacity>
-                </View>
-
-                {customize && (
-                    <View style={styles.customOutline}>{customMap}</View>
-                )}
-                <View style={styles.buttonContainer}>{/* go to begining of selection and add item to cart */}
-
-                    <TouchableOpacity
-                        onPress={handleAddToCart}
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Add to Order</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.buttonContainer}>{/* go to cart and add item to cart */}
-                    <TouchableOpacity
-                        onPress={handleToCheckout}
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Checkout</Text>
-                    </TouchableOpacity>
-                </View>
+                <DisplayItemInfo item={itemObj.name} itemUri={itemObj.itemImageFile} desc={itemObj.description}/>
+                <DropDown   type={"Nutrition Facts"} handler={showNF} trigger={nutrFacts}
+                            content={<Image style={styles.nutrition} source={{ uri: itemObj.nFactsPicFile }}/>}
+                />
+                <DropDown   type={"Customize"} handler={showCustom} trigger={customize}
+                            content={<View style={styles.customOutline}>{customMap}</View>}
+                />
+                <FinishItem addToCart={handleAddToCart} toCheckout={handleToCheckout} />            
             </ScrollView>
         </SafeAreaView>
     );
