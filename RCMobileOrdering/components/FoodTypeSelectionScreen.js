@@ -2,8 +2,6 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, FlatList, Dimensions, Image} from "react-native";
 
-
-
 const FoodTypeSelectionScreen = () => {
     const navigation = useNavigation();
     const types = ["Bowl", "Bag", "Cup", "Other"];
@@ -20,6 +18,7 @@ const FoodTypeSelectionScreen = () => {
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:type})}>
             <Text style={styles.buttonText}>{type}</Text>
           </TouchableOpacity>
+          
         );
     };
 
@@ -31,13 +30,14 @@ const FoodTypeSelectionScreen = () => {
             <FlatList 
                 data={types}
                 renderItem={renderTypeButton}
-                numColumns={2}
+                scrollEnabled = {false}
                 keyExtractor={(type) => type.toString()}
                 styles={styles.list}
             />  
             <TouchableOpacity style={styles.buttonAll} onPress={() => navigation.navigate("FoodItemSelectionScreen",{type:"All"})}>
                 <Text style={styles.buttonText}>All</Text>
             </TouchableOpacity>
+            
         </SafeAreaView>
     );
 };
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "grey",
-        width: "50%",
+        width: width,
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
