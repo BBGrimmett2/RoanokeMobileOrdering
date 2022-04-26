@@ -35,12 +35,12 @@ const HomeScreen = () => {
     });
 
     const handleViewReciepts = () => {
-        navigation.navigate("CompletedOrderScreen");
+        navigation.navigate("Receipts");
     };
 
     const handleStartOrder = () => {
         navigation.navigate("Order");
-    }
+    };
 
     return (
         <View style={styles.container}>
