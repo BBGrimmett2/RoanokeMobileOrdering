@@ -31,6 +31,12 @@ const CartScreen = () => {
     const navigation = useNavigation();
     let totalPrice = 0;
 
+    let emptyCart = [];
+    let [userReceipts, setReceipts] = useState([]);
+
+    var current = new Date();
+    let receiptID = current.toLocaleString();
+
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
@@ -40,6 +46,7 @@ const CartScreen = () => {
 
     getData().then((data) => {
         setCart(data.cart);
+        setReceipts(data.receipts);
     });
 
     const totalCart = () => {
@@ -50,6 +57,20 @@ const CartScreen = () => {
     };
 
     totalCart();
+
+    let newReceipt = {
+        id: receiptID,
+        cart: cart,
+    }
+
+    const clearCart = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        console.log("Data sent");
+
+        // Clear cart and set add to receipt array
+        const res = await userRef.update({ cart: emptyCart, receipts: newReceipt });
+    };
 
     const updateFirestoreCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
@@ -92,24 +113,10 @@ const CartScreen = () => {
         );
     };
 
-    {
-        /*}
-    const addItemToReceipts = async () => {
-        const userRef = fireDB.collection("users").doc(userID);
-
-        userReceipts.push(cart);
-
-        // Set the 'userID' field of the cart
-        const res = await userRef.update({ Receipts: userReceipts });
-    }; //ADDED THIS
-
-*/
-    }
-
-    const handleCompltedOrder = () => {
-        //can i push a recept onto the database from here? Think I can.
-        // addItemToReceipts(); //ADDED THIS
-        navigation.navigate("CompletedOrderScreen", { routeCart: cart });
+    const handleCheckout = () => {
+        navigation.navigate("HomeScreen");
+        
+        clearCart();
     };
 
     const emptyComponent = () => {
@@ -161,7 +168,7 @@ const CartScreen = () => {
                 <Text>Total: ${totalPrice}</Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => handleCompltedOrder()}
+                    onPress={() => handleCheckout()}
                 >
                     <Text style={styles.buttonText}>Checkout</Text>
                 </TouchableOpacity>

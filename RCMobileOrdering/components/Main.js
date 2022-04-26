@@ -124,6 +124,7 @@ const Main = () => {
                 name="Cart"
                 component={CartScreen}
                 options={{
+                    gestureEnabled: false,
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
