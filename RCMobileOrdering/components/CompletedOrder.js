@@ -25,9 +25,9 @@ import { fireDB, userID } from "../firebase";
 
 const CompletedOrderScreen = ({ route }) => {
     const navigation = useNavigation();
-    //const { cart } = route.params;
+    const { routeCart } = route.params;
    
-    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
+    const result = routeCart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
     const renderListItem = ({ item }) => {
         if (true) {
@@ -43,6 +43,9 @@ const CompletedOrderScreen = ({ route }) => {
     let [cart, setCart] = useState();
     let [userReceipts, setReceipts] = useState([]);
 
+    var current = new Date();
+    let receiptID = current.toLocaleString();
+
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
@@ -55,17 +58,24 @@ const CompletedOrderScreen = ({ route }) => {
         setReceipts(data.receipts);
     });
     
+    let newReceipt = {
+        id: receiptID,
+        cart: cart,
+    }
+
     const clearCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
+        console.log("Data sent");
+
         // Clear cart and set add to receipt array
-        const res = await userRef.update({ cart: emptyCart });
+        const res = await userRef.update({ cart: emptyCart, receipts: newReceipt });
     };
 
     const handleCompletedOrder = () => {
-        clearCart();
-
         navigation.navigate("HomeScreen");
+        
+        clearCart();
     };
 
     return (
@@ -99,7 +109,7 @@ const styles = StyleSheet.create({
     screen:{
         flex: 1, 
         alignItems: "center", 
-        justifyContent: "center"
+        justifyContent: "center",
     },
     text: {
         height: '20%',
