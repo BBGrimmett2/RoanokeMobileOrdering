@@ -26,11 +26,10 @@ import { auth, fireDB, userID } from "../firebase";
 //const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
 const CartScreen = () => {
-    let [cart, setCart] = useState();
-    let totalprice = 0;
+    let [cart, setCart] = useState([]);
     const navigation = useNavigation();
-    let [totalPrice, setTotalPrice] = useState(0);
-   
+    let totalPrice = 0;
+
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
@@ -40,9 +39,16 @@ const CartScreen = () => {
 
     getData().then((data) => {
         setCart(data.cart);
-        // setTotalPrice(cart.reduce((total, currentValue) => total = total + currentValue.price, 0));
-        // console.log(totalPrice);
     });
+
+    const totalCart = () => {
+        totalPrice = cart.reduce(
+            (total, currentValue) => (total = total + currentValue.price),
+            0
+        );
+    };
+
+    totalCart();
 
     const updateFirestoreCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
@@ -50,7 +56,6 @@ const CartScreen = () => {
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: cart });
     };
-
 
     const deleteHandler = (index) => {
         Alert.alert(
@@ -71,7 +76,6 @@ const CartScreen = () => {
                             updatedCart.length = 0;
                             setCart([]);
                         } else {
-                            console.log("index: "+ index);
                             updatedCart.splice(
                                 index,
                                 1
@@ -87,7 +91,8 @@ const CartScreen = () => {
         );
     };
 
-{/*}
+    {
+        /*}
     const addItemToReceipts = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
@@ -97,12 +102,13 @@ const CartScreen = () => {
         const res = await userRef.update({ Receipts: userReceipts });
     }; //ADDED THIS
 
-*/}
+*/
+    }
 
     const handleCompltedOrder = () => {
         //can i push a recept onto the database from here? Think I can.
         // addItemToReceipts(); //ADDED THIS
-        navigation.navigate("CompletedOrderScreen", { routeCart:cart });
+        navigation.navigate("CompletedOrderScreen", { routeCart: cart });
     };
 
     const emptyComponent = () => {
@@ -113,7 +119,7 @@ const CartScreen = () => {
         );
     };
 
-    const renderCartItem = ({item,index}) => {
+    const renderCartItem = ({ item, index }) => {
         return (
             <View style={styles.cartItems}>
                 <View style={styles.cartItemContainer}>
@@ -130,18 +136,15 @@ const CartScreen = () => {
                 <View style={styles.iconContainer}>
                     <TouchableOpacity
                         style={styles.cartTrashIcon}
-                        onPress={() => deleteHandler(index)}r
+                        onPress={() => deleteHandler(index)}
+                        r
                     >
-                        <Ionicons
-                            name="md-trash"
-                            size={30}
-                            color="#800000"
-                        />
+                        <Ionicons name="md-trash" size={30} color="#800000" />
                     </TouchableOpacity>
                 </View>
             </View>
         );
-    }
+    };
 
     return (
         <View style={styles.container}>
@@ -246,5 +249,3 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
 });
-
-

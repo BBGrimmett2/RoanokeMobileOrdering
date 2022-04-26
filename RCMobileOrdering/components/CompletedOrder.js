@@ -25,9 +25,9 @@ import { fireDB, userID } from "../firebase";
 
 const CompletedOrderScreen = ({ route }) => {
     const navigation = useNavigation();
-    const { routeCart } = route.params;
+    //const { cart } = route.params;
    
-    const result = routeCart.reduce((total, currentValue) => total = total + currentValue.price, 0);
+    const result = cart.reduce((total, currentValue) => total = total + currentValue.price, 0);
 
     const renderListItem = ({ item }) => {
         if (true) {
@@ -40,7 +40,7 @@ const CompletedOrderScreen = ({ route }) => {
     };
 
     let emptyCart = [];
-    let [UserCart, setUserCart] = useState();
+    let [cart, setCart] = useState();
     let [userReceipts, setReceipts] = useState([]);
 
     const getData = async () => {
@@ -51,7 +51,7 @@ const CompletedOrderScreen = ({ route }) => {
     };
 
     getData().then((data) => {
-        setUserCart(data.cart);
+        setCart(data.cart);
         setReceipts(data.receipts);
     });
     
@@ -70,13 +70,13 @@ const CompletedOrderScreen = ({ route }) => {
 
     return (
         //everything written that we like so far. =========
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center", top: 10 }}>
-            <Text> RC Mobile Order </Text>
-            <Text> Receipt </Text>
+        <View style={styles.screen}>
            
             <ScrollView>
+            <Text> RC Mobile Order </Text>
+            <Text> Receipt </Text>
                 <FlatList
-                    data={UserCart}
+                    data={cart}
                     renderItem={renderListItem}
                 />
             </ScrollView>
