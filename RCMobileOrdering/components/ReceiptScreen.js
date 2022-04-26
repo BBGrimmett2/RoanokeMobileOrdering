@@ -6,12 +6,10 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Alert,
     FlatList,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
-import { auth, fireDB, userID } from "../firebase";
+import { fireDB, userID } from "../firebase";
 
 const ReceiptScreen = () => {
     let [cart, setCart] = useState([]);
