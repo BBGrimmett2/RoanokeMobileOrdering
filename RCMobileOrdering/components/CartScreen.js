@@ -36,7 +36,6 @@ const CartScreen = () => {
     let receiptID = current.toLocaleString();
 
     const getData = async () => {
-        console.log("GetData");
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
 
@@ -44,16 +43,14 @@ const CartScreen = () => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
+        let timer = setTimeout(() => {
             getData().then((data) => {
                 setCart(data.cart);
             });
-          }, 100);
-    }, []);
-    
+      }, 1000);
+    });
 
     const totalCart = () => {
-        console.log("TotalCart");
         totalPrice = cart.reduce(
             (total, currentValue) => (total = total + currentValue.price),
             0
@@ -69,8 +66,6 @@ const CartScreen = () => {
 
     const clearCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
-
-        console.log("Data sent");
 
         setCart(emptyCart);
 
