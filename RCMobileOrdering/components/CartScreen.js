@@ -114,9 +114,8 @@ const CartScreen = () => {
     };
 
     const handleCheckout = () => {
-        navigation.navigate("HomeScreen");
-        
         clearCart();
+        navigation.navigate("HomeScreen");
     };
 
     const emptyComponent = () => {
