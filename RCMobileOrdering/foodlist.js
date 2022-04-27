@@ -16,9 +16,8 @@ const masterMenu = [
     {
         name: "the bestest drink",
         type: "Cup",
-        price: 36,
+        price: 6.99,
         description: "This will *actually* be the best thing you've ever drank. 10/10 dentists recommend drinking this*. Order it now, coward. *they actually don't, I lied. Pls don't sue us, we're poor college students. :,(",
-        // [URL=http://imgbox.com/Jr4G6ZrM][IMG]https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg[/IMG][/URL]
         itemImageFile: "https://images2.imgbox.com/02/f1/OtR2hVca_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
         custObj: [
@@ -31,7 +30,7 @@ const masterMenu = [
     {
         name: "Chicken Sandwich",
         type: "Bag",
-        price: 76,
+        price: 7.50,
         description: "When we say this is the *bestest* food, we mean it. What's that? You want to know what that means? Order it, find out.",
         itemImageFile: "https://thumbs2.imgbox.com/fc/62/OHgPME2I_t.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -45,7 +44,7 @@ const masterMenu = [
     {
         name: "the bestest bowl",
         type: "Bowl",
-        price: 56,
+        price: 6.50,
         description: "Other people may claim to have the best bowl, but have they claimed to have the bestest bowl? I didn't think so. That's because WE have the bestest bowl.",
         itemImageFile: "https://thumbs2.imgbox.com/6b/1c/DEJd4lvE_t.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -59,7 +58,7 @@ const masterMenu = [
     {
         name: "an ok soup",
         type: "Bowl",
-        price: 12,
+        price: 4.99,
         description: "This is a soup. It is the most basic soup you could ever imagine.",
         itemImageFile: "https://images2.imgbox.com/5f/4d/aZisRmjn_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -73,7 +72,7 @@ const masterMenu = [
     {
         name: "baggiest of foods",
         type: "Bag",
-        price: 9000,
+        price: 2.99,
         description: "Winner of the 2022 competition of baggiest foods. Recommened by 11/10 of the world's leading bagologists.",
         itemImageFile: "https://images2.imgbox.com/cd/0c/SufR0FN8_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -88,7 +87,7 @@ const masterMenu = [
     {
         name: "drinkiest of drinks",
         type: "Cup",
-        price: 175,
+        price: 5.99,
         description: "Drink it, I promise it's good.",
         itemImageFile: "https://images2.imgbox.com/d3/c0/ghHSzLNv_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -102,7 +101,7 @@ const masterMenu = [
     {
         name: "str8 vodka",
         type: "Cup",
-        price: 3,
+        price: 0.99,
         description: "this is a shot of vodka.",
         itemImageFile: "https://images2.imgbox.com/36/c0/1Ub5OSyW_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -116,7 +115,7 @@ const masterMenu = [
     {
         name: "this is just a bowl",
         type: "Bowl",
-        price: 1,
+        price: 3.50,
         description: "this is just a bowl, like the name says. Just your average, run of the mill bowl. There is DEFINITELY nothing at all suspicious about this bowl.",
         itemImageFile: "https://images2.imgbox.com/df/d4/eW4Xnw0L_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -129,7 +128,7 @@ const masterMenu = [
     {
         name: "Cactus Juice",
         type: "Cup",
-        price: 10,
+        price: 9.99,
         description: "Drink cactus juice. It'll quench ya. Nothing is quenchier. It's the quenchiest!",
         itemImageFile: "https://images2.imgbox.com/85/4a/WJq1xaLS_o.jpg",
         nFactsPicFile: "https://images2.imgbox.com/b7/55/Jr4G6ZrM_o.jpg",
@@ -141,7 +140,7 @@ const masterMenu = [
     {
         name: "Mystery ???",
         type: "Other",
-        price: 10,
+        price: 5,
         description: "Order it now, coward.",
         itemImageFile: "https://images2.imgbox.com/02/c3/XQZ1f6Td_o.png",
         nFactsPicFile: "https://images2.imgbox.com/02/c3/XQZ1f6Td_o.png",
