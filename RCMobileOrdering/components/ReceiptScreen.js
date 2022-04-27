@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -13,23 +13,30 @@ import { fireDB, userID } from "../firebase";
 
 const ReceiptScreen = () => {
     let [cart, setCart] = useState([]);
+    let [dataTime, setDateTime] = useState(null);
     const navigation = useNavigation();
     let totalPrice = 0;
-    let [dataTime, setDateTime] = useState(null);
 
     const getData = async () => {
+        console.log("GetData");
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
 
         return doc.data();
     };
 
-    getData().then((data) => {
-        setCart(data.receipts.cart);
+    useEffect(() => {
+        setTimeout(() => {
+            getData().then((data) => {
+                setCart(data.receipts.cart);
         setDateTime(data.receipts.id);
-    });
+            });
+          }, 1000);
+        
+    }, []);
 
     const totalCart = () => {
+        console.log("totalcart");
         totalPrice = cart.reduce(
             (total, currentValue) => (total = total + currentValue.price),
             0
