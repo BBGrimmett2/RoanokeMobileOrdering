@@ -23,11 +23,19 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import { auth, fireDB, userID } from "../firebase";
+import CompletedOrderScreen from "./CompletedOrder";
+//const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
 const CartScreen = () => {
-    let [cart, setCart] = useState();
-    let totalprice = 0;
+    let [cart, setCart] = useState([]);
     const navigation = useNavigation();
+    let totalPrice = 0;
+
+    let emptyCart = [];
+    let [userReceipts, setReceipts] = useState([]);
+
+    var current = new Date();
+    let receiptID = current.toLocaleString();
 
     const getData = async () => {
         const userRef = fireDB.collection("users").doc(userID);
@@ -38,7 +46,31 @@ const CartScreen = () => {
 
     getData().then((data) => {
         setCart(data.cart);
+        setReceipts(data.receipts);
     });
+
+    const totalCart = () => {
+        totalPrice = cart.reduce(
+            (total, currentValue) => (total = total + currentValue.price),
+            0
+        );
+    };
+
+    totalCart();
+
+    let newReceipt = {
+        id: receiptID,
+        cart: cart,
+    }
+
+    const clearCart = async () => {
+        const userRef = fireDB.collection("users").doc(userID);
+
+        console.log("Data sent");
+
+        // Clear cart and set add to receipt array
+        const res = await userRef.update({ cart: emptyCart, receipts: newReceipt });
+    };
 
     const updateFirestoreCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
@@ -46,7 +78,6 @@ const CartScreen = () => {
         // Set the 'userID' field of the cart
         const res = await userRef.update({ cart: cart });
     };
-
 
     const deleteHandler = (index) => {
         Alert.alert(
@@ -67,7 +98,6 @@ const CartScreen = () => {
                             updatedCart.length = 0;
                             setCart([]);
                         } else {
-                            console.log("index: "+ index);
                             updatedCart.splice(
                                 index,
                                 1
@@ -83,8 +113,9 @@ const CartScreen = () => {
         );
     };
 
-    const handleCompltedOrder = () => {
-        navigation.navigate("CompletedOrderScreen");
+    const handleCheckout = () => {
+        clearCart();
+        navigation.navigate("HomeScreen");
     };
 
     const emptyComponent = () => {
@@ -95,7 +126,7 @@ const CartScreen = () => {
         );
     };
 
-    const renderCartItem = ({item,index}) => {
+    const renderCartItem = ({ item, index }) => {
         return (
             <View style={styles.cartItems}>
                 <View style={styles.cartItemContainer}>
@@ -113,17 +144,14 @@ const CartScreen = () => {
                     <TouchableOpacity
                         style={styles.cartTrashIcon}
                         onPress={() => deleteHandler(index)}
+                        r
                     >
-                        <Ionicons
-                            name="md-trash"
-                            size={30}
-                            color="#800000"
-                        />
+                        <Ionicons name="md-trash" size={30} color="#800000" />
                     </TouchableOpacity>
                 </View>
             </View>
         );
-    }
+    };
 
     return (
         <View style={styles.container}>
@@ -135,9 +163,11 @@ const CartScreen = () => {
                 renderItem={renderCartItem}
             />
             <View style={styles.buttonContainer}>
+                {/* price could go here. */}
+                <Text>Total: ${totalPrice}</Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => handleCompltedOrder()}
+                    onPress={() => handleCheckout()}
                 >
                     <Text style={styles.buttonText}>Checkout</Text>
                 </TouchableOpacity>
@@ -226,5 +256,3 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
 });
-
-
