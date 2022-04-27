@@ -22,8 +22,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
-import { auth, fireDB, userID } from "../firebase";
-import CompletedOrderScreen from "./CompletedOrder";
+import { fireDB, userID } from "../firebase";
 
 const CartScreen = () => {
     const navigation = useNavigation();
@@ -49,8 +48,7 @@ const CartScreen = () => {
             getData().then((data) => {
                 setCart(data.cart);
             });
-          }, 1000);
-        
+          }, 100);
     }, []);
     
 
