@@ -115,8 +115,20 @@ const CartScreen = () => {
     };
 
     const handleCheckout = () => {
-        clearCart();
-        navigation.navigate("HomeScreen");
+        if (!cart === []) {
+            clearCart();
+            navigation.navigate("HomeScreen");
+        }
+        Alert.alert(
+            "Order some food!",
+            "",
+            [
+                {
+                    text: "Go back",
+                    onPress: () => console.log("Cancel Pressed"),
+                },
+            ]
+        );
     };
 
     const emptyComponent = () => {
