@@ -53,7 +53,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleViewReciepts} style={styles.button}>
-                <Text style={styles.buttonText}>View Reciepts</Text>
+                <Text style={styles.buttonText}>View Last Receipt</Text>
             </TouchableOpacity>
         </View>
     );

@@ -115,10 +115,11 @@ const CartScreen = () => {
     };
 
     const handleCheckout = () => {
-        if (!cart === []) {
+        //if (cart !== []) {
+            //console.log("not empty");
             clearCart();
             navigation.navigate("HomeScreen");
-        }
+        /*}
         Alert.alert(
             "Order some food!",
             "",
@@ -128,7 +129,7 @@ const CartScreen = () => {
                     onPress: () => console.log("Cancel Pressed"),
                 },
             ]
-        );
+        );*/
     };
 
     const emptyComponent = () => {
