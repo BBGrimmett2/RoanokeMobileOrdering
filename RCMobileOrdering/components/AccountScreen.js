@@ -7,26 +7,11 @@ https://www.bootdey.com/react-native-snippet/23/Profile-ui-example
 */
 
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, userID } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
 import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
-// import { userCart } from "../userData";
-
-// User Cart
-const getData = async () => {
-    const userRef = fireDB.collection("users").doc(userID);
-    const doc = await userRef.get();
-  
-    return doc.data();
-  };
-  
-  let userCart = [];
-  
-  getData().then((data) => {
-    userCart = data.cart;
-  });
 
 const AccountScreen = () => {
     let [name, setName] = useState();
@@ -46,11 +31,13 @@ const AccountScreen = () => {
         return doc.data();
     };
 
-    getData().then((data) => {
-        setName(data.name);
-        setEmail(data.email);
-        setSwipes(data.swipes);
-        setStudentID(data.studentID);
+    useEffect(() => {
+        getData().then((data) => {
+            setName(data.name);
+            setEmail(data.email);
+            setSwipes(data.swipes);
+            setStudentID(data.studentID);
+        });
     });
 
     const handleSignOut = () => {

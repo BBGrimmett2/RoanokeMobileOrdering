@@ -10,7 +10,7 @@ https://firebase.google.com/docs/firestore/manage-data/add-data
 */
 
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -24,32 +24,38 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import { auth, fireDB, userID } from "../firebase";
 import CompletedOrderScreen from "./CompletedOrder";
-//const [userReceipts, setuserReceipts] = useState([]); //ADDED THIS
 
 const CartScreen = () => {
-    let [cart, setCart] = useState([]);
     const navigation = useNavigation();
-    let totalPrice = 0;
 
+    let [cart, setCart] = useState([]);
+
+    let totalPrice = 0;
     let emptyCart = [];
-    let [userReceipts, setReceipts] = useState([]);
 
     var current = new Date();
     let receiptID = current.toLocaleString();
 
     const getData = async () => {
+        console.log("GetData");
         const userRef = fireDB.collection("users").doc(userID);
         const doc = await userRef.get();
 
         return doc.data();
     };
 
-    getData().then((data) => {
-        setCart(data.cart);
-        setReceipts(data.receipts);
-    });
+    useEffect(() => {
+        setTimeout(() => {
+            getData().then((data) => {
+                setCart(data.cart);
+            });
+          }, 1000);
+        
+    }, []);
+    
 
     const totalCart = () => {
+        console.log("TotalCart");
         totalPrice = cart.reduce(
             (total, currentValue) => (total = total + currentValue.price),
             0
@@ -67,6 +73,8 @@ const CartScreen = () => {
         const userRef = fireDB.collection("users").doc(userID);
 
         console.log("Data sent");
+
+        setCart(emptyCart);
 
         // Clear cart and set add to receipt array
         const res = await userRef.update({ cart: emptyCart, receipts: newReceipt });
