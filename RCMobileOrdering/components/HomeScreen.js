@@ -39,21 +39,21 @@ const HomeScreen = () => {
     };
 
     const handleStartOrder = () => {
-        navigation.navigate("Order");
+        navigation.navigate("Order", { screen: "FoodTypeSelectionScreen" });
     };
 
     return (
         <View style={styles.container}>
             <Text style={styles.name}>Welcome, {name}!</Text>
             {/* <Text style={styles.description}>
-                        Swipes Remaining: {swipes}
-                    </Text> */}
+                Swipes Remaining: {swipes}
+            </Text> */}
             <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
                 <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleViewReciepts} style={styles.button}>
-                <Text style={styles.buttonText}>View Reciepts</Text>
+                <Text style={styles.buttonText}>View Last Receipt</Text>
             </TouchableOpacity>
         </View>
     );
