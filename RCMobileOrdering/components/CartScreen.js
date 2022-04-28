@@ -28,6 +28,7 @@ const CartScreen = () => {
     const navigation = useNavigation();
 
     let [cart, setCart] = useState([]);
+    let [swipes, setSwipes] = useState();
 
     let totalPrice = 0;
     let emptyCart = [];
@@ -46,8 +47,9 @@ const CartScreen = () => {
         let timer = setTimeout(() => {
             getData().then((data) => {
                 setCart(data.cart);
+                setSwipes(data.swipes);
             });
-      }, 1000);
+        }, 1000);
     });
 
     const totalCart = () => {
@@ -62,15 +64,21 @@ const CartScreen = () => {
     let newReceipt = {
         id: receiptID,
         cart: cart,
-    }
+    };
 
     const clearCart = async () => {
         const userRef = fireDB.collection("users").doc(userID);
 
         setCart(emptyCart);
 
+        let remainingSwipes = swipes - totalPrice;
+
         // Clear cart and set add to receipt array
-        const res = await userRef.update({ cart: emptyCart, receipts: newReceipt });
+        const res = await userRef.update({
+            cart: emptyCart,
+            receipts: newReceipt,
+            swipes: remainingSwipes,
+        });
     };
 
     const updateFirestoreCart = async () => {
@@ -115,20 +123,28 @@ const CartScreen = () => {
     };
 
     const handleCheckout = () => {
-        if (!cart === []) {
-            clearCart();
-            navigation.navigate("HomeScreen");
-        }
-        Alert.alert(
-            "Order some food!",
-            "",
-            [
+        let remainingSwipes = swipes - totalPrice;
+
+        if (cart === []) {
+            Alert.alert("Order some food!", "", [
                 {
                     text: "Go back",
                     onPress: () => console.log("Cancel Pressed"),
                 },
-            ]
-        );
+            ]);
+        } else {
+            if (remainingSwipes >= 0) {
+                clearCart();
+                navigation.navigate("HomeScreen");
+            } else {
+                Alert.alert("Insufficent Funds", "", [
+                    {
+                        text: "Go back",
+                        onPress: () => console.log("Cancel Pressed"),
+                    },
+                ]);
+            }
+        }
     };
 
     const emptyComponent = () => {

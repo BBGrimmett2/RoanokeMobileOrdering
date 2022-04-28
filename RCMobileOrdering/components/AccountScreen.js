@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth, fireDB, userID } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
-import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
 
 const AccountScreen = () => {
     let [name, setName] = useState();
@@ -20,7 +19,7 @@ const AccountScreen = () => {
     let [studentID, setStudentID] = useState();
 
     const navigation = useNavigation();
-    
+
     let imageSrc =
         "https://shared.roanoke.edu/headshots/filtered/" + studentID + ".jpg";
 
@@ -32,13 +31,16 @@ const AccountScreen = () => {
     };
 
     useEffect(() => {
-        getData().then((data) => {
-            setName(data.name);
-            setEmail(data.email);
-            setSwipes(data.swipes);
-            setStudentID(data.studentID);
-        });
-    });
+        let timer = setTimeout(() => {
+            getData().then((data) => {
+                setName(data.name);
+                setEmail(data.email);
+                setSwipes(data.swipes);
+                setStudentID(data.studentID);
+            });
+            console.log("effect");
+        }, 100);
+    }, [swipes]);
 
     const handleSignOut = () => {
         auth.signOut()
@@ -61,7 +63,7 @@ const AccountScreen = () => {
                     <Text style={styles.name}>{name}</Text>
                     <Text style={styles.email}>Email: {email}</Text>
                     <Text style={styles.description}>
-                        Swipes Remaining: {swipes}
+                        Dollars Remaining: ${swipes}
                     </Text>
                 </View>
 
