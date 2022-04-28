@@ -46,8 +46,8 @@ const HomeScreen = () => {
         <View style={styles.container}>
             <Text style={styles.name}>Welcome, {name}!</Text>
             {/* <Text style={styles.description}>
-                        Swipes Remaining: {swipes}
-                    </Text> */}
+                Swipes Remaining: {swipes}
+            </Text> */}
             <TouchableOpacity onPress={handleStartOrder} style={styles.button}>
                 <Text style={styles.buttonText}>Start Order</Text>
             </TouchableOpacity>
