@@ -15,8 +15,7 @@ Contributors:
 ## Screen Captures
 
 ### Home Screen
-![HomeScreen](./Readme%20Images/HomeScreen.png) { width: 200px; }
-
+![HomeScreen](./Readme%20Images/HomeScreen.png =100x20)
 ### Food Type Selection
 ![FoodTypeSelection](./Readme%20Images/TypeSelectionScreen.png)
 
