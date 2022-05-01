@@ -12,6 +12,23 @@ Contributors:
 * Firebase
     * https://console.firebase.google.com/u/0/project/rcmobileordering/overview
 
+## Screen Captures
+
+### Home Screen
+![HomeScreen](./Readme%20Images/HomeScreen.png)
+
+### Food Type Selection
+![FoodTypeSelection](./Readme%20Images/TypeSelectionScreen.png)
+
+### Item Selection Screen
+![ItemSelectionScreen](./Readme%20Images/ItemSelectionScreen.png)
+
+### Item Details Screen
+![HomeScreen](./Readme%20Images/ItemDetailsScreen.png)
+
+### Account Screen
+![HomeScreen](./Readme%20Images/AccountScreen.png)
+
 ## Editing Installation
 Requirements:
 * Node.js
