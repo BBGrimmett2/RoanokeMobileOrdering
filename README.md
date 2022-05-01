@@ -12,10 +12,10 @@ Contributors:
 * Firebase
     * https://console.firebase.google.com/u/0/project/rcmobileordering/overview
 
-## Screen Captures
+<!-- ## Screen Captures
 
 ### Home Screen
-![HomeScreen](./Readme%20Images/HomeScreen.png =100x20)
+![HomeScreen](./Readme%20Images/HomeScreen.png)
 ### Food Type Selection
 ![FoodTypeSelection](./Readme%20Images/TypeSelectionScreen.png)
 
@@ -26,7 +26,7 @@ Contributors:
 ![HomeScreen](./Readme%20Images/ItemDetailsScreen.png)
 
 ### Account Screen
-![HomeScreen](./Readme%20Images/AccountScreen.png)
+![HomeScreen](./Readme%20Images/AccountScreen.png) -->
 
 ## Editing Installation
 Requirements:
